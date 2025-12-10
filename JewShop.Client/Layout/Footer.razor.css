@@ -1,0 +1,145 @@
+.footer {
+    background-color: #ffffff;
+    padding: 40px 0 20px 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 32px;
+}
+
+.footerContent {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    gap: 40px;
+    margin-bottom: 30px;
+}
+
+.footerSection {
+    display: flex;
+    flex-direction: column;
+}
+
+.footerLogo {
+    height: 40px;
+    margin-bottom: 16px;
+}
+
+.description {
+    color: #090909;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.socialIcons {
+    margin-top: 8px;
+    display: flex;
+    gap: 16px;
+}
+
+.socialIcon {
+    font-size: 20px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.socialIconImg {
+    max-width: 50x;
+    max-height: 50px;
+}
+
+.socialIcon:hover {
+    color: #1890ff;
+}
+
+.sectionTitle {
+    color: #141313;
+    margin-bottom: 16px;
+    font-weight: 300;
+}
+
+.linkList {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.footerLink {
+    color: #808080;
+    text-decoration: none;
+    transition: color 0.3s;
+    padding: 4px 0;
+    font-weight: 500;
+}
+
+.footerLink:hover {
+    color: #1890ff;
+}
+
+.contactInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.contactItem {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.contactIcon {
+    color: #1890ff;
+    margin-top: 2px;
+}
+
+.divider {
+    border-color: #434343;
+    margin: 20px 0;
+}
+
+.bottomFooter {
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.copyright {
+    color: #090909;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .footerContent {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 16px;
+    }
+
+    .footerContent {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .bottomFooter {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+    }
+
+    .footer {
+        margin-top: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer {
+        padding: 30px 0 15px 0;
+    }
+}

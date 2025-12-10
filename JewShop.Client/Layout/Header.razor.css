@@ -1,0 +1,92 @@
+.main-header {
+    background: white;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    padding: 0 32px;
+    border-bottom: 1px solid #eee;
+}
+
+.wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logo {
+    height: 50px;
+    cursor: pointer;
+}
+
+.brand-name {
+    font-size: 20px;
+    font-weight: 700;
+    margin-left: 5px;
+    color: #454242;
+}
+
+.center .nav-menu {
+    display: flex;
+    gap: 20px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: black;
+}
+
+.right {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.search-box {
+    background: #f4f4f4;
+    padding: 4px 12px;
+    border-radius: 999px;
+}
+
+.search-box input {
+    border: none;
+    background: transparent;
+    outline: none;
+    width: 200px;
+}
+
+.cart-icon {
+    font-size: 24px;
+    text-decoration: none;
+}
+
+.cart-img {
+    width: 28px;
+    height: 28px;
+}
+
+.avatar-menu {
+    position: relative;
+}
+
+.avatar {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 2px solid #1677ff;
+    cursor: pointer;
+}
+
+
+
+.avatar-menu:hover .dropdown {
+    display: flex;
+}

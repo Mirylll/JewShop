@@ -1,0 +1,92 @@
+.main-header[b-osclp8f0om] {
+    background: white;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    padding: 0 32px;
+    border-bottom: 1px solid #eee;
+}
+
+.wrapper[b-osclp8f0om] {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.left[b-osclp8f0om] {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logo[b-osclp8f0om] {
+    height: 50px;
+    cursor: pointer;
+}
+
+.brand-name[b-osclp8f0om] {
+    font-size: 20px;
+    font-weight: 700;
+    margin-left: 5px;
+    color: #454242;
+}
+
+.center .nav-menu[b-osclp8f0om] {
+    display: flex;
+    gap: 20px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.nav-menu a[b-osclp8f0om] {
+    text-decoration: none;
+    color: black;
+}
+
+.right[b-osclp8f0om] {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.search-box[b-osclp8f0om] {
+    background: #f4f4f4;
+    padding: 4px 12px;
+    border-radius: 999px;
+}
+
+.search-box input[b-osclp8f0om] {
+    border: none;
+    background: transparent;
+    outline: none;
+    width: 200px;
+}
+
+.cart-icon[b-osclp8f0om] {
+    font-size: 24px;
+    text-decoration: none;
+}
+
+.cart-img[b-osclp8f0om] {
+    width: 28px;
+    height: 28px;
+}
+
+.avatar-menu[b-osclp8f0om] {
+    position: relative;
+}
+
+.avatar[b-osclp8f0om] {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 2px solid #1677ff;
+    cursor: pointer;
+}
+
+
+
+.avatar-menu:hover .dropdown[b-osclp8f0om] {
+    display: flex;
+}
