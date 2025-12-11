@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "JewShop.Client",
   "resources": {
-    "hash": "sha256-E9X1Qw0XsEBcADh4/05v+KmBN5XsWsugowMMepVLNn8=",
+    "hash": "sha256-P9Qj9lkskyl8kWjsl5m1uJJMeVSx6BMXDqrdc86T8u4=",
     "fingerprinting": {
       "Microsoft.AspNetCore.Authorization.is84zt9n9u.wasm": "Microsoft.AspNetCore.Authorization.wasm",
       "Microsoft.AspNetCore.Components.3zig3jhz80.wasm": "Microsoft.AspNetCore.Components.wasm",
@@ -195,25 +195,25 @@
       "netstandard.jgp13znru0.wasm": "netstandard.wasm",
       "System.Private.CoreLib.f5mfssf3vz.wasm": "System.Private.CoreLib.wasm",
       "dotnet.js": "dotnet.js",
-      "dotnet.native.noby4tlk4d.js": "dotnet.native.js",
-      "dotnet.native.qe75a9vfqn.wasm": "dotnet.native.wasm",
-      "dotnet.runtime.9o45ky8ejm.js": "dotnet.runtime.js",
+      "dotnet.native.hmanx9razn.js": "dotnet.native.js",
+      "dotnet.native.p4lwlf2bu1.wasm": "dotnet.native.wasm",
+      "dotnet.runtime.o8gq1i8bk6.js": "dotnet.runtime.js",
       "icudt_CJK.tjcz0u77k5.dat": "icudt_CJK.dat",
       "icudt_EFIGS.tptq2av103.dat": "icudt_EFIGS.dat",
       "icudt_no_CJK.lfu7j35m59.dat": "icudt_no_CJK.dat",
-      "JewShop.Shared.m0utn90qyx.wasm": "JewShop.Shared.wasm",
-      "JewShop.Shared.w0vugwyshd.pdb": "JewShop.Shared.pdb",
-      "JewShop.Client.q653rute5o.wasm": "JewShop.Client.wasm",
-      "JewShop.Client.p9plrg9d8e.pdb": "JewShop.Client.pdb"
+      "JewShop.Shared.65zlkdzi75.wasm": "JewShop.Shared.wasm",
+      "JewShop.Shared.p8o11iqg18.pdb": "JewShop.Shared.pdb",
+      "JewShop.Client.htx77ev4ai.wasm": "JewShop.Client.wasm",
+      "JewShop.Client.acybbvquvf.pdb": "JewShop.Client.pdb"
     },
     "jsModuleNative": {
-      "dotnet.native.noby4tlk4d.js": "sha256-p9eEzXhQIsI0a5bBJhfzW15iRafgplTxT8XrO5FiH9o="
+      "dotnet.native.hmanx9razn.js": "sha256-d7UNSArplVrX3arY2Kmhxp1wN79ng8hLqIBrkiQ9Gbo="
     },
     "jsModuleRuntime": {
-      "dotnet.runtime.9o45ky8ejm.js": "sha256-6QIZYgG+ftoT9N1H1EEJeXIhD/qbKqEcnmawDskiwdI="
+      "dotnet.runtime.o8gq1i8bk6.js": "sha256-uD1t4tsPtmIHsx30SC4OztehGGaHVDksFD38rL2e3P4="
     },
     "wasmNative": {
-      "dotnet.native.qe75a9vfqn.wasm": "sha256-Po2dalLvTpf5jAS+jt0TzuBYybYiL1F6qAacZJ8UAdo="
+      "dotnet.native.p4lwlf2bu1.wasm": "sha256-+eNtxSEiakcWrx6VoLGcDvqDWS3/kWe0AtiYmQFwe7E="
     },
     "icu": {
       "icudt_CJK.tjcz0u77k5.dat": "sha256-SZLtQnRc0JkwqHab0VUVP7T3uBPSeYzxzDnpxPpUnHk=",
@@ -414,12 +414,12 @@
       "WindowsBase.i7qip04bb5.wasm": "sha256-Lg5W8BM50Cpl1dgTrG9RQOrBRKOJq6H1t5sH3yf4KDU=",
       "mscorlib.ijjuvl21w4.wasm": "sha256-ku4DyQX7IfTdwPwDlrz9odvCs4mrgsJl0fNaqY56KOI=",
       "netstandard.jgp13znru0.wasm": "sha256-I7arRnyxWh5PItslQKjzLIG7EpohJACm7p/7K8eD0YA=",
-      "JewShop.Shared.m0utn90qyx.wasm": "sha256-Nvgao+f1zER2qXkPthkAdeGzY//q/4uoQ3Ib+rwDLX0=",
-      "JewShop.Client.q653rute5o.wasm": "sha256-/j9pRmK4+dfwgzhjAlZnGyAVavXfokYJqNJ6V6n56UQ="
+      "JewShop.Shared.65zlkdzi75.wasm": "sha256-1sLq4XlZhaD+p+LU/17C6xTPeGxqoY41I/LI3e3OnCg=",
+      "JewShop.Client.htx77ev4ai.wasm": "sha256-9fUL50iKYTpXhcog7Pdym0eFRQAwYjAVyJwCgJ7xPsg="
     },
     "pdb": {
-      "JewShop.Shared.w0vugwyshd.pdb": "sha256-kKhIWdIVEn4wKe7ygSYLx82XoNVph4qCJ8BE+6pxX1A=",
-      "JewShop.Client.p9plrg9d8e.pdb": "sha256-04EBai5+roSb/sHhhOHWS+nevcgVEweXMj2Xl6mdDoE="
+      "JewShop.Shared.p8o11iqg18.pdb": "sha256-BwZ5g7Xaijnj4YZmjD0RbknV8bRRst1zLqlcsrpc2Dw=",
+      "JewShop.Client.acybbvquvf.pdb": "sha256-mmlqH61TQ1FuwI9pbI+yPoENH7VTnZdN4CfKkMOrpM0="
     }
   },
   "cacheBootResources": true,

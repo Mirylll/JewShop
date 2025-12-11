@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "W+q5uwIKqEz7vQu1iRc0QQi+JUr+yY68oVOWT/effpE=",
+  "Source": "JewShop.Server",
+  "BasePath": "_content/JewShop.Server",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

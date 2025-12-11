@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\JewShop.Server.props" />
+</Project>

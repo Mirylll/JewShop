@@ -14,7 +14,7 @@ namespace JewShop.Client.Services
 
         public async Task<List<ProductDto>> GetAll()
         {
-            return await _http.GetFromJsonAsync<List<ProductDto>>("api/product");
+            return await _http.GetFromJsonAsync<List<ProductDto>>("api/product") ?? [];
         }
     }
 }
