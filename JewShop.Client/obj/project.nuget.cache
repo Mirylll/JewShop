@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ErYq5P1pSKM=",
+  "dgSpecHash": "MvsW3ow/I5c=",
   "success": true,
-  "projectFilePath": "c:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\JewShop.Client.csproj",
+  "projectFilePath": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\JewShop.Client.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.aspnetcore.authorization\\9.0.11\\microsoft.aspnetcore.authorization.9.0.11.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.aspnetcore.components\\9.0.11\\microsoft.aspnetcore.components.9.0.11.nupkg.sha512",

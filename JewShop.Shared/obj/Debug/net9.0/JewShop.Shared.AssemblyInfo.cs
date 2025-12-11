@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("JewShop.Shared")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cfe7b2d59aac00debd5c6c605f99ab175085f0c7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+16fd8c504d0815d7496bcdb2727032c150fc8127")]
 [assembly: System.Reflection.AssemblyProductAttribute("JewShop.Shared")]
 [assembly: System.Reflection.AssemblyTitleAttribute("JewShop.Shared")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
