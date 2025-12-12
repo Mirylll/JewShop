@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "OaoGgn9ccVI=",
+  "dgSpecHash": "MvsW3ow/I5c=",
   "success": true,
-  "projectFilePath": "D:\\JewShop\\JewShop.Client\\JewShop.Client.csproj",
+  "projectFilePath": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\JewShop.Client.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.aspnetcore.authorization\\9.0.11\\microsoft.aspnetcore.authorization.9.0.11.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.aspnetcore.components\\9.0.11\\microsoft.aspnetcore.components.9.0.11.nupkg.sha512",
@@ -28,8 +28,9 @@
     "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.extensions.primitives\\9.0.11\\microsoft.extensions.primitives.9.0.11.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.jsinterop\\9.0.11\\microsoft.jsinterop.9.0.11.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.jsinterop.webassembly\\9.0.11\\microsoft.jsinterop.webassembly.9.0.11.nupkg.sha512",
-    "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.net.illink.tasks\\9.0.11\\microsoft.net.illink.tasks.9.0.11.nupkg.sha512",
-    "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.net.sdk.webassembly.pack\\9.0.11\\microsoft.net.sdk.webassembly.pack.9.0.11.nupkg.sha512"
+    "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.net.illink.tasks\\9.0.0\\microsoft.net.illink.tasks.9.0.0.nupkg.sha512",
+    "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.net.sdk.webassembly.pack\\9.0.0\\microsoft.net.sdk.webassembly.pack.9.0.0.nupkg.sha512",
+    "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\9.0.0\\microsoft.netcore.app.runtime.mono.browser-wasm.9.0.0.nupkg.sha512"
   ],
   "logs": []
 }

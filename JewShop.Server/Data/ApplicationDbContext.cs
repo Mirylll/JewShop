@@ -1,4 +1,4 @@
-using JewShop.Shared.Models;
+using JewShop.Server.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace JewShop.Server.Data
@@ -8,6 +8,6 @@ namespace JewShop.Server.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options) { }
 
-        public DbSet<Product> Products { get; set; }
+        public DbSet<Supplier> Suppliers { get; set; }
     }
 }
