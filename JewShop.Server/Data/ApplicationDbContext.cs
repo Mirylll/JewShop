@@ -9,5 +9,7 @@ namespace JewShop.Server.Data
             : base(options) { }
 
         public DbSet<Supplier> Suppliers { get; set; }
+        public DbSet<User> Users { get; set; }       // Mới thêm
+        public DbSet<Session> Sessions { get; set; } // Mới thêm
     }
 }
