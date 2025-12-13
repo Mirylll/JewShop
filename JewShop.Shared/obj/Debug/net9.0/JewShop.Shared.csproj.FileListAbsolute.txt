@@ -21,3 +21,15 @@ C:\Users\ADMIN\Documents\GitHub\JewShop\JewShop.Shared\obj\Debug\net9.0\JewShop.
 C:\Users\ADMIN\Documents\GitHub\JewShop\JewShop.Shared\obj\Debug\net9.0\refint\JewShop.Shared.dll
 C:\Users\ADMIN\Documents\GitHub\JewShop\JewShop.Shared\obj\Debug\net9.0\JewShop.Shared.pdb
 C:\Users\ADMIN\Documents\GitHub\JewShop\JewShop.Shared\obj\Debug\net9.0\ref\JewShop.Shared.dll
+D:\Code\JewShop\JewShop.Shared\bin\Debug\net9.0\JewShop.Shared.deps.json
+D:\Code\JewShop\JewShop.Shared\bin\Debug\net9.0\JewShop.Shared.dll
+D:\Code\JewShop\JewShop.Shared\bin\Debug\net9.0\JewShop.Shared.pdb
+D:\Code\JewShop\JewShop.Shared\obj\Debug\net9.0\JewShop.Shared.GeneratedMSBuildEditorConfig.editorconfig
+D:\Code\JewShop\JewShop.Shared\obj\Debug\net9.0\JewShop.Shared.AssemblyInfoInputs.cache
+D:\Code\JewShop\JewShop.Shared\obj\Debug\net9.0\JewShop.Shared.AssemblyInfo.cs
+D:\Code\JewShop\JewShop.Shared\obj\Debug\net9.0\JewShop.Shared.csproj.CoreCompileInputs.cache
+D:\Code\JewShop\JewShop.Shared\obj\Debug\net9.0\JewShop.Shared.sourcelink.json
+D:\Code\JewShop\JewShop.Shared\obj\Debug\net9.0\JewShop.Shared.dll
+D:\Code\JewShop\JewShop.Shared\obj\Debug\net9.0\refint\JewShop.Shared.dll
+D:\Code\JewShop\JewShop.Shared\obj\Debug\net9.0\JewShop.Shared.pdb
+D:\Code\JewShop\JewShop.Shared\obj\Debug\net9.0\ref\JewShop.Shared.dll
