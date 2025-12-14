@@ -192,17 +192,17 @@
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"xj7dt1iqiq"},{"Name":"integrity","Value":"sha256-fegm6BqOA98OSnLZcp9mk37tUPezhLiklXwq2Nc1d8Y="},{"Name":"label","Value":"index.html"}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"987"},{"Name":"Content-Type","Value":"text/html"},{"Name":"ETag","Value":"\u0022fegm6BqOA98OSnLZcp9mk37tUPezhLiklXwq2Nc1d8Y=\u0022"},{"Name":"Last-Modified","Value":"Wed, 10 Dec 2025 13:45:05 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="JewShop.Client.4nm12mv7fu.styles.css">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\JewShop.Client.styles.css'))</AssetFile>
-      <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"4nm12mv7fu"},{"Name":"integrity","Value":"sha256-4DL8cah/YdcA7/2Zz0xaqPUKcvpyHehWA4Xv\u002B2U5Me0="},{"Name":"label","Value":"JewShop.Client.styles.css"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"10012"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u00224DL8cah/YdcA7/2Zz0xaqPUKcvpyHehWA4Xv\u002B2U5Me0=\u0022"},{"Name":"Last-Modified","Value":"Thu, 11 Dec 2025 08:38:15 GMT"}]]]></ResponseHeaders>
-    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="JewShop.Client.styles.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\JewShop.Client.styles.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-4DL8cah/YdcA7/2Zz0xaqPUKcvpyHehWA4Xv\u002B2U5Me0="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"10012"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u00224DL8cah/YdcA7/2Zz0xaqPUKcvpyHehWA4Xv\u002B2U5Me0=\u0022"},{"Name":"Last-Modified","Value":"Thu, 11 Dec 2025 08:38:15 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-vgMQlgWlUAcqjzRK75dxDT2mHPniXlTcCMNPksUFSYk="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"10913"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022vgMQlgWlUAcqjzRK75dxDT2mHPniXlTcCMNPksUFSYk=\u0022"},{"Name":"Last-Modified","Value":"Sun, 14 Dec 2025 05:13:34 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="JewShop.Client.yr5agmii9j.styles.css">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\JewShop.Client.styles.css'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"yr5agmii9j"},{"Name":"integrity","Value":"sha256-vgMQlgWlUAcqjzRK75dxDT2mHPniXlTcCMNPksUFSYk="},{"Name":"label","Value":"JewShop.Client.styles.css"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"10913"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022vgMQlgWlUAcqjzRK75dxDT2mHPniXlTcCMNPksUFSYk=\u0022"},{"Name":"Last-Modified","Value":"Sun, 14 Dec 2025 05:13:34 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="lib/bootstrap/dist/css/bootstrap-grid.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\lib\bootstrap\dist\css\bootstrap-grid.css'))</AssetFile>

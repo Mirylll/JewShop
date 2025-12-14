@@ -3,174 +3,13 @@
   "ManifestType": "Build",
   "Endpoints": [
     {
-      "Route": "JewShop.Client.4nm12mv7fu.styles.css",
-      "AssetFile": "JewShop.Client.styles.css.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.000451263538"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "2215"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"a4cSTeClpU+fs1x6fDYYhcdK5U7L+oT9Lj5uBj8qFPY=\""
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"4DL8cah/YdcA7/2Zz0xaqPUKcvpyHehWA4Xv+2U5Me0=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 11 Dec 2025 08:38:15 GMT"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "4nm12mv7fu"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-4DL8cah/YdcA7/2Zz0xaqPUKcvpyHehWA4Xv+2U5Me0="
-        },
-        {
-          "Name": "label",
-          "Value": "JewShop.Client.styles.css"
-        }
-      ]
-    },
-    {
-      "Route": "JewShop.Client.4nm12mv7fu.styles.css",
-      "AssetFile": "JewShop.Client.styles.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "10012"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"4DL8cah/YdcA7/2Zz0xaqPUKcvpyHehWA4Xv+2U5Me0=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 11 Dec 2025 08:38:15 GMT"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "4nm12mv7fu"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-4DL8cah/YdcA7/2Zz0xaqPUKcvpyHehWA4Xv+2U5Me0="
-        },
-        {
-          "Name": "label",
-          "Value": "JewShop.Client.styles.css"
-        }
-      ]
-    },
-    {
-      "Route": "JewShop.Client.4nm12mv7fu.styles.css.gz",
-      "AssetFile": "JewShop.Client.styles.css.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "2215"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"a4cSTeClpU+fs1x6fDYYhcdK5U7L+oT9Lj5uBj8qFPY=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 11 Dec 2025 08:38:15 GMT"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "4nm12mv7fu"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-a4cSTeClpU+fs1x6fDYYhcdK5U7L+oT9Lj5uBj8qFPY="
-        },
-        {
-          "Name": "label",
-          "Value": "JewShop.Client.styles.css.gz"
-        }
-      ]
-    },
-    {
       "Route": "JewShop.Client.styles.css",
       "AssetFile": "JewShop.Client.styles.css.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000451263538"
+          "Quality": "0.000444049734"
         }
       ],
       "ResponseHeaders": [
@@ -188,7 +27,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2215"
+          "Value": "2251"
         },
         {
           "Name": "Content-Type",
@@ -196,15 +35,15 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"a4cSTeClpU+fs1x6fDYYhcdK5U7L+oT9Lj5uBj8qFPY=\""
+          "Value": "\"95pFJ59vsvVjA63AiJBHx+dzzs0BUbQvUWw9XUukIW0=\""
         },
         {
           "Name": "ETag",
-          "Value": "W/\"4DL8cah/YdcA7/2Zz0xaqPUKcvpyHehWA4Xv+2U5Me0=\""
+          "Value": "W/\"vgMQlgWlUAcqjzRK75dxDT2mHPniXlTcCMNPksUFSYk=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 11 Dec 2025 08:38:15 GMT"
+          "Value": "Sun, 14 Dec 2025 05:13:34 GMT"
         },
         {
           "Name": "Vary",
@@ -214,7 +53,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-4DL8cah/YdcA7/2Zz0xaqPUKcvpyHehWA4Xv+2U5Me0="
+          "Value": "sha256-vgMQlgWlUAcqjzRK75dxDT2mHPniXlTcCMNPksUFSYk="
         }
       ]
     },
@@ -233,7 +72,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "10012"
+          "Value": "10913"
         },
         {
           "Name": "Content-Type",
@@ -241,17 +80,17 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"4DL8cah/YdcA7/2Zz0xaqPUKcvpyHehWA4Xv+2U5Me0=\""
+          "Value": "\"vgMQlgWlUAcqjzRK75dxDT2mHPniXlTcCMNPksUFSYk=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 11 Dec 2025 08:38:15 GMT"
+          "Value": "Sun, 14 Dec 2025 05:13:34 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-4DL8cah/YdcA7/2Zz0xaqPUKcvpyHehWA4Xv+2U5Me0="
+          "Value": "sha256-vgMQlgWlUAcqjzRK75dxDT2mHPniXlTcCMNPksUFSYk="
         }
       ]
     },
@@ -274,7 +113,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2215"
+          "Value": "2251"
         },
         {
           "Name": "Content-Type",
@@ -282,11 +121,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"a4cSTeClpU+fs1x6fDYYhcdK5U7L+oT9Lj5uBj8qFPY=\""
+          "Value": "\"95pFJ59vsvVjA63AiJBHx+dzzs0BUbQvUWw9XUukIW0=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 11 Dec 2025 08:38:15 GMT"
+          "Value": "Sun, 14 Dec 2025 05:13:34 GMT"
         },
         {
           "Name": "Vary",
@@ -296,63 +135,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-a4cSTeClpU+fs1x6fDYYhcdK5U7L+oT9Lj5uBj8qFPY="
+          "Value": "sha256-95pFJ59vsvVjA63AiJBHx+dzzs0BUbQvUWw9XUukIW0="
         }
       ]
     },
     {
-      "Route": "_framework/JewShop.Client.02qnzxqs85.pdb",
-      "AssetFile": "_framework/JewShop.Client.02qnzxqs85.pdb",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "37268"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/octet-stream"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"WFXsV6klpqzaDtE36uV53pLXjKSAPhv8CxEGZeJVmEM=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 11 Dec 2025 15:49:12 GMT"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "02qnzxqs85"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-WFXsV6klpqzaDtE36uV53pLXjKSAPhv8CxEGZeJVmEM="
-        },
-        {
-          "Name": "label",
-          "Value": "_framework/JewShop.Client.pdb"
-        }
-      ]
-    },
-    {
-      "Route": "_framework/JewShop.Client.02qnzxqs85.pdb",
-      "AssetFile": "_framework/JewShop.Client.02qnzxqs85.pdb.gz",
+      "Route": "JewShop.Client.yr5agmii9j.styles.css",
+      "AssetFile": "JewShop.Client.styles.css.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000034890618"
+          "Quality": "0.000444049734"
         }
       ],
       "ResponseHeaders": [
@@ -370,23 +164,23 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "28660"
+          "Value": "2251"
         },
         {
           "Name": "Content-Type",
-          "Value": "application/octet-stream"
+          "Value": "text/css"
         },
         {
           "Name": "ETag",
-          "Value": "\"QiOO/VkBlNEi1uuMVta75FmrPhIy2ErJqEnPJ+z7L0U=\""
+          "Value": "\"95pFJ59vsvVjA63AiJBHx+dzzs0BUbQvUWw9XUukIW0=\""
         },
         {
           "Name": "ETag",
-          "Value": "W/\"WFXsV6klpqzaDtE36uV53pLXjKSAPhv8CxEGZeJVmEM=\""
+          "Value": "W/\"vgMQlgWlUAcqjzRK75dxDT2mHPniXlTcCMNPksUFSYk=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 11 Dec 2025 15:49:14 GMT"
+          "Value": "Sun, 14 Dec 2025 05:13:34 GMT"
         },
         {
           "Name": "Vary",
@@ -396,21 +190,66 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "02qnzxqs85"
+          "Value": "yr5agmii9j"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-WFXsV6klpqzaDtE36uV53pLXjKSAPhv8CxEGZeJVmEM="
+          "Value": "sha256-vgMQlgWlUAcqjzRK75dxDT2mHPniXlTcCMNPksUFSYk="
         },
         {
           "Name": "label",
-          "Value": "_framework/JewShop.Client.pdb"
+          "Value": "JewShop.Client.styles.css"
         }
       ]
     },
     {
-      "Route": "_framework/JewShop.Client.02qnzxqs85.pdb.gz",
-      "AssetFile": "_framework/JewShop.Client.02qnzxqs85.pdb.gz",
+      "Route": "JewShop.Client.yr5agmii9j.styles.css",
+      "AssetFile": "JewShop.Client.styles.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "10913"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"vgMQlgWlUAcqjzRK75dxDT2mHPniXlTcCMNPksUFSYk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 14 Dec 2025 05:13:34 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "yr5agmii9j"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-vgMQlgWlUAcqjzRK75dxDT2mHPniXlTcCMNPksUFSYk="
+        },
+        {
+          "Name": "label",
+          "Value": "JewShop.Client.styles.css"
+        }
+      ]
+    },
+    {
+      "Route": "JewShop.Client.yr5agmii9j.styles.css.gz",
+      "AssetFile": "JewShop.Client.styles.css.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -427,19 +266,19 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "28660"
+          "Value": "2251"
         },
         {
           "Name": "Content-Type",
-          "Value": "application/octet-stream"
+          "Value": "text/css"
         },
         {
           "Name": "ETag",
-          "Value": "\"QiOO/VkBlNEi1uuMVta75FmrPhIy2ErJqEnPJ+z7L0U=\""
+          "Value": "\"95pFJ59vsvVjA63AiJBHx+dzzs0BUbQvUWw9XUukIW0=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 11 Dec 2025 15:49:14 GMT"
+          "Value": "Sun, 14 Dec 2025 05:13:34 GMT"
         },
         {
           "Name": "Vary",
@@ -449,11 +288,172 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "02qnzxqs85"
+          "Value": "yr5agmii9j"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-QiOO/VkBlNEi1uuMVta75FmrPhIy2ErJqEnPJ+z7L0U="
+          "Value": "sha256-95pFJ59vsvVjA63AiJBHx+dzzs0BUbQvUWw9XUukIW0="
+        },
+        {
+          "Name": "label",
+          "Value": "JewShop.Client.styles.css.gz"
+        }
+      ]
+    },
+    {
+      "Route": "_framework/JewShop.Client.58dd0tl5wr.pdb",
+      "AssetFile": "_framework/JewShop.Client.58dd0tl5wr.pdb",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "48868"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Nai9uZlDlFAM0wGHELkCeUXj6YzFXOoroZX+ki9GSUk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 14 Dec 2025 04:55:47 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "58dd0tl5wr"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-Nai9uZlDlFAM0wGHELkCeUXj6YzFXOoroZX+ki9GSUk="
+        },
+        {
+          "Name": "label",
+          "Value": "_framework/JewShop.Client.pdb"
+        }
+      ]
+    },
+    {
+      "Route": "_framework/JewShop.Client.58dd0tl5wr.pdb",
+      "AssetFile": "_framework/JewShop.Client.58dd0tl5wr.pdb.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000026213694"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "38147"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"e3JlZe1uIKnwzSwsCMT8BLwkPpkF/9DGLWWFqq2bQz8=\""
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"Nai9uZlDlFAM0wGHELkCeUXj6YzFXOoroZX+ki9GSUk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 14 Dec 2025 04:55:47 GMT"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "58dd0tl5wr"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-Nai9uZlDlFAM0wGHELkCeUXj6YzFXOoroZX+ki9GSUk="
+        },
+        {
+          "Name": "label",
+          "Value": "_framework/JewShop.Client.pdb"
+        }
+      ]
+    },
+    {
+      "Route": "_framework/JewShop.Client.58dd0tl5wr.pdb.gz",
+      "AssetFile": "_framework/JewShop.Client.58dd0tl5wr.pdb.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "38147"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"e3JlZe1uIKnwzSwsCMT8BLwkPpkF/9DGLWWFqq2bQz8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 14 Dec 2025 04:55:47 GMT"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "58dd0tl5wr"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-e3JlZe1uIKnwzSwsCMT8BLwkPpkF/9DGLWWFqq2bQz8="
         },
         {
           "Name": "label",
@@ -463,7 +463,7 @@
     },
     {
       "Route": "_framework/JewShop.Client.pdb",
-      "AssetFile": "_framework/JewShop.Client.02qnzxqs85.pdb",
+      "AssetFile": "_framework/JewShop.Client.58dd0tl5wr.pdb",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -476,7 +476,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "37268"
+          "Value": "48868"
         },
         {
           "Name": "Content-Type",
@@ -484,28 +484,28 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"WFXsV6klpqzaDtE36uV53pLXjKSAPhv8CxEGZeJVmEM=\""
+          "Value": "\"Nai9uZlDlFAM0wGHELkCeUXj6YzFXOoroZX+ki9GSUk=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 11 Dec 2025 15:49:12 GMT"
+          "Value": "Sun, 14 Dec 2025 04:55:47 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-WFXsV6klpqzaDtE36uV53pLXjKSAPhv8CxEGZeJVmEM="
+          "Value": "sha256-Nai9uZlDlFAM0wGHELkCeUXj6YzFXOoroZX+ki9GSUk="
         }
       ]
     },
     {
       "Route": "_framework/JewShop.Client.pdb",
-      "AssetFile": "_framework/JewShop.Client.02qnzxqs85.pdb.gz",
+      "AssetFile": "_framework/JewShop.Client.58dd0tl5wr.pdb.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000034890618"
+          "Quality": "0.000026213694"
         }
       ],
       "ResponseHeaders": [
@@ -523,7 +523,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "28660"
+          "Value": "38147"
         },
         {
           "Name": "Content-Type",
@@ -531,15 +531,15 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"QiOO/VkBlNEi1uuMVta75FmrPhIy2ErJqEnPJ+z7L0U=\""
+          "Value": "\"e3JlZe1uIKnwzSwsCMT8BLwkPpkF/9DGLWWFqq2bQz8=\""
         },
         {
           "Name": "ETag",
-          "Value": "W/\"WFXsV6klpqzaDtE36uV53pLXjKSAPhv8CxEGZeJVmEM=\""
+          "Value": "W/\"Nai9uZlDlFAM0wGHELkCeUXj6YzFXOoroZX+ki9GSUk=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 11 Dec 2025 15:49:14 GMT"
+          "Value": "Sun, 14 Dec 2025 04:55:47 GMT"
         },
         {
           "Name": "Vary",
@@ -549,13 +549,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-WFXsV6klpqzaDtE36uV53pLXjKSAPhv8CxEGZeJVmEM="
+          "Value": "sha256-Nai9uZlDlFAM0wGHELkCeUXj6YzFXOoroZX+ki9GSUk="
         }
       ]
     },
     {
       "Route": "_framework/JewShop.Client.pdb.gz",
-      "AssetFile": "_framework/JewShop.Client.02qnzxqs85.pdb.gz",
+      "AssetFile": "_framework/JewShop.Client.58dd0tl5wr.pdb.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -572,7 +572,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "28660"
+          "Value": "38147"
         },
         {
           "Name": "Content-Type",
@@ -580,11 +580,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"QiOO/VkBlNEi1uuMVta75FmrPhIy2ErJqEnPJ+z7L0U=\""
+          "Value": "\"e3JlZe1uIKnwzSwsCMT8BLwkPpkF/9DGLWWFqq2bQz8=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 11 Dec 2025 15:49:14 GMT"
+          "Value": "Sun, 14 Dec 2025 04:55:47 GMT"
         },
         {
           "Name": "Vary",
@@ -594,13 +594,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-QiOO/VkBlNEi1uuMVta75FmrPhIy2ErJqEnPJ+z7L0U="
+          "Value": "sha256-e3JlZe1uIKnwzSwsCMT8BLwkPpkF/9DGLWWFqq2bQz8="
         }
       ]
     },
     {
       "Route": "_framework/JewShop.Client.wasm",
-      "AssetFile": "_framework/JewShop.Client.x3d11g43sw.wasm",
+      "AssetFile": "_framework/JewShop.Client.x7rl8bckdq.wasm",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -613,7 +613,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "47381"
+          "Value": "77077"
         },
         {
           "Name": "Content-Type",
@@ -621,28 +621,28 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"ndl35Q41k7VBhGmqbSxn1mu76Cpd1xWn19n2Za2kSNU=\""
+          "Value": "\"8643lVb0GuSbdRCe1nSFMgCX+YX80cGp+IaShOXi6EQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 11 Dec 2025 15:49:12 GMT"
+          "Value": "Sun, 14 Dec 2025 04:55:47 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-ndl35Q41k7VBhGmqbSxn1mu76Cpd1xWn19n2Za2kSNU="
+          "Value": "sha256-8643lVb0GuSbdRCe1nSFMgCX+YX80cGp+IaShOXi6EQ="
         }
       ]
     },
     {
       "Route": "_framework/JewShop.Client.wasm",
-      "AssetFile": "_framework/JewShop.Client.x3d11g43sw.wasm.gz",
+      "AssetFile": "_framework/JewShop.Client.x7rl8bckdq.wasm.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000059203126"
+          "Quality": "0.000038871181"
         }
       ],
       "ResponseHeaders": [
@@ -660,7 +660,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "16890"
+          "Value": "25725"
         },
         {
           "Name": "Content-Type",
@@ -668,15 +668,15 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"++v+y5TRghjYnYkIUrMLTwvqtBoezJKT/2fGn0hBgik=\""
+          "Value": "\"D8l761QIgNRQ/wX+EU+lAaQljsBkKEYD5EExawBWioo=\""
         },
         {
           "Name": "ETag",
-          "Value": "W/\"ndl35Q41k7VBhGmqbSxn1mu76Cpd1xWn19n2Za2kSNU=\""
+          "Value": "W/\"8643lVb0GuSbdRCe1nSFMgCX+YX80cGp+IaShOXi6EQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 11 Dec 2025 15:49:14 GMT"
+          "Value": "Sun, 14 Dec 2025 04:55:47 GMT"
         },
         {
           "Name": "Vary",
@@ -686,13 +686,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-ndl35Q41k7VBhGmqbSxn1mu76Cpd1xWn19n2Za2kSNU="
+          "Value": "sha256-8643lVb0GuSbdRCe1nSFMgCX+YX80cGp+IaShOXi6EQ="
         }
       ]
     },
     {
       "Route": "_framework/JewShop.Client.wasm.gz",
-      "AssetFile": "_framework/JewShop.Client.x3d11g43sw.wasm.gz",
+      "AssetFile": "_framework/JewShop.Client.x7rl8bckdq.wasm.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -709,7 +709,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "16890"
+          "Value": "25725"
         },
         {
           "Name": "Content-Type",
@@ -717,11 +717,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"++v+y5TRghjYnYkIUrMLTwvqtBoezJKT/2fGn0hBgik=\""
+          "Value": "\"D8l761QIgNRQ/wX+EU+lAaQljsBkKEYD5EExawBWioo=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 11 Dec 2025 15:49:14 GMT"
+          "Value": "Sun, 14 Dec 2025 04:55:47 GMT"
         },
         {
           "Name": "Vary",
@@ -731,13 +731,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-++v+y5TRghjYnYkIUrMLTwvqtBoezJKT/2fGn0hBgik="
+          "Value": "sha256-D8l761QIgNRQ/wX+EU+lAaQljsBkKEYD5EExawBWioo="
         }
       ]
     },
     {
-      "Route": "_framework/JewShop.Client.x3d11g43sw.wasm",
-      "AssetFile": "_framework/JewShop.Client.x3d11g43sw.wasm",
+      "Route": "_framework/JewShop.Client.x7rl8bckdq.wasm",
+      "AssetFile": "_framework/JewShop.Client.x7rl8bckdq.wasm",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -750,7 +750,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "47381"
+          "Value": "77077"
         },
         {
           "Name": "Content-Type",
@@ -758,21 +758,21 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"ndl35Q41k7VBhGmqbSxn1mu76Cpd1xWn19n2Za2kSNU=\""
+          "Value": "\"8643lVb0GuSbdRCe1nSFMgCX+YX80cGp+IaShOXi6EQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 11 Dec 2025 15:49:12 GMT"
+          "Value": "Sun, 14 Dec 2025 04:55:47 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "x3d11g43sw"
+          "Value": "x7rl8bckdq"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-ndl35Q41k7VBhGmqbSxn1mu76Cpd1xWn19n2Za2kSNU="
+          "Value": "sha256-8643lVb0GuSbdRCe1nSFMgCX+YX80cGp+IaShOXi6EQ="
         },
         {
           "Name": "label",
@@ -781,13 +781,13 @@
       ]
     },
     {
-      "Route": "_framework/JewShop.Client.x3d11g43sw.wasm",
-      "AssetFile": "_framework/JewShop.Client.x3d11g43sw.wasm.gz",
+      "Route": "_framework/JewShop.Client.x7rl8bckdq.wasm",
+      "AssetFile": "_framework/JewShop.Client.x7rl8bckdq.wasm.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000059203126"
+          "Quality": "0.000038871181"
         }
       ],
       "ResponseHeaders": [
@@ -805,7 +805,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "16890"
+          "Value": "25725"
         },
         {
           "Name": "Content-Type",
@@ -813,15 +813,15 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"++v+y5TRghjYnYkIUrMLTwvqtBoezJKT/2fGn0hBgik=\""
+          "Value": "\"D8l761QIgNRQ/wX+EU+lAaQljsBkKEYD5EExawBWioo=\""
         },
         {
           "Name": "ETag",
-          "Value": "W/\"ndl35Q41k7VBhGmqbSxn1mu76Cpd1xWn19n2Za2kSNU=\""
+          "Value": "W/\"8643lVb0GuSbdRCe1nSFMgCX+YX80cGp+IaShOXi6EQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 11 Dec 2025 15:49:14 GMT"
+          "Value": "Sun, 14 Dec 2025 04:55:47 GMT"
         },
         {
           "Name": "Vary",
@@ -831,11 +831,11 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "x3d11g43sw"
+          "Value": "x7rl8bckdq"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-ndl35Q41k7VBhGmqbSxn1mu76Cpd1xWn19n2Za2kSNU="
+          "Value": "sha256-8643lVb0GuSbdRCe1nSFMgCX+YX80cGp+IaShOXi6EQ="
         },
         {
           "Name": "label",
@@ -844,8 +844,8 @@
       ]
     },
     {
-      "Route": "_framework/JewShop.Client.x3d11g43sw.wasm.gz",
-      "AssetFile": "_framework/JewShop.Client.x3d11g43sw.wasm.gz",
+      "Route": "_framework/JewShop.Client.x7rl8bckdq.wasm.gz",
+      "AssetFile": "_framework/JewShop.Client.x7rl8bckdq.wasm.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -862,7 +862,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "16890"
+          "Value": "25725"
         },
         {
           "Name": "Content-Type",
@@ -870,11 +870,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"++v+y5TRghjYnYkIUrMLTwvqtBoezJKT/2fGn0hBgik=\""
+          "Value": "\"D8l761QIgNRQ/wX+EU+lAaQljsBkKEYD5EExawBWioo=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 11 Dec 2025 15:49:14 GMT"
+          "Value": "Sun, 14 Dec 2025 04:55:47 GMT"
         },
         {
           "Name": "Vary",
@@ -884,11 +884,11 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "x3d11g43sw"
+          "Value": "x7rl8bckdq"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-++v+y5TRghjYnYkIUrMLTwvqtBoezJKT/2fGn0hBgik="
+          "Value": "sha256-D8l761QIgNRQ/wX+EU+lAaQljsBkKEYD5EExawBWioo="
         },
         {
           "Name": "label",
@@ -897,8 +897,8 @@
       ]
     },
     {
-      "Route": "_framework/JewShop.Shared.1mebcgvzi9.wasm",
-      "AssetFile": "_framework/JewShop.Shared.1mebcgvzi9.wasm",
+      "Route": "_framework/JewShop.Shared.168jkdn8qz.wasm",
+      "AssetFile": "_framework/JewShop.Shared.168jkdn8qz.wasm",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -911,7 +911,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "6421"
+          "Value": "13589"
         },
         {
           "Name": "Content-Type",
@@ -919,21 +919,21 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"uZqhyGydIDxd1gtKYGG3Zfc/MKw0EvdYrrSQZt3wJaI=\""
+          "Value": "\"GQjrOm6QvkcS78on9ILwL2TQrxtxT9cRWwy6RupkW3A=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 11 Dec 2025 15:49:12 GMT"
+          "Value": "Fri, 12 Dec 2025 17:48:48 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "1mebcgvzi9"
+          "Value": "168jkdn8qz"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-uZqhyGydIDxd1gtKYGG3Zfc/MKw0EvdYrrSQZt3wJaI="
+          "Value": "sha256-GQjrOm6QvkcS78on9ILwL2TQrxtxT9cRWwy6RupkW3A="
         },
         {
           "Name": "label",
@@ -942,13 +942,13 @@
       ]
     },
     {
-      "Route": "_framework/JewShop.Shared.1mebcgvzi9.wasm",
-      "AssetFile": "_framework/JewShop.Shared.1mebcgvzi9.wasm.gz",
+      "Route": "_framework/JewShop.Shared.168jkdn8qz.wasm",
+      "AssetFile": "_framework/JewShop.Shared.168jkdn8qz.wasm.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000388500389"
+          "Quality": "0.000184535892"
         }
       ],
       "ResponseHeaders": [
@@ -966,7 +966,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2573"
+          "Value": "5418"
         },
         {
           "Name": "Content-Type",
@@ -974,15 +974,15 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"2OWQT1hU00L22NafWc81/2anoiRQuynb8Hp2WwgwoDQ=\""
+          "Value": "\"MQVqDlc9VTywoGM4Sk6C+z9jll8lKFWr1RyS+h6CxdU=\""
         },
         {
           "Name": "ETag",
-          "Value": "W/\"uZqhyGydIDxd1gtKYGG3Zfc/MKw0EvdYrrSQZt3wJaI=\""
+          "Value": "W/\"GQjrOm6QvkcS78on9ILwL2TQrxtxT9cRWwy6RupkW3A=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 11 Dec 2025 15:49:14 GMT"
+          "Value": "Fri, 12 Dec 2025 17:48:49 GMT"
         },
         {
           "Name": "Vary",
@@ -992,11 +992,11 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "1mebcgvzi9"
+          "Value": "168jkdn8qz"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-uZqhyGydIDxd1gtKYGG3Zfc/MKw0EvdYrrSQZt3wJaI="
+          "Value": "sha256-GQjrOm6QvkcS78on9ILwL2TQrxtxT9cRWwy6RupkW3A="
         },
         {
           "Name": "label",
@@ -1005,8 +1005,8 @@
       ]
     },
     {
-      "Route": "_framework/JewShop.Shared.1mebcgvzi9.wasm.gz",
-      "AssetFile": "_framework/JewShop.Shared.1mebcgvzi9.wasm.gz",
+      "Route": "_framework/JewShop.Shared.168jkdn8qz.wasm.gz",
+      "AssetFile": "_framework/JewShop.Shared.168jkdn8qz.wasm.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1023,7 +1023,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2573"
+          "Value": "5418"
         },
         {
           "Name": "Content-Type",
@@ -1031,11 +1031,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"2OWQT1hU00L22NafWc81/2anoiRQuynb8Hp2WwgwoDQ=\""
+          "Value": "\"MQVqDlc9VTywoGM4Sk6C+z9jll8lKFWr1RyS+h6CxdU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 11 Dec 2025 15:49:14 GMT"
+          "Value": "Fri, 12 Dec 2025 17:48:49 GMT"
         },
         {
           "Name": "Vary",
@@ -1045,11 +1045,11 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "1mebcgvzi9"
+          "Value": "168jkdn8qz"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-2OWQT1hU00L22NafWc81/2anoiRQuynb8Hp2WwgwoDQ="
+          "Value": "sha256-MQVqDlc9VTywoGM4Sk6C+z9jll8lKFWr1RyS+h6CxdU="
         },
         {
           "Name": "label",
@@ -1058,8 +1058,8 @@
       ]
     },
     {
-      "Route": "_framework/JewShop.Shared.4pbxwn7266.pdb",
-      "AssetFile": "_framework/JewShop.Shared.4pbxwn7266.pdb",
+      "Route": "_framework/JewShop.Shared.muqmk1kd1k.pdb",
+      "AssetFile": "_framework/JewShop.Shared.muqmk1kd1k.pdb",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1072,7 +1072,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "11832"
+          "Value": "14920"
         },
         {
           "Name": "Content-Type",
@@ -1080,21 +1080,21 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"iHr7iLaDSoKhjHlnyObNQgq2QnFQwl4wy6wThz/b4B8=\""
+          "Value": "\"bunCcFeQOE9LNnt4JqGSi+V5D+9t5KFDbmIotlWJK2g=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 11 Dec 2025 15:35:32 GMT"
+          "Value": "Sun, 14 Dec 2025 04:12:05 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "4pbxwn7266"
+          "Value": "muqmk1kd1k"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-iHr7iLaDSoKhjHlnyObNQgq2QnFQwl4wy6wThz/b4B8="
+          "Value": "sha256-bunCcFeQOE9LNnt4JqGSi+V5D+9t5KFDbmIotlWJK2g="
         },
         {
           "Name": "label",
@@ -1103,13 +1103,13 @@
       ]
     },
     {
-      "Route": "_framework/JewShop.Shared.4pbxwn7266.pdb",
-      "AssetFile": "_framework/JewShop.Shared.4pbxwn7266.pdb.gz",
+      "Route": "_framework/JewShop.Shared.muqmk1kd1k.pdb",
+      "AssetFile": "_framework/JewShop.Shared.muqmk1kd1k.pdb.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000146670578"
+          "Quality": "0.000123365408"
         }
       ],
       "ResponseHeaders": [
@@ -1127,7 +1127,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "6817"
+          "Value": "8105"
         },
         {
           "Name": "Content-Type",
@@ -1135,15 +1135,15 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"yQd/jJ6/MSHRuX34xOLMxL7eLPQGGxCzmuITHr9mL3s=\""
+          "Value": "\"XJaRrnQt0UB+TuEk0uTD8VhlGY2Jjz0zR76Gr7zZLC8=\""
         },
         {
           "Name": "ETag",
-          "Value": "W/\"iHr7iLaDSoKhjHlnyObNQgq2QnFQwl4wy6wThz/b4B8=\""
+          "Value": "W/\"bunCcFeQOE9LNnt4JqGSi+V5D+9t5KFDbmIotlWJK2g=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 11 Dec 2025 15:49:14 GMT"
+          "Value": "Sun, 14 Dec 2025 04:12:08 GMT"
         },
         {
           "Name": "Vary",
@@ -1153,11 +1153,11 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "4pbxwn7266"
+          "Value": "muqmk1kd1k"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-iHr7iLaDSoKhjHlnyObNQgq2QnFQwl4wy6wThz/b4B8="
+          "Value": "sha256-bunCcFeQOE9LNnt4JqGSi+V5D+9t5KFDbmIotlWJK2g="
         },
         {
           "Name": "label",
@@ -1166,8 +1166,8 @@
       ]
     },
     {
-      "Route": "_framework/JewShop.Shared.4pbxwn7266.pdb.gz",
-      "AssetFile": "_framework/JewShop.Shared.4pbxwn7266.pdb.gz",
+      "Route": "_framework/JewShop.Shared.muqmk1kd1k.pdb.gz",
+      "AssetFile": "_framework/JewShop.Shared.muqmk1kd1k.pdb.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1184,7 +1184,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "6817"
+          "Value": "8105"
         },
         {
           "Name": "Content-Type",
@@ -1192,11 +1192,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"yQd/jJ6/MSHRuX34xOLMxL7eLPQGGxCzmuITHr9mL3s=\""
+          "Value": "\"XJaRrnQt0UB+TuEk0uTD8VhlGY2Jjz0zR76Gr7zZLC8=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 11 Dec 2025 15:49:14 GMT"
+          "Value": "Sun, 14 Dec 2025 04:12:08 GMT"
         },
         {
           "Name": "Vary",
@@ -1206,11 +1206,11 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "4pbxwn7266"
+          "Value": "muqmk1kd1k"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-yQd/jJ6/MSHRuX34xOLMxL7eLPQGGxCzmuITHr9mL3s="
+          "Value": "sha256-XJaRrnQt0UB+TuEk0uTD8VhlGY2Jjz0zR76Gr7zZLC8="
         },
         {
           "Name": "label",
@@ -1220,7 +1220,7 @@
     },
     {
       "Route": "_framework/JewShop.Shared.pdb",
-      "AssetFile": "_framework/JewShop.Shared.4pbxwn7266.pdb",
+      "AssetFile": "_framework/JewShop.Shared.muqmk1kd1k.pdb",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1233,7 +1233,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "11832"
+          "Value": "14920"
         },
         {
           "Name": "Content-Type",
@@ -1241,28 +1241,28 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"iHr7iLaDSoKhjHlnyObNQgq2QnFQwl4wy6wThz/b4B8=\""
+          "Value": "\"bunCcFeQOE9LNnt4JqGSi+V5D+9t5KFDbmIotlWJK2g=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 11 Dec 2025 15:35:32 GMT"
+          "Value": "Sun, 14 Dec 2025 04:12:05 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-iHr7iLaDSoKhjHlnyObNQgq2QnFQwl4wy6wThz/b4B8="
+          "Value": "sha256-bunCcFeQOE9LNnt4JqGSi+V5D+9t5KFDbmIotlWJK2g="
         }
       ]
     },
     {
       "Route": "_framework/JewShop.Shared.pdb",
-      "AssetFile": "_framework/JewShop.Shared.4pbxwn7266.pdb.gz",
+      "AssetFile": "_framework/JewShop.Shared.muqmk1kd1k.pdb.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000146670578"
+          "Quality": "0.000123365408"
         }
       ],
       "ResponseHeaders": [
@@ -1280,7 +1280,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "6817"
+          "Value": "8105"
         },
         {
           "Name": "Content-Type",
@@ -1288,15 +1288,15 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"yQd/jJ6/MSHRuX34xOLMxL7eLPQGGxCzmuITHr9mL3s=\""
+          "Value": "\"XJaRrnQt0UB+TuEk0uTD8VhlGY2Jjz0zR76Gr7zZLC8=\""
         },
         {
           "Name": "ETag",
-          "Value": "W/\"iHr7iLaDSoKhjHlnyObNQgq2QnFQwl4wy6wThz/b4B8=\""
+          "Value": "W/\"bunCcFeQOE9LNnt4JqGSi+V5D+9t5KFDbmIotlWJK2g=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 11 Dec 2025 15:49:14 GMT"
+          "Value": "Sun, 14 Dec 2025 04:12:08 GMT"
         },
         {
           "Name": "Vary",
@@ -1306,13 +1306,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-iHr7iLaDSoKhjHlnyObNQgq2QnFQwl4wy6wThz/b4B8="
+          "Value": "sha256-bunCcFeQOE9LNnt4JqGSi+V5D+9t5KFDbmIotlWJK2g="
         }
       ]
     },
     {
       "Route": "_framework/JewShop.Shared.pdb.gz",
-      "AssetFile": "_framework/JewShop.Shared.4pbxwn7266.pdb.gz",
+      "AssetFile": "_framework/JewShop.Shared.muqmk1kd1k.pdb.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1329,7 +1329,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "6817"
+          "Value": "8105"
         },
         {
           "Name": "Content-Type",
@@ -1337,11 +1337,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"yQd/jJ6/MSHRuX34xOLMxL7eLPQGGxCzmuITHr9mL3s=\""
+          "Value": "\"XJaRrnQt0UB+TuEk0uTD8VhlGY2Jjz0zR76Gr7zZLC8=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 11 Dec 2025 15:49:14 GMT"
+          "Value": "Sun, 14 Dec 2025 04:12:08 GMT"
         },
         {
           "Name": "Vary",
@@ -1351,13 +1351,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-yQd/jJ6/MSHRuX34xOLMxL7eLPQGGxCzmuITHr9mL3s="
+          "Value": "sha256-XJaRrnQt0UB+TuEk0uTD8VhlGY2Jjz0zR76Gr7zZLC8="
         }
       ]
     },
     {
       "Route": "_framework/JewShop.Shared.wasm",
-      "AssetFile": "_framework/JewShop.Shared.1mebcgvzi9.wasm",
+      "AssetFile": "_framework/JewShop.Shared.168jkdn8qz.wasm",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1370,7 +1370,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "6421"
+          "Value": "13589"
         },
         {
           "Name": "Content-Type",
@@ -1378,28 +1378,28 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"uZqhyGydIDxd1gtKYGG3Zfc/MKw0EvdYrrSQZt3wJaI=\""
+          "Value": "\"GQjrOm6QvkcS78on9ILwL2TQrxtxT9cRWwy6RupkW3A=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 11 Dec 2025 15:49:12 GMT"
+          "Value": "Fri, 12 Dec 2025 17:48:48 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-uZqhyGydIDxd1gtKYGG3Zfc/MKw0EvdYrrSQZt3wJaI="
+          "Value": "sha256-GQjrOm6QvkcS78on9ILwL2TQrxtxT9cRWwy6RupkW3A="
         }
       ]
     },
     {
       "Route": "_framework/JewShop.Shared.wasm",
-      "AssetFile": "_framework/JewShop.Shared.1mebcgvzi9.wasm.gz",
+      "AssetFile": "_framework/JewShop.Shared.168jkdn8qz.wasm.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000388500389"
+          "Quality": "0.000184535892"
         }
       ],
       "ResponseHeaders": [
@@ -1417,7 +1417,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2573"
+          "Value": "5418"
         },
         {
           "Name": "Content-Type",
@@ -1425,15 +1425,15 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"2OWQT1hU00L22NafWc81/2anoiRQuynb8Hp2WwgwoDQ=\""
+          "Value": "\"MQVqDlc9VTywoGM4Sk6C+z9jll8lKFWr1RyS+h6CxdU=\""
         },
         {
           "Name": "ETag",
-          "Value": "W/\"uZqhyGydIDxd1gtKYGG3Zfc/MKw0EvdYrrSQZt3wJaI=\""
+          "Value": "W/\"GQjrOm6QvkcS78on9ILwL2TQrxtxT9cRWwy6RupkW3A=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 11 Dec 2025 15:49:14 GMT"
+          "Value": "Fri, 12 Dec 2025 17:48:49 GMT"
         },
         {
           "Name": "Vary",
@@ -1443,13 +1443,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-uZqhyGydIDxd1gtKYGG3Zfc/MKw0EvdYrrSQZt3wJaI="
+          "Value": "sha256-GQjrOm6QvkcS78on9ILwL2TQrxtxT9cRWwy6RupkW3A="
         }
       ]
     },
     {
       "Route": "_framework/JewShop.Shared.wasm.gz",
-      "AssetFile": "_framework/JewShop.Shared.1mebcgvzi9.wasm.gz",
+      "AssetFile": "_framework/JewShop.Shared.168jkdn8qz.wasm.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1466,7 +1466,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2573"
+          "Value": "5418"
         },
         {
           "Name": "Content-Type",
@@ -1474,11 +1474,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"2OWQT1hU00L22NafWc81/2anoiRQuynb8Hp2WwgwoDQ=\""
+          "Value": "\"MQVqDlc9VTywoGM4Sk6C+z9jll8lKFWr1RyS+h6CxdU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 11 Dec 2025 15:49:14 GMT"
+          "Value": "Fri, 12 Dec 2025 17:48:49 GMT"
         },
         {
           "Name": "Vary",
@@ -1488,7 +1488,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-2OWQT1hU00L22NafWc81/2anoiRQuynb8Hp2WwgwoDQ="
+          "Value": "sha256-MQVqDlc9VTywoGM4Sk6C+z9jll8lKFWr1RyS+h6CxdU="
         }
       ]
     },
@@ -57837,17 +57837,17 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"xpYm+4wFSIUmSQNWEeJD49HGA370o1Br7cKmzLlyh38=\""
+          "Value": "\"inR7ZISzYeDUZVDg3qdOVl0PBIjlcQLZ3mV04So8czQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 11 Dec 2025 15:49:13 GMT"
+          "Value": "Sun, 14 Dec 2025 05:15:44 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-xpYm+4wFSIUmSQNWEeJD49HGA370o1Br7cKmzLlyh38="
+          "Value": "sha256-inR7ZISzYeDUZVDg3qdOVl0PBIjlcQLZ3mV04So8czQ="
         }
       ]
     },
@@ -57858,7 +57858,7 @@
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000080444051"
+          "Quality": "0.000080456996"
         }
       ],
       "ResponseHeaders": [
@@ -57876,7 +57876,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "12430"
+          "Value": "12428"
         },
         {
           "Name": "Content-Type",
@@ -57884,15 +57884,15 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"yg1CHkYbIzkFoFeIJLCnbVjlnyYyCRxjCrqRwxe9nh8=\""
+          "Value": "\"rIGs8JSo+zULe7HNP1krFL4c+4NoY2Lu1zpBJcNIDiA=\""
         },
         {
           "Name": "ETag",
-          "Value": "W/\"xpYm+4wFSIUmSQNWEeJD49HGA370o1Br7cKmzLlyh38=\""
+          "Value": "W/\"inR7ZISzYeDUZVDg3qdOVl0PBIjlcQLZ3mV04So8czQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 11 Dec 2025 10:09:22 GMT"
+          "Value": "Sun, 14 Dec 2025 05:13:35 GMT"
         },
         {
           "Name": "Vary",
@@ -57902,7 +57902,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-xpYm+4wFSIUmSQNWEeJD49HGA370o1Br7cKmzLlyh38="
+          "Value": "sha256-inR7ZISzYeDUZVDg3qdOVl0PBIjlcQLZ3mV04So8czQ="
         }
       ]
     },
@@ -57925,7 +57925,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "12430"
+          "Value": "12428"
         },
         {
           "Name": "Content-Type",
@@ -57933,11 +57933,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"yg1CHkYbIzkFoFeIJLCnbVjlnyYyCRxjCrqRwxe9nh8=\""
+          "Value": "\"rIGs8JSo+zULe7HNP1krFL4c+4NoY2Lu1zpBJcNIDiA=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 11 Dec 2025 10:09:22 GMT"
+          "Value": "Sun, 14 Dec 2025 05:13:35 GMT"
         },
         {
           "Name": "Vary",
@@ -57947,7 +57947,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-yg1CHkYbIzkFoFeIJLCnbVjlnyYyCRxjCrqRwxe9nh8="
+          "Value": "sha256-rIGs8JSo+zULe7HNP1krFL4c+4NoY2Lu1zpBJcNIDiA="
         }
       ]
     },

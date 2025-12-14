@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "k6WN5v90pGqYnpaOK3UIcJx+JYpCPcXnaQk9+StqO2M=",
+  "Hash": "U39DssnxFJXGUHB8o2X/cPWaxSWToelC6Y8SnGNqwlk=",
   "Source": "JewShop.Client",
   "BasePath": "/",
   "Mode": "Root",
@@ -31,8 +31,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "WasmResource",
       "AssetTraitValue": "manifest",
-      "Fingerprint": "q3k44toz8l",
-      "Integrity": "xpYm+4wFSIUmSQNWEeJD49HGA370o1Br7cKmzLlyh38=",
+      "Fingerprint": "ue25oypapw",
+      "Integrity": "inR7ZISzYeDUZVDg3qdOVl0PBIjlcQLZ3mV04So8czQ=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "obj\\Debug\\net9.0\\blazor.boot.json"
@@ -262,8 +262,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "WasmResource",
       "AssetTraitValue": "symbol",
-      "Fingerprint": "02qnzxqs85",
-      "Integrity": "WFXsV6klpqzaDtE36uV53pLXjKSAPhv8CxEGZeJVmEM=",
+      "Fingerprint": "58dd0tl5wr",
+      "Integrity": "Nai9uZlDlFAM0wGHELkCeUXj6YzFXOoroZX+ki9GSUk=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "obj\\Debug\\net9.0\\JewShop.Client.pdb"
@@ -283,8 +283,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "WasmResource",
       "AssetTraitValue": "runtime",
-      "Fingerprint": "x3d11g43sw",
-      "Integrity": "ndl35Q41k7VBhGmqbSxn1mu76Cpd1xWn19n2Za2kSNU=",
+      "Fingerprint": "x7rl8bckdq",
+      "Integrity": "8643lVb0GuSbdRCe1nSFMgCX+YX80cGp+IaShOXi6EQ=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\webcil\\JewShop.Client.wasm"
@@ -304,8 +304,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "WasmResource",
       "AssetTraitValue": "symbol",
-      "Fingerprint": "4pbxwn7266",
-      "Integrity": "iHr7iLaDSoKhjHlnyObNQgq2QnFQwl4wy6wThz/b4B8=",
+      "Fingerprint": "muqmk1kd1k",
+      "Integrity": "bunCcFeQOE9LNnt4JqGSi+V5D+9t5KFDbmIotlWJK2g=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Shared\\bin\\Debug\\net9.0\\JewShop.Shared.pdb"
@@ -325,8 +325,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "WasmResource",
       "AssetTraitValue": "runtime",
-      "Fingerprint": "1mebcgvzi9",
-      "Integrity": "uZqhyGydIDxd1gtKYGG3Zfc/MKw0EvdYrrSQZt3wJaI=",
+      "Fingerprint": "168jkdn8qz",
+      "Integrity": "GQjrOm6QvkcS78on9ILwL2TQrxtxT9cRWwy6RupkW3A=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\webcil\\JewShop.Shared.wasm"
@@ -6254,12 +6254,12 @@
       "OriginalItemSpec": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\bin\\Debug\\net9.0\\wwwroot\\_framework\\System.Collections.NonGeneric.wasm"
     },
     {
-      "Identity": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\compressed\\e16bqfdw76-02qnzxqs85.gz",
+      "Identity": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\compressed\\e16bqfdw76-58dd0tl5wr.gz",
       "SourceId": "JewShop.Client",
       "SourceType": "Computed",
       "ContentRoot": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "/",
-      "RelativePath": "_framework/JewShop.Client#[.{fingerprint=02qnzxqs85}]!.pdb.gz",
+      "RelativePath": "_framework/JewShop.Client#[.{fingerprint=58dd0tl5wr}]!.pdb.gz",
       "AssetKind": "Build",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -6268,8 +6268,8 @@
       "RelatedAsset": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\bin\\Debug\\net9.0\\wwwroot\\_framework\\JewShop.Client.pdb",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "elgh9f7sbq",
-      "Integrity": "QiOO/VkBlNEi1uuMVta75FmrPhIy2ErJqEnPJ+z7L0U=",
+      "Fingerprint": "pf1x8wo8qz",
+      "Integrity": "e3JlZe1uIKnwzSwsCMT8BLwkPpkF/9DGLWWFqq2bQz8=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\bin\\Debug\\net9.0\\wwwroot\\_framework\\JewShop.Client.pdb"
@@ -6401,12 +6401,12 @@
       "OriginalItemSpec": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\bin\\Debug\\net9.0\\wwwroot\\_framework\\icudt_CJK.dat"
     },
     {
-      "Identity": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\compressed\\eepeib6ojk-4nm12mv7fu.gz",
+      "Identity": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\compressed\\eepeib6ojk-yr5agmii9j.gz",
       "SourceId": "JewShop.Client",
       "SourceType": "Computed",
       "ContentRoot": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "/",
-      "RelativePath": "JewShop.Client#[.{fingerprint=4nm12mv7fu}]!.bundle.scp.css.gz",
+      "RelativePath": "JewShop.Client#[.{fingerprint=yr5agmii9j}]!.bundle.scp.css.gz",
       "AssetKind": "All",
       "AssetMode": "Reference",
       "AssetRole": "Alternative",
@@ -6415,8 +6415,8 @@
       "RelatedAsset": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\scopedcss\\projectbundle\\JewShop.Client.bundle.scp.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "xp3fcnbvj2",
-      "Integrity": "a4cSTeClpU+fs1x6fDYYhcdK5U7L+oT9Lj5uBj8qFPY=",
+      "Fingerprint": "n4pnw3j6tw",
+      "Integrity": "95pFJ59vsvVjA63AiJBHx+dzzs0BUbQvUWw9XUukIW0=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\scopedcss\\projectbundle\\JewShop.Client.bundle.scp.css"
@@ -7283,12 +7283,12 @@
       "OriginalItemSpec": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\bin\\Debug\\net9.0\\wwwroot\\_framework\\System.IO.wasm"
     },
     {
-      "Identity": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\compressed\\ku6u0y4jjt-4pbxwn7266.gz",
+      "Identity": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\compressed\\ku6u0y4jjt-muqmk1kd1k.gz",
       "SourceId": "JewShop.Client",
       "SourceType": "Computed",
       "ContentRoot": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "/",
-      "RelativePath": "_framework/JewShop.Shared#[.{fingerprint=4pbxwn7266}]!.pdb.gz",
+      "RelativePath": "_framework/JewShop.Shared#[.{fingerprint=muqmk1kd1k}]!.pdb.gz",
       "AssetKind": "Build",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -7297,8 +7297,8 @@
       "RelatedAsset": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\bin\\Debug\\net9.0\\wwwroot\\_framework\\JewShop.Shared.pdb",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "zpl5rs1cp3",
-      "Integrity": "yQd/jJ6/MSHRuX34xOLMxL7eLPQGGxCzmuITHr9mL3s=",
+      "Fingerprint": "kyk5xbdkuj",
+      "Integrity": "XJaRrnQt0UB+TuEk0uTD8VhlGY2Jjz0zR76Gr7zZLC8=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\bin\\Debug\\net9.0\\wwwroot\\_framework\\JewShop.Shared.pdb"
@@ -7976,12 +7976,12 @@
       "OriginalItemSpec": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\bin\\Debug\\net9.0\\wwwroot\\_framework\\Microsoft.Extensions.Configuration.Abstractions.wasm"
     },
     {
-      "Identity": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\compressed\\pdgynyvmnw-1mebcgvzi9.gz",
+      "Identity": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\compressed\\pdgynyvmnw-168jkdn8qz.gz",
       "SourceId": "JewShop.Client",
       "SourceType": "Computed",
       "ContentRoot": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "/",
-      "RelativePath": "_framework/JewShop.Shared#[.{fingerprint=1mebcgvzi9}]!.wasm.gz",
+      "RelativePath": "_framework/JewShop.Shared#[.{fingerprint=168jkdn8qz}]!.wasm.gz",
       "AssetKind": "Build",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -7990,8 +7990,8 @@
       "RelatedAsset": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\bin\\Debug\\net9.0\\wwwroot\\_framework\\JewShop.Shared.wasm",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "0ez4miv52v",
-      "Integrity": "2OWQT1hU00L22NafWc81/2anoiRQuynb8Hp2WwgwoDQ=",
+      "Fingerprint": "3vnsjwuhk3",
+      "Integrity": "MQVqDlc9VTywoGM4Sk6C+z9jll8lKFWr1RyS+h6CxdU=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\bin\\Debug\\net9.0\\wwwroot\\_framework\\JewShop.Shared.wasm"
@@ -8522,12 +8522,12 @@
       "OriginalItemSpec": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\bin\\Debug\\net9.0\\wwwroot\\_framework\\System.Web.HttpUtility.wasm"
     },
     {
-      "Identity": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\compressed\\sr2hcrg6kq-4nm12mv7fu.gz",
+      "Identity": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\compressed\\sr2hcrg6kq-yr5agmii9j.gz",
       "SourceId": "JewShop.Client",
       "SourceType": "Computed",
       "ContentRoot": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "/",
-      "RelativePath": "JewShop.Client#[.{fingerprint=4nm12mv7fu}]?.styles.css.gz",
+      "RelativePath": "JewShop.Client#[.{fingerprint=yr5agmii9j}]?.styles.css.gz",
       "AssetKind": "All",
       "AssetMode": "CurrentProject",
       "AssetRole": "Alternative",
@@ -8536,8 +8536,8 @@
       "RelatedAsset": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\scopedcss\\bundle\\JewShop.Client.styles.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "xp3fcnbvj2",
-      "Integrity": "a4cSTeClpU+fs1x6fDYYhcdK5U7L+oT9Lj5uBj8qFPY=",
+      "Fingerprint": "n4pnw3j6tw",
+      "Integrity": "95pFJ59vsvVjA63AiJBHx+dzzs0BUbQvUWw9XUukIW0=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\scopedcss\\bundle\\JewShop.Client.styles.css"
@@ -9215,7 +9215,7 @@
       "OriginalItemSpec": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\bin\\Debug\\net9.0\\wwwroot\\_framework\\System.Net.Requests.wasm"
     },
     {
-      "Identity": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\compressed\\wgfhk5p1sk-q3k44toz8l.gz",
+      "Identity": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\compressed\\wgfhk5p1sk-ue25oypapw.gz",
       "SourceId": "JewShop.Client",
       "SourceType": "Computed",
       "ContentRoot": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\compressed\\",
@@ -9229,8 +9229,8 @@
       "RelatedAsset": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\bin\\Debug\\net9.0\\wwwroot\\_framework\\blazor.boot.json",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "a47f8da5e1",
-      "Integrity": "yg1CHkYbIzkFoFeIJLCnbVjlnyYyCRxjCrqRwxe9nh8=",
+      "Fingerprint": "csv3yb5kp7",
+      "Integrity": "rIGs8JSo+zULe7HNP1krFL4c+4NoY2Lu1zpBJcNIDiA=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\bin\\Debug\\net9.0\\wwwroot\\_framework\\blazor.boot.json"
@@ -9257,12 +9257,12 @@
       "OriginalItemSpec": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
-      "Identity": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\compressed\\wm4ic38cpj-x3d11g43sw.gz",
+      "Identity": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\compressed\\wm4ic38cpj-x7rl8bckdq.gz",
       "SourceId": "JewShop.Client",
       "SourceType": "Computed",
       "ContentRoot": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "/",
-      "RelativePath": "_framework/JewShop.Client#[.{fingerprint=x3d11g43sw}]!.wasm.gz",
+      "RelativePath": "_framework/JewShop.Client#[.{fingerprint=x7rl8bckdq}]!.wasm.gz",
       "AssetKind": "Build",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -9271,8 +9271,8 @@
       "RelatedAsset": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\bin\\Debug\\net9.0\\wwwroot\\_framework\\JewShop.Client.wasm",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "t6tpwxfydi",
-      "Integrity": "++v+y5TRghjYnYkIUrMLTwvqtBoezJKT/2fGn0hBgik=",
+      "Fingerprint": "rlc1nr18t8",
+      "Integrity": "D8l761QIgNRQ/wX+EU+lAaQljsBkKEYD5EExawBWioo=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\bin\\Debug\\net9.0\\wwwroot\\_framework\\JewShop.Client.wasm"
@@ -9964,8 +9964,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ApplicationBundle",
-      "Fingerprint": "4nm12mv7fu",
-      "Integrity": "4DL8cah/YdcA7/2Zz0xaqPUKcvpyHehWA4Xv+2U5Me0=",
+      "Fingerprint": "yr5agmii9j",
+      "Integrity": "vgMQlgWlUAcqjzRK75dxDT2mHPniXlTcCMNPksUFSYk=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\scopedcss\\bundle\\JewShop.Client.styles.css"
@@ -9985,8 +9985,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ProjectBundle",
-      "Fingerprint": "4nm12mv7fu",
-      "Integrity": "4DL8cah/YdcA7/2Zz0xaqPUKcvpyHehWA4Xv+2U5Me0=",
+      "Fingerprint": "yr5agmii9j",
+      "Integrity": "vgMQlgWlUAcqjzRK75dxDT2mHPniXlTcCMNPksUFSYk=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\scopedcss\\projectbundle\\JewShop.Client.bundle.scp.css"
@@ -11293,11 +11293,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"xpYm+4wFSIUmSQNWEeJD49HGA370o1Br7cKmzLlyh38=\""
+          "Value": "\"inR7ZISzYeDUZVDg3qdOVl0PBIjlcQLZ3mV04So8czQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 11 Dec 2025 15:49:13 GMT"
+          "Value": "Sun, 14 Dec 2025 05:15:44 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -11307,18 +11307,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-xpYm+4wFSIUmSQNWEeJD49HGA370o1Br7cKmzLlyh38="
+          "Value": "sha256-inR7ZISzYeDUZVDg3qdOVl0PBIjlcQLZ3mV04So8czQ="
         }
       ]
     },
     {
       "Route": "_framework/blazor.boot.json",
-      "AssetFile": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\compressed\\wgfhk5p1sk-q3k44toz8l.gz",
+      "AssetFile": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\compressed\\wgfhk5p1sk-ue25oypapw.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000080444051"
+          "Quality": "0.000080456996"
         }
       ],
       "ResponseHeaders": [
@@ -11328,15 +11328,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "12430"
+          "Value": "12428"
         },
         {
           "Name": "ETag",
-          "Value": "\"yg1CHkYbIzkFoFeIJLCnbVjlnyYyCRxjCrqRwxe9nh8=\""
+          "Value": "\"rIGs8JSo+zULe7HNP1krFL4c+4NoY2Lu1zpBJcNIDiA=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 11 Dec 2025 10:09:22 GMT"
+          "Value": "Sun, 14 Dec 2025 05:13:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -11356,19 +11356,19 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"xpYm+4wFSIUmSQNWEeJD49HGA370o1Br7cKmzLlyh38=\""
+          "Value": "W/\"inR7ZISzYeDUZVDg3qdOVl0PBIjlcQLZ3mV04So8czQ=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-xpYm+4wFSIUmSQNWEeJD49HGA370o1Br7cKmzLlyh38="
+          "Value": "sha256-inR7ZISzYeDUZVDg3qdOVl0PBIjlcQLZ3mV04So8czQ="
         }
       ]
     },
     {
       "Route": "_framework/blazor.boot.json.gz",
-      "AssetFile": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\compressed\\wgfhk5p1sk-q3k44toz8l.gz",
+      "AssetFile": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\compressed\\wgfhk5p1sk-ue25oypapw.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -11377,7 +11377,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "12430"
+          "Value": "12428"
         },
         {
           "Name": "Content-Type",
@@ -11385,11 +11385,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"yg1CHkYbIzkFoFeIJLCnbVjlnyYyCRxjCrqRwxe9nh8=\""
+          "Value": "\"rIGs8JSo+zULe7HNP1krFL4c+4NoY2Lu1zpBJcNIDiA=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 11 Dec 2025 10:09:22 GMT"
+          "Value": "Sun, 14 Dec 2025 05:13:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -11407,7 +11407,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-yg1CHkYbIzkFoFeIJLCnbVjlnyYyCRxjCrqRwxe9nh8="
+          "Value": "sha256-rIGs8JSo+zULe7HNP1krFL4c+4NoY2Lu1zpBJcNIDiA="
         }
       ]
     },
@@ -14231,7 +14231,7 @@
       ]
     },
     {
-      "Route": "_framework/JewShop.Client.02qnzxqs85.pdb",
+      "Route": "_framework/JewShop.Client.58dd0tl5wr.pdb",
       "AssetFile": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\bin\\Debug\\net9.0\\wwwroot\\_framework\\JewShop.Client.pdb",
       "Selectors": [],
       "ResponseHeaders": [
@@ -14241,7 +14241,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "37268"
+          "Value": "48868"
         },
         {
           "Name": "Content-Type",
@@ -14249,11 +14249,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"WFXsV6klpqzaDtE36uV53pLXjKSAPhv8CxEGZeJVmEM=\""
+          "Value": "\"Nai9uZlDlFAM0wGHELkCeUXj6YzFXOoroZX+ki9GSUk=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 11 Dec 2025 15:49:12 GMT"
+          "Value": "Sun, 14 Dec 2025 04:55:47 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -14263,7 +14263,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "02qnzxqs85"
+          "Value": "58dd0tl5wr"
         },
         {
           "Name": "label",
@@ -14271,18 +14271,18 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-WFXsV6klpqzaDtE36uV53pLXjKSAPhv8CxEGZeJVmEM="
+          "Value": "sha256-Nai9uZlDlFAM0wGHELkCeUXj6YzFXOoroZX+ki9GSUk="
         }
       ]
     },
     {
-      "Route": "_framework/JewShop.Client.02qnzxqs85.pdb",
-      "AssetFile": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\compressed\\e16bqfdw76-02qnzxqs85.gz",
+      "Route": "_framework/JewShop.Client.58dd0tl5wr.pdb",
+      "AssetFile": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\compressed\\e16bqfdw76-58dd0tl5wr.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000034890618"
+          "Quality": "0.000026213694"
         }
       ],
       "ResponseHeaders": [
@@ -14292,15 +14292,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "28660"
+          "Value": "38147"
         },
         {
           "Name": "ETag",
-          "Value": "\"QiOO/VkBlNEi1uuMVta75FmrPhIy2ErJqEnPJ+z7L0U=\""
+          "Value": "\"e3JlZe1uIKnwzSwsCMT8BLwkPpkF/9DGLWWFqq2bQz8=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 11 Dec 2025 15:49:14 GMT"
+          "Value": "Sun, 14 Dec 2025 04:55:47 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -14320,13 +14320,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"WFXsV6klpqzaDtE36uV53pLXjKSAPhv8CxEGZeJVmEM=\""
+          "Value": "W/\"Nai9uZlDlFAM0wGHELkCeUXj6YzFXOoroZX+ki9GSUk=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "02qnzxqs85"
+          "Value": "58dd0tl5wr"
         },
         {
           "Name": "label",
@@ -14334,13 +14334,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-WFXsV6klpqzaDtE36uV53pLXjKSAPhv8CxEGZeJVmEM="
+          "Value": "sha256-Nai9uZlDlFAM0wGHELkCeUXj6YzFXOoroZX+ki9GSUk="
         }
       ]
     },
     {
-      "Route": "_framework/JewShop.Client.02qnzxqs85.pdb.gz",
-      "AssetFile": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\compressed\\e16bqfdw76-02qnzxqs85.gz",
+      "Route": "_framework/JewShop.Client.58dd0tl5wr.pdb.gz",
+      "AssetFile": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\compressed\\e16bqfdw76-58dd0tl5wr.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -14349,7 +14349,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "28660"
+          "Value": "38147"
         },
         {
           "Name": "Content-Type",
@@ -14357,11 +14357,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"QiOO/VkBlNEi1uuMVta75FmrPhIy2ErJqEnPJ+z7L0U=\""
+          "Value": "\"e3JlZe1uIKnwzSwsCMT8BLwkPpkF/9DGLWWFqq2bQz8=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 11 Dec 2025 15:49:14 GMT"
+          "Value": "Sun, 14 Dec 2025 04:55:47 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -14379,7 +14379,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "02qnzxqs85"
+          "Value": "58dd0tl5wr"
         },
         {
           "Name": "label",
@@ -14387,7 +14387,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-QiOO/VkBlNEi1uuMVta75FmrPhIy2ErJqEnPJ+z7L0U="
+          "Value": "sha256-e3JlZe1uIKnwzSwsCMT8BLwkPpkF/9DGLWWFqq2bQz8="
         }
       ]
     },
@@ -14402,7 +14402,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "37268"
+          "Value": "48868"
         },
         {
           "Name": "Content-Type",
@@ -14410,11 +14410,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"WFXsV6klpqzaDtE36uV53pLXjKSAPhv8CxEGZeJVmEM=\""
+          "Value": "\"Nai9uZlDlFAM0wGHELkCeUXj6YzFXOoroZX+ki9GSUk=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 11 Dec 2025 15:49:12 GMT"
+          "Value": "Sun, 14 Dec 2025 04:55:47 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -14424,18 +14424,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-WFXsV6klpqzaDtE36uV53pLXjKSAPhv8CxEGZeJVmEM="
+          "Value": "sha256-Nai9uZlDlFAM0wGHELkCeUXj6YzFXOoroZX+ki9GSUk="
         }
       ]
     },
     {
       "Route": "_framework/JewShop.Client.pdb",
-      "AssetFile": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\compressed\\e16bqfdw76-02qnzxqs85.gz",
+      "AssetFile": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\compressed\\e16bqfdw76-58dd0tl5wr.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000034890618"
+          "Quality": "0.000026213694"
         }
       ],
       "ResponseHeaders": [
@@ -14445,15 +14445,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "28660"
+          "Value": "38147"
         },
         {
           "Name": "ETag",
-          "Value": "\"QiOO/VkBlNEi1uuMVta75FmrPhIy2ErJqEnPJ+z7L0U=\""
+          "Value": "\"e3JlZe1uIKnwzSwsCMT8BLwkPpkF/9DGLWWFqq2bQz8=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 11 Dec 2025 15:49:14 GMT"
+          "Value": "Sun, 14 Dec 2025 04:55:47 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -14473,19 +14473,19 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"WFXsV6klpqzaDtE36uV53pLXjKSAPhv8CxEGZeJVmEM=\""
+          "Value": "W/\"Nai9uZlDlFAM0wGHELkCeUXj6YzFXOoroZX+ki9GSUk=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-WFXsV6klpqzaDtE36uV53pLXjKSAPhv8CxEGZeJVmEM="
+          "Value": "sha256-Nai9uZlDlFAM0wGHELkCeUXj6YzFXOoroZX+ki9GSUk="
         }
       ]
     },
     {
       "Route": "_framework/JewShop.Client.pdb.gz",
-      "AssetFile": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\compressed\\e16bqfdw76-02qnzxqs85.gz",
+      "AssetFile": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\compressed\\e16bqfdw76-58dd0tl5wr.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -14494,7 +14494,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "28660"
+          "Value": "38147"
         },
         {
           "Name": "Content-Type",
@@ -14502,11 +14502,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"QiOO/VkBlNEi1uuMVta75FmrPhIy2ErJqEnPJ+z7L0U=\""
+          "Value": "\"e3JlZe1uIKnwzSwsCMT8BLwkPpkF/9DGLWWFqq2bQz8=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 11 Dec 2025 15:49:14 GMT"
+          "Value": "Sun, 14 Dec 2025 04:55:47 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -14524,7 +14524,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-QiOO/VkBlNEi1uuMVta75FmrPhIy2ErJqEnPJ+z7L0U="
+          "Value": "sha256-e3JlZe1uIKnwzSwsCMT8BLwkPpkF/9DGLWWFqq2bQz8="
         }
       ]
     },
@@ -14539,7 +14539,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "47381"
+          "Value": "77077"
         },
         {
           "Name": "Content-Type",
@@ -14547,11 +14547,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"ndl35Q41k7VBhGmqbSxn1mu76Cpd1xWn19n2Za2kSNU=\""
+          "Value": "\"8643lVb0GuSbdRCe1nSFMgCX+YX80cGp+IaShOXi6EQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 11 Dec 2025 15:49:12 GMT"
+          "Value": "Sun, 14 Dec 2025 04:55:47 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -14561,18 +14561,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-ndl35Q41k7VBhGmqbSxn1mu76Cpd1xWn19n2Za2kSNU="
+          "Value": "sha256-8643lVb0GuSbdRCe1nSFMgCX+YX80cGp+IaShOXi6EQ="
         }
       ]
     },
     {
       "Route": "_framework/JewShop.Client.wasm",
-      "AssetFile": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\compressed\\wm4ic38cpj-x3d11g43sw.gz",
+      "AssetFile": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\compressed\\wm4ic38cpj-x7rl8bckdq.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000059203126"
+          "Quality": "0.000038871181"
         }
       ],
       "ResponseHeaders": [
@@ -14582,15 +14582,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "16890"
+          "Value": "25725"
         },
         {
           "Name": "ETag",
-          "Value": "\"++v+y5TRghjYnYkIUrMLTwvqtBoezJKT/2fGn0hBgik=\""
+          "Value": "\"D8l761QIgNRQ/wX+EU+lAaQljsBkKEYD5EExawBWioo=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 11 Dec 2025 15:49:14 GMT"
+          "Value": "Sun, 14 Dec 2025 04:55:47 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -14610,19 +14610,19 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"ndl35Q41k7VBhGmqbSxn1mu76Cpd1xWn19n2Za2kSNU=\""
+          "Value": "W/\"8643lVb0GuSbdRCe1nSFMgCX+YX80cGp+IaShOXi6EQ=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-ndl35Q41k7VBhGmqbSxn1mu76Cpd1xWn19n2Za2kSNU="
+          "Value": "sha256-8643lVb0GuSbdRCe1nSFMgCX+YX80cGp+IaShOXi6EQ="
         }
       ]
     },
     {
       "Route": "_framework/JewShop.Client.wasm.gz",
-      "AssetFile": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\compressed\\wm4ic38cpj-x3d11g43sw.gz",
+      "AssetFile": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\compressed\\wm4ic38cpj-x7rl8bckdq.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -14631,7 +14631,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "16890"
+          "Value": "25725"
         },
         {
           "Name": "Content-Type",
@@ -14639,11 +14639,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"++v+y5TRghjYnYkIUrMLTwvqtBoezJKT/2fGn0hBgik=\""
+          "Value": "\"D8l761QIgNRQ/wX+EU+lAaQljsBkKEYD5EExawBWioo=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 11 Dec 2025 15:49:14 GMT"
+          "Value": "Sun, 14 Dec 2025 04:55:47 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -14661,12 +14661,12 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-++v+y5TRghjYnYkIUrMLTwvqtBoezJKT/2fGn0hBgik="
+          "Value": "sha256-D8l761QIgNRQ/wX+EU+lAaQljsBkKEYD5EExawBWioo="
         }
       ]
     },
     {
-      "Route": "_framework/JewShop.Client.x3d11g43sw.wasm",
+      "Route": "_framework/JewShop.Client.x7rl8bckdq.wasm",
       "AssetFile": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\bin\\Debug\\net9.0\\wwwroot\\_framework\\JewShop.Client.wasm",
       "Selectors": [],
       "ResponseHeaders": [
@@ -14676,7 +14676,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "47381"
+          "Value": "77077"
         },
         {
           "Name": "Content-Type",
@@ -14684,11 +14684,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"ndl35Q41k7VBhGmqbSxn1mu76Cpd1xWn19n2Za2kSNU=\""
+          "Value": "\"8643lVb0GuSbdRCe1nSFMgCX+YX80cGp+IaShOXi6EQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 11 Dec 2025 15:49:12 GMT"
+          "Value": "Sun, 14 Dec 2025 04:55:47 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -14698,7 +14698,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "x3d11g43sw"
+          "Value": "x7rl8bckdq"
         },
         {
           "Name": "label",
@@ -14706,18 +14706,18 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-ndl35Q41k7VBhGmqbSxn1mu76Cpd1xWn19n2Za2kSNU="
+          "Value": "sha256-8643lVb0GuSbdRCe1nSFMgCX+YX80cGp+IaShOXi6EQ="
         }
       ]
     },
     {
-      "Route": "_framework/JewShop.Client.x3d11g43sw.wasm",
-      "AssetFile": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\compressed\\wm4ic38cpj-x3d11g43sw.gz",
+      "Route": "_framework/JewShop.Client.x7rl8bckdq.wasm",
+      "AssetFile": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\compressed\\wm4ic38cpj-x7rl8bckdq.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000059203126"
+          "Quality": "0.000038871181"
         }
       ],
       "ResponseHeaders": [
@@ -14727,15 +14727,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "16890"
+          "Value": "25725"
         },
         {
           "Name": "ETag",
-          "Value": "\"++v+y5TRghjYnYkIUrMLTwvqtBoezJKT/2fGn0hBgik=\""
+          "Value": "\"D8l761QIgNRQ/wX+EU+lAaQljsBkKEYD5EExawBWioo=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 11 Dec 2025 15:49:14 GMT"
+          "Value": "Sun, 14 Dec 2025 04:55:47 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -14755,13 +14755,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"ndl35Q41k7VBhGmqbSxn1mu76Cpd1xWn19n2Za2kSNU=\""
+          "Value": "W/\"8643lVb0GuSbdRCe1nSFMgCX+YX80cGp+IaShOXi6EQ=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "x3d11g43sw"
+          "Value": "x7rl8bckdq"
         },
         {
           "Name": "label",
@@ -14769,13 +14769,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-ndl35Q41k7VBhGmqbSxn1mu76Cpd1xWn19n2Za2kSNU="
+          "Value": "sha256-8643lVb0GuSbdRCe1nSFMgCX+YX80cGp+IaShOXi6EQ="
         }
       ]
     },
     {
-      "Route": "_framework/JewShop.Client.x3d11g43sw.wasm.gz",
-      "AssetFile": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\compressed\\wm4ic38cpj-x3d11g43sw.gz",
+      "Route": "_framework/JewShop.Client.x7rl8bckdq.wasm.gz",
+      "AssetFile": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\compressed\\wm4ic38cpj-x7rl8bckdq.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -14784,7 +14784,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "16890"
+          "Value": "25725"
         },
         {
           "Name": "Content-Type",
@@ -14792,11 +14792,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"++v+y5TRghjYnYkIUrMLTwvqtBoezJKT/2fGn0hBgik=\""
+          "Value": "\"D8l761QIgNRQ/wX+EU+lAaQljsBkKEYD5EExawBWioo=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 11 Dec 2025 15:49:14 GMT"
+          "Value": "Sun, 14 Dec 2025 04:55:47 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -14814,7 +14814,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "x3d11g43sw"
+          "Value": "x7rl8bckdq"
         },
         {
           "Name": "label",
@@ -14822,12 +14822,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-++v+y5TRghjYnYkIUrMLTwvqtBoezJKT/2fGn0hBgik="
+          "Value": "sha256-D8l761QIgNRQ/wX+EU+lAaQljsBkKEYD5EExawBWioo="
         }
       ]
     },
     {
-      "Route": "_framework/JewShop.Shared.1mebcgvzi9.wasm",
+      "Route": "_framework/JewShop.Shared.168jkdn8qz.wasm",
       "AssetFile": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\bin\\Debug\\net9.0\\wwwroot\\_framework\\JewShop.Shared.wasm",
       "Selectors": [],
       "ResponseHeaders": [
@@ -14837,7 +14837,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "6421"
+          "Value": "13589"
         },
         {
           "Name": "Content-Type",
@@ -14845,11 +14845,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"uZqhyGydIDxd1gtKYGG3Zfc/MKw0EvdYrrSQZt3wJaI=\""
+          "Value": "\"GQjrOm6QvkcS78on9ILwL2TQrxtxT9cRWwy6RupkW3A=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 11 Dec 2025 15:49:12 GMT"
+          "Value": "Fri, 12 Dec 2025 17:48:48 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -14859,7 +14859,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "1mebcgvzi9"
+          "Value": "168jkdn8qz"
         },
         {
           "Name": "label",
@@ -14867,18 +14867,18 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-uZqhyGydIDxd1gtKYGG3Zfc/MKw0EvdYrrSQZt3wJaI="
+          "Value": "sha256-GQjrOm6QvkcS78on9ILwL2TQrxtxT9cRWwy6RupkW3A="
         }
       ]
     },
     {
-      "Route": "_framework/JewShop.Shared.1mebcgvzi9.wasm",
-      "AssetFile": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\compressed\\pdgynyvmnw-1mebcgvzi9.gz",
+      "Route": "_framework/JewShop.Shared.168jkdn8qz.wasm",
+      "AssetFile": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\compressed\\pdgynyvmnw-168jkdn8qz.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000388500389"
+          "Quality": "0.000184535892"
         }
       ],
       "ResponseHeaders": [
@@ -14888,15 +14888,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2573"
+          "Value": "5418"
         },
         {
           "Name": "ETag",
-          "Value": "\"2OWQT1hU00L22NafWc81/2anoiRQuynb8Hp2WwgwoDQ=\""
+          "Value": "\"MQVqDlc9VTywoGM4Sk6C+z9jll8lKFWr1RyS+h6CxdU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 11 Dec 2025 15:49:14 GMT"
+          "Value": "Fri, 12 Dec 2025 17:48:49 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -14916,13 +14916,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"uZqhyGydIDxd1gtKYGG3Zfc/MKw0EvdYrrSQZt3wJaI=\""
+          "Value": "W/\"GQjrOm6QvkcS78on9ILwL2TQrxtxT9cRWwy6RupkW3A=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "1mebcgvzi9"
+          "Value": "168jkdn8qz"
         },
         {
           "Name": "label",
@@ -14930,13 +14930,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-uZqhyGydIDxd1gtKYGG3Zfc/MKw0EvdYrrSQZt3wJaI="
+          "Value": "sha256-GQjrOm6QvkcS78on9ILwL2TQrxtxT9cRWwy6RupkW3A="
         }
       ]
     },
     {
-      "Route": "_framework/JewShop.Shared.1mebcgvzi9.wasm.gz",
-      "AssetFile": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\compressed\\pdgynyvmnw-1mebcgvzi9.gz",
+      "Route": "_framework/JewShop.Shared.168jkdn8qz.wasm.gz",
+      "AssetFile": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\compressed\\pdgynyvmnw-168jkdn8qz.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -14945,7 +14945,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2573"
+          "Value": "5418"
         },
         {
           "Name": "Content-Type",
@@ -14953,11 +14953,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"2OWQT1hU00L22NafWc81/2anoiRQuynb8Hp2WwgwoDQ=\""
+          "Value": "\"MQVqDlc9VTywoGM4Sk6C+z9jll8lKFWr1RyS+h6CxdU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 11 Dec 2025 15:49:14 GMT"
+          "Value": "Fri, 12 Dec 2025 17:48:49 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -14975,7 +14975,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "1mebcgvzi9"
+          "Value": "168jkdn8qz"
         },
         {
           "Name": "label",
@@ -14983,12 +14983,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-2OWQT1hU00L22NafWc81/2anoiRQuynb8Hp2WwgwoDQ="
+          "Value": "sha256-MQVqDlc9VTywoGM4Sk6C+z9jll8lKFWr1RyS+h6CxdU="
         }
       ]
     },
     {
-      "Route": "_framework/JewShop.Shared.4pbxwn7266.pdb",
+      "Route": "_framework/JewShop.Shared.muqmk1kd1k.pdb",
       "AssetFile": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\bin\\Debug\\net9.0\\wwwroot\\_framework\\JewShop.Shared.pdb",
       "Selectors": [],
       "ResponseHeaders": [
@@ -14998,7 +14998,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "11832"
+          "Value": "14920"
         },
         {
           "Name": "Content-Type",
@@ -15006,11 +15006,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"iHr7iLaDSoKhjHlnyObNQgq2QnFQwl4wy6wThz/b4B8=\""
+          "Value": "\"bunCcFeQOE9LNnt4JqGSi+V5D+9t5KFDbmIotlWJK2g=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 11 Dec 2025 15:35:32 GMT"
+          "Value": "Sun, 14 Dec 2025 04:12:05 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -15020,7 +15020,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "4pbxwn7266"
+          "Value": "muqmk1kd1k"
         },
         {
           "Name": "label",
@@ -15028,18 +15028,18 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-iHr7iLaDSoKhjHlnyObNQgq2QnFQwl4wy6wThz/b4B8="
+          "Value": "sha256-bunCcFeQOE9LNnt4JqGSi+V5D+9t5KFDbmIotlWJK2g="
         }
       ]
     },
     {
-      "Route": "_framework/JewShop.Shared.4pbxwn7266.pdb",
-      "AssetFile": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\compressed\\ku6u0y4jjt-4pbxwn7266.gz",
+      "Route": "_framework/JewShop.Shared.muqmk1kd1k.pdb",
+      "AssetFile": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\compressed\\ku6u0y4jjt-muqmk1kd1k.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000146670578"
+          "Quality": "0.000123365408"
         }
       ],
       "ResponseHeaders": [
@@ -15049,15 +15049,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "6817"
+          "Value": "8105"
         },
         {
           "Name": "ETag",
-          "Value": "\"yQd/jJ6/MSHRuX34xOLMxL7eLPQGGxCzmuITHr9mL3s=\""
+          "Value": "\"XJaRrnQt0UB+TuEk0uTD8VhlGY2Jjz0zR76Gr7zZLC8=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 11 Dec 2025 15:49:14 GMT"
+          "Value": "Sun, 14 Dec 2025 04:12:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -15077,13 +15077,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"iHr7iLaDSoKhjHlnyObNQgq2QnFQwl4wy6wThz/b4B8=\""
+          "Value": "W/\"bunCcFeQOE9LNnt4JqGSi+V5D+9t5KFDbmIotlWJK2g=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "4pbxwn7266"
+          "Value": "muqmk1kd1k"
         },
         {
           "Name": "label",
@@ -15091,13 +15091,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-iHr7iLaDSoKhjHlnyObNQgq2QnFQwl4wy6wThz/b4B8="
+          "Value": "sha256-bunCcFeQOE9LNnt4JqGSi+V5D+9t5KFDbmIotlWJK2g="
         }
       ]
     },
     {
-      "Route": "_framework/JewShop.Shared.4pbxwn7266.pdb.gz",
-      "AssetFile": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\compressed\\ku6u0y4jjt-4pbxwn7266.gz",
+      "Route": "_framework/JewShop.Shared.muqmk1kd1k.pdb.gz",
+      "AssetFile": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\compressed\\ku6u0y4jjt-muqmk1kd1k.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -15106,7 +15106,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "6817"
+          "Value": "8105"
         },
         {
           "Name": "Content-Type",
@@ -15114,11 +15114,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"yQd/jJ6/MSHRuX34xOLMxL7eLPQGGxCzmuITHr9mL3s=\""
+          "Value": "\"XJaRrnQt0UB+TuEk0uTD8VhlGY2Jjz0zR76Gr7zZLC8=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 11 Dec 2025 15:49:14 GMT"
+          "Value": "Sun, 14 Dec 2025 04:12:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -15136,7 +15136,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "4pbxwn7266"
+          "Value": "muqmk1kd1k"
         },
         {
           "Name": "label",
@@ -15144,7 +15144,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-yQd/jJ6/MSHRuX34xOLMxL7eLPQGGxCzmuITHr9mL3s="
+          "Value": "sha256-XJaRrnQt0UB+TuEk0uTD8VhlGY2Jjz0zR76Gr7zZLC8="
         }
       ]
     },
@@ -15159,7 +15159,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "11832"
+          "Value": "14920"
         },
         {
           "Name": "Content-Type",
@@ -15167,11 +15167,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"iHr7iLaDSoKhjHlnyObNQgq2QnFQwl4wy6wThz/b4B8=\""
+          "Value": "\"bunCcFeQOE9LNnt4JqGSi+V5D+9t5KFDbmIotlWJK2g=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 11 Dec 2025 15:35:32 GMT"
+          "Value": "Sun, 14 Dec 2025 04:12:05 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -15181,18 +15181,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-iHr7iLaDSoKhjHlnyObNQgq2QnFQwl4wy6wThz/b4B8="
+          "Value": "sha256-bunCcFeQOE9LNnt4JqGSi+V5D+9t5KFDbmIotlWJK2g="
         }
       ]
     },
     {
       "Route": "_framework/JewShop.Shared.pdb",
-      "AssetFile": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\compressed\\ku6u0y4jjt-4pbxwn7266.gz",
+      "AssetFile": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\compressed\\ku6u0y4jjt-muqmk1kd1k.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000146670578"
+          "Quality": "0.000123365408"
         }
       ],
       "ResponseHeaders": [
@@ -15202,15 +15202,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "6817"
+          "Value": "8105"
         },
         {
           "Name": "ETag",
-          "Value": "\"yQd/jJ6/MSHRuX34xOLMxL7eLPQGGxCzmuITHr9mL3s=\""
+          "Value": "\"XJaRrnQt0UB+TuEk0uTD8VhlGY2Jjz0zR76Gr7zZLC8=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 11 Dec 2025 15:49:14 GMT"
+          "Value": "Sun, 14 Dec 2025 04:12:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -15230,19 +15230,19 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"iHr7iLaDSoKhjHlnyObNQgq2QnFQwl4wy6wThz/b4B8=\""
+          "Value": "W/\"bunCcFeQOE9LNnt4JqGSi+V5D+9t5KFDbmIotlWJK2g=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-iHr7iLaDSoKhjHlnyObNQgq2QnFQwl4wy6wThz/b4B8="
+          "Value": "sha256-bunCcFeQOE9LNnt4JqGSi+V5D+9t5KFDbmIotlWJK2g="
         }
       ]
     },
     {
       "Route": "_framework/JewShop.Shared.pdb.gz",
-      "AssetFile": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\compressed\\ku6u0y4jjt-4pbxwn7266.gz",
+      "AssetFile": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\compressed\\ku6u0y4jjt-muqmk1kd1k.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -15251,7 +15251,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "6817"
+          "Value": "8105"
         },
         {
           "Name": "Content-Type",
@@ -15259,11 +15259,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"yQd/jJ6/MSHRuX34xOLMxL7eLPQGGxCzmuITHr9mL3s=\""
+          "Value": "\"XJaRrnQt0UB+TuEk0uTD8VhlGY2Jjz0zR76Gr7zZLC8=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 11 Dec 2025 15:49:14 GMT"
+          "Value": "Sun, 14 Dec 2025 04:12:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -15281,7 +15281,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-yQd/jJ6/MSHRuX34xOLMxL7eLPQGGxCzmuITHr9mL3s="
+          "Value": "sha256-XJaRrnQt0UB+TuEk0uTD8VhlGY2Jjz0zR76Gr7zZLC8="
         }
       ]
     },
@@ -15296,7 +15296,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "6421"
+          "Value": "13589"
         },
         {
           "Name": "Content-Type",
@@ -15304,11 +15304,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"uZqhyGydIDxd1gtKYGG3Zfc/MKw0EvdYrrSQZt3wJaI=\""
+          "Value": "\"GQjrOm6QvkcS78on9ILwL2TQrxtxT9cRWwy6RupkW3A=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 11 Dec 2025 15:49:12 GMT"
+          "Value": "Fri, 12 Dec 2025 17:48:48 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -15318,18 +15318,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-uZqhyGydIDxd1gtKYGG3Zfc/MKw0EvdYrrSQZt3wJaI="
+          "Value": "sha256-GQjrOm6QvkcS78on9ILwL2TQrxtxT9cRWwy6RupkW3A="
         }
       ]
     },
     {
       "Route": "_framework/JewShop.Shared.wasm",
-      "AssetFile": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\compressed\\pdgynyvmnw-1mebcgvzi9.gz",
+      "AssetFile": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\compressed\\pdgynyvmnw-168jkdn8qz.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000388500389"
+          "Quality": "0.000184535892"
         }
       ],
       "ResponseHeaders": [
@@ -15339,15 +15339,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2573"
+          "Value": "5418"
         },
         {
           "Name": "ETag",
-          "Value": "\"2OWQT1hU00L22NafWc81/2anoiRQuynb8Hp2WwgwoDQ=\""
+          "Value": "\"MQVqDlc9VTywoGM4Sk6C+z9jll8lKFWr1RyS+h6CxdU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 11 Dec 2025 15:49:14 GMT"
+          "Value": "Fri, 12 Dec 2025 17:48:49 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -15367,19 +15367,19 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"uZqhyGydIDxd1gtKYGG3Zfc/MKw0EvdYrrSQZt3wJaI=\""
+          "Value": "W/\"GQjrOm6QvkcS78on9ILwL2TQrxtxT9cRWwy6RupkW3A=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-uZqhyGydIDxd1gtKYGG3Zfc/MKw0EvdYrrSQZt3wJaI="
+          "Value": "sha256-GQjrOm6QvkcS78on9ILwL2TQrxtxT9cRWwy6RupkW3A="
         }
       ]
     },
     {
       "Route": "_framework/JewShop.Shared.wasm.gz",
-      "AssetFile": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\compressed\\pdgynyvmnw-1mebcgvzi9.gz",
+      "AssetFile": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\compressed\\pdgynyvmnw-168jkdn8qz.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -15388,7 +15388,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2573"
+          "Value": "5418"
         },
         {
           "Name": "Content-Type",
@@ -15396,11 +15396,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"2OWQT1hU00L22NafWc81/2anoiRQuynb8Hp2WwgwoDQ=\""
+          "Value": "\"MQVqDlc9VTywoGM4Sk6C+z9jll8lKFWr1RyS+h6CxdU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 11 Dec 2025 15:49:14 GMT"
+          "Value": "Fri, 12 Dec 2025 17:48:49 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -15418,7 +15418,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-2OWQT1hU00L22NafWc81/2anoiRQuynb8Hp2WwgwoDQ="
+          "Value": "sha256-MQVqDlc9VTywoGM4Sk6C+z9jll8lKFWr1RyS+h6CxdU="
         }
       ]
     },
@@ -76677,13 +76677,13 @@
       ]
     },
     {
-      "Route": "JewShop.Client.4nm12mv7fu.bundle.scp.css",
-      "AssetFile": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\compressed\\eepeib6ojk-4nm12mv7fu.gz",
+      "Route": "JewShop.Client.bundle.scp.css",
+      "AssetFile": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\compressed\\eepeib6ojk-yr5agmii9j.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000451263538"
+          "Quality": "0.000444049734"
         }
       ],
       "ResponseHeaders": [
@@ -76693,19 +76693,19 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2215"
+          "Value": "2251"
         },
         {
           "Name": "ETag",
-          "Value": "\"a4cSTeClpU+fs1x6fDYYhcdK5U7L+oT9Lj5uBj8qFPY=\""
+          "Value": "\"95pFJ59vsvVjA63AiJBHx+dzzs0BUbQvUWw9XUukIW0=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 11 Dec 2025 08:38:15 GMT"
+          "Value": "Sun, 14 Dec 2025 05:13:34 GMT"
         },
         {
           "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
+          "Value": "no-cache"
         },
         {
           "Name": "Content-Encoding",
@@ -76721,26 +76721,18 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"4DL8cah/YdcA7/2Zz0xaqPUKcvpyHehWA4Xv+2U5Me0=\""
+          "Value": "W/\"vgMQlgWlUAcqjzRK75dxDT2mHPniXlTcCMNPksUFSYk=\""
         }
       ],
       "EndpointProperties": [
         {
-          "Name": "fingerprint",
-          "Value": "4nm12mv7fu"
-        },
-        {
-          "Name": "label",
-          "Value": "JewShop.Client.bundle.scp.css"
-        },
-        {
           "Name": "integrity",
-          "Value": "sha256-4DL8cah/YdcA7/2Zz0xaqPUKcvpyHehWA4Xv+2U5Me0="
+          "Value": "sha256-vgMQlgWlUAcqjzRK75dxDT2mHPniXlTcCMNPksUFSYk="
         }
       ]
     },
     {
-      "Route": "JewShop.Client.4nm12mv7fu.bundle.scp.css",
+      "Route": "JewShop.Client.bundle.scp.css",
       "AssetFile": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\scopedcss\\projectbundle\\JewShop.Client.bundle.scp.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -76750,7 +76742,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "10012"
+          "Value": "10913"
         },
         {
           "Name": "Content-Type",
@@ -76758,11 +76750,293 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"4DL8cah/YdcA7/2Zz0xaqPUKcvpyHehWA4Xv+2U5Me0=\""
+          "Value": "\"vgMQlgWlUAcqjzRK75dxDT2mHPniXlTcCMNPksUFSYk=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 11 Dec 2025 08:38:15 GMT"
+          "Value": "Sun, 14 Dec 2025 05:13:34 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-vgMQlgWlUAcqjzRK75dxDT2mHPniXlTcCMNPksUFSYk="
+        }
+      ]
+    },
+    {
+      "Route": "JewShop.Client.bundle.scp.css.gz",
+      "AssetFile": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\compressed\\eepeib6ojk-yr5agmii9j.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2251"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"95pFJ59vsvVjA63AiJBHx+dzzs0BUbQvUWw9XUukIW0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 14 Dec 2025 05:13:34 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-95pFJ59vsvVjA63AiJBHx+dzzs0BUbQvUWw9XUukIW0="
+        }
+      ]
+    },
+    {
+      "Route": "JewShop.Client.styles.css",
+      "AssetFile": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\compressed\\sr2hcrg6kq-yr5agmii9j.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000444049734"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2251"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"95pFJ59vsvVjA63AiJBHx+dzzs0BUbQvUWw9XUukIW0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 14 Dec 2025 05:13:34 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"vgMQlgWlUAcqjzRK75dxDT2mHPniXlTcCMNPksUFSYk=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-vgMQlgWlUAcqjzRK75dxDT2mHPniXlTcCMNPksUFSYk="
+        }
+      ]
+    },
+    {
+      "Route": "JewShop.Client.styles.css",
+      "AssetFile": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\scopedcss\\bundle\\JewShop.Client.styles.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "10913"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"vgMQlgWlUAcqjzRK75dxDT2mHPniXlTcCMNPksUFSYk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 14 Dec 2025 05:13:34 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-vgMQlgWlUAcqjzRK75dxDT2mHPniXlTcCMNPksUFSYk="
+        }
+      ]
+    },
+    {
+      "Route": "JewShop.Client.styles.css.gz",
+      "AssetFile": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\compressed\\sr2hcrg6kq-yr5agmii9j.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2251"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"95pFJ59vsvVjA63AiJBHx+dzzs0BUbQvUWw9XUukIW0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 14 Dec 2025 05:13:34 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-95pFJ59vsvVjA63AiJBHx+dzzs0BUbQvUWw9XUukIW0="
+        }
+      ]
+    },
+    {
+      "Route": "JewShop.Client.yr5agmii9j.bundle.scp.css",
+      "AssetFile": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\compressed\\eepeib6ojk-yr5agmii9j.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000444049734"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2251"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"95pFJ59vsvVjA63AiJBHx+dzzs0BUbQvUWw9XUukIW0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 14 Dec 2025 05:13:34 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"vgMQlgWlUAcqjzRK75dxDT2mHPniXlTcCMNPksUFSYk=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "yr5agmii9j"
+        },
+        {
+          "Name": "label",
+          "Value": "JewShop.Client.bundle.scp.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-vgMQlgWlUAcqjzRK75dxDT2mHPniXlTcCMNPksUFSYk="
+        }
+      ]
+    },
+    {
+      "Route": "JewShop.Client.yr5agmii9j.bundle.scp.css",
+      "AssetFile": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\scopedcss\\projectbundle\\JewShop.Client.bundle.scp.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "10913"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"vgMQlgWlUAcqjzRK75dxDT2mHPniXlTcCMNPksUFSYk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 14 Dec 2025 05:13:34 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -76772,7 +77046,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "4nm12mv7fu"
+          "Value": "yr5agmii9j"
         },
         {
           "Name": "label",
@@ -76780,13 +77054,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-4DL8cah/YdcA7/2Zz0xaqPUKcvpyHehWA4Xv+2U5Me0="
+          "Value": "sha256-vgMQlgWlUAcqjzRK75dxDT2mHPniXlTcCMNPksUFSYk="
         }
       ]
     },
     {
-      "Route": "JewShop.Client.4nm12mv7fu.bundle.scp.css.gz",
-      "AssetFile": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\compressed\\eepeib6ojk-4nm12mv7fu.gz",
+      "Route": "JewShop.Client.yr5agmii9j.bundle.scp.css.gz",
+      "AssetFile": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\compressed\\eepeib6ojk-yr5agmii9j.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -76795,7 +77069,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2215"
+          "Value": "2251"
         },
         {
           "Name": "Content-Type",
@@ -76803,11 +77077,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"a4cSTeClpU+fs1x6fDYYhcdK5U7L+oT9Lj5uBj8qFPY=\""
+          "Value": "\"95pFJ59vsvVjA63AiJBHx+dzzs0BUbQvUWw9XUukIW0=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 11 Dec 2025 08:38:15 GMT"
+          "Value": "Sun, 14 Dec 2025 05:13:34 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -76825,7 +77099,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "4nm12mv7fu"
+          "Value": "yr5agmii9j"
         },
         {
           "Name": "label",
@@ -76833,18 +77107,18 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-a4cSTeClpU+fs1x6fDYYhcdK5U7L+oT9Lj5uBj8qFPY="
+          "Value": "sha256-95pFJ59vsvVjA63AiJBHx+dzzs0BUbQvUWw9XUukIW0="
         }
       ]
     },
     {
-      "Route": "JewShop.Client.4nm12mv7fu.styles.css",
-      "AssetFile": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\compressed\\sr2hcrg6kq-4nm12mv7fu.gz",
+      "Route": "JewShop.Client.yr5agmii9j.styles.css",
+      "AssetFile": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\compressed\\sr2hcrg6kq-yr5agmii9j.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000451263538"
+          "Quality": "0.000444049734"
         }
       ],
       "ResponseHeaders": [
@@ -76854,15 +77128,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2215"
+          "Value": "2251"
         },
         {
           "Name": "ETag",
-          "Value": "\"a4cSTeClpU+fs1x6fDYYhcdK5U7L+oT9Lj5uBj8qFPY=\""
+          "Value": "\"95pFJ59vsvVjA63AiJBHx+dzzs0BUbQvUWw9XUukIW0=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 11 Dec 2025 08:38:15 GMT"
+          "Value": "Sun, 14 Dec 2025 05:13:34 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -76882,13 +77156,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"4DL8cah/YdcA7/2Zz0xaqPUKcvpyHehWA4Xv+2U5Me0=\""
+          "Value": "W/\"vgMQlgWlUAcqjzRK75dxDT2mHPniXlTcCMNPksUFSYk=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "4nm12mv7fu"
+          "Value": "yr5agmii9j"
         },
         {
           "Name": "label",
@@ -76896,12 +77170,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-4DL8cah/YdcA7/2Zz0xaqPUKcvpyHehWA4Xv+2U5Me0="
+          "Value": "sha256-vgMQlgWlUAcqjzRK75dxDT2mHPniXlTcCMNPksUFSYk="
         }
       ]
     },
     {
-      "Route": "JewShop.Client.4nm12mv7fu.styles.css",
+      "Route": "JewShop.Client.yr5agmii9j.styles.css",
       "AssetFile": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\scopedcss\\bundle\\JewShop.Client.styles.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -76911,7 +77185,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "10012"
+          "Value": "10913"
         },
         {
           "Name": "Content-Type",
@@ -76919,11 +77193,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"4DL8cah/YdcA7/2Zz0xaqPUKcvpyHehWA4Xv+2U5Me0=\""
+          "Value": "\"vgMQlgWlUAcqjzRK75dxDT2mHPniXlTcCMNPksUFSYk=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 11 Dec 2025 08:38:15 GMT"
+          "Value": "Sun, 14 Dec 2025 05:13:34 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -76933,7 +77207,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "4nm12mv7fu"
+          "Value": "yr5agmii9j"
         },
         {
           "Name": "label",
@@ -76941,13 +77215,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-4DL8cah/YdcA7/2Zz0xaqPUKcvpyHehWA4Xv+2U5Me0="
+          "Value": "sha256-vgMQlgWlUAcqjzRK75dxDT2mHPniXlTcCMNPksUFSYk="
         }
       ]
     },
     {
-      "Route": "JewShop.Client.4nm12mv7fu.styles.css.gz",
-      "AssetFile": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\compressed\\sr2hcrg6kq-4nm12mv7fu.gz",
+      "Route": "JewShop.Client.yr5agmii9j.styles.css.gz",
+      "AssetFile": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\compressed\\sr2hcrg6kq-yr5agmii9j.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -76956,7 +77230,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2215"
+          "Value": "2251"
         },
         {
           "Name": "Content-Type",
@@ -76964,11 +77238,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"a4cSTeClpU+fs1x6fDYYhcdK5U7L+oT9Lj5uBj8qFPY=\""
+          "Value": "\"95pFJ59vsvVjA63AiJBHx+dzzs0BUbQvUWw9XUukIW0=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 11 Dec 2025 08:38:15 GMT"
+          "Value": "Sun, 14 Dec 2025 05:13:34 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -76986,7 +77260,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "4nm12mv7fu"
+          "Value": "yr5agmii9j"
         },
         {
           "Name": "label",
@@ -76994,281 +77268,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-a4cSTeClpU+fs1x6fDYYhcdK5U7L+oT9Lj5uBj8qFPY="
-        }
-      ]
-    },
-    {
-      "Route": "JewShop.Client.bundle.scp.css",
-      "AssetFile": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\compressed\\eepeib6ojk-4nm12mv7fu.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.000451263538"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "2215"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"a4cSTeClpU+fs1x6fDYYhcdK5U7L+oT9Lj5uBj8qFPY=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 11 Dec 2025 08:38:15 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"4DL8cah/YdcA7/2Zz0xaqPUKcvpyHehWA4Xv+2U5Me0=\""
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-4DL8cah/YdcA7/2Zz0xaqPUKcvpyHehWA4Xv+2U5Me0="
-        }
-      ]
-    },
-    {
-      "Route": "JewShop.Client.bundle.scp.css",
-      "AssetFile": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\scopedcss\\projectbundle\\JewShop.Client.bundle.scp.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "10012"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"4DL8cah/YdcA7/2Zz0xaqPUKcvpyHehWA4Xv+2U5Me0=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 11 Dec 2025 08:38:15 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-4DL8cah/YdcA7/2Zz0xaqPUKcvpyHehWA4Xv+2U5Me0="
-        }
-      ]
-    },
-    {
-      "Route": "JewShop.Client.bundle.scp.css.gz",
-      "AssetFile": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\compressed\\eepeib6ojk-4nm12mv7fu.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "2215"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"a4cSTeClpU+fs1x6fDYYhcdK5U7L+oT9Lj5uBj8qFPY=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 11 Dec 2025 08:38:15 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-a4cSTeClpU+fs1x6fDYYhcdK5U7L+oT9Lj5uBj8qFPY="
-        }
-      ]
-    },
-    {
-      "Route": "JewShop.Client.styles.css",
-      "AssetFile": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\compressed\\sr2hcrg6kq-4nm12mv7fu.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.000451263538"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "2215"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"a4cSTeClpU+fs1x6fDYYhcdK5U7L+oT9Lj5uBj8qFPY=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 11 Dec 2025 08:38:15 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"4DL8cah/YdcA7/2Zz0xaqPUKcvpyHehWA4Xv+2U5Me0=\""
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-4DL8cah/YdcA7/2Zz0xaqPUKcvpyHehWA4Xv+2U5Me0="
-        }
-      ]
-    },
-    {
-      "Route": "JewShop.Client.styles.css",
-      "AssetFile": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\scopedcss\\bundle\\JewShop.Client.styles.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "10012"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"4DL8cah/YdcA7/2Zz0xaqPUKcvpyHehWA4Xv+2U5Me0=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 11 Dec 2025 08:38:15 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-4DL8cah/YdcA7/2Zz0xaqPUKcvpyHehWA4Xv+2U5Me0="
-        }
-      ]
-    },
-    {
-      "Route": "JewShop.Client.styles.css.gz",
-      "AssetFile": "C:\\Users\\ADMIN\\Documents\\GitHub\\JewShop\\JewShop.Client\\obj\\Debug\\net9.0\\compressed\\sr2hcrg6kq-4nm12mv7fu.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "2215"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"a4cSTeClpU+fs1x6fDYYhcdK5U7L+oT9Lj5uBj8qFPY=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 11 Dec 2025 08:38:15 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-a4cSTeClpU+fs1x6fDYYhcdK5U7L+oT9Lj5uBj8qFPY="
+          "Value": "sha256-95pFJ59vsvVjA63AiJBHx+dzzs0BUbQvUWw9XUukIW0="
         }
       ]
     },

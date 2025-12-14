@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("JewShop.Server")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+16fd8c504d0815d7496bcdb2727032c150fc8127")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+aa7a6d99a114d333d30e1daf09911ba99dd559b4")]
 [assembly: System.Reflection.AssemblyProductAttribute("JewShop.Server")]
 [assembly: System.Reflection.AssemblyTitleAttribute("JewShop.Server")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

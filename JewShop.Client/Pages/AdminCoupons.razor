@@ -1,0 +1,438 @@
+@layout AdminLayout
+@page "/admin/coupons"
+@inject CouponDataService CouponService
+
+<div class="voucher-page">
+    <div class="page-header">
+        <div>
+            <p class="eyebrow">Marketing / Promotions</p>
+            <h1>Quản lý mã giảm giá</h1>
+            <p class="subtitle">Theo dõi, tạo mới và kiểm tra Voucher theo thời gian thực.</p>
+        </div>
+        <button class="ghost" @onclick="LoadCouponsAsync">Làm mới danh sách</button>
+    </div>
+
+    <section class="form-card">
+        <h2>Tạo mã giảm giá</h2>
+        <EditForm Model="_formModel" OnValidSubmit="CreateCouponAsync">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+
+            <div class="form-grid">
+                <label>
+                    Mã
+                    <InputText class="input" @bind-Value="_formModel.Code" />
+                </label>
+
+                <label>
+                    Loại
+                    <InputSelect class="input" @bind-Value="_formModel.Type">
+                        <option value="percent">Giảm %</option>
+                        <option value="fixed">Giảm tiền</option>
+                    </InputSelect>
+                </label>
+
+                <label>
+                    Giá trị
+                    <InputNumber class="input" @bind-Value="_formModel.Value" />
+                </label>
+
+                <label>
+                    Đơn tối thiểu
+                    <InputNumber class="input" @bind-Value="_formModel.MinOrderValue" />
+                </label>
+
+                <label>
+                    Giới hạn sử dụng
+                    <InputNumber class="input" @bind-Value="_formModel.UsageLimit" />
+                </label>
+
+                <label class="checkbox-field">
+                    <InputCheckbox @bind-Value="_formModel.Active" />
+                    <span>Kích hoạt ngay</span>
+                </label>
+            </div>
+
+            <label>
+                Mô tả
+                <InputTextArea class="input" @bind-Value="_formModel.Description" rows="2" />
+            </label>
+
+            <div class="form-grid">
+                <label>
+                    Bắt đầu
+                    <InputDate class="input" @bind-Value="_formModel.StartsAt" />
+                </label>
+
+                <label>
+                    Kết thúc
+                    <InputDate class="input" @bind-Value="_formModel.ExpiresAt" />
+                </label>
+            </div>
+
+            <div class="actions">
+                <button class="primary" type="submit" disabled="@_isSubmitting">@(_isSubmitting ? "Đang lưu..." : "Tạo mã")</button>
+            </div>
+
+            @if (!string.IsNullOrWhiteSpace(_formMessage))
+            {
+                <p class="form-message">@_formMessage</p>
+            }
+        </EditForm>
+    </section>
+
+    <section class="list-card">
+        <div class="section-header">
+            <h2>Danh sách Voucher</h2>
+            <span class="count">@_coupons.Count mục</span>
+        </div>
+
+        @if (_isLoading)
+        {
+            <p>Đang tải dữ liệu...</p>
+        }
+        else if (_coupons.Count == 0)
+        {
+            <p>Chưa có mã giảm giá nào.</p>
+        }
+        else
+        {
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Mã</th>
+                            <th>Loại</th>
+                            <th>Giá trị</th>
+                            <th>Giới hạn</th>
+                            <th>Thời gian</th>
+                            <th>Trạng thái</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var coupon in _coupons)
+                        {
+                            var statusClass = GetStatusClass(coupon);
+                            <tr>
+                                <td>
+                                    <strong>@coupon.Code</strong>
+                                    <p class="muted">@coupon.Description</p>
+                                </td>
+                                <td>@(coupon.Type == "percent" ? "Giảm %" : "Giảm tiền")</td>
+                                <td>@FormatValue(coupon)</td>
+                                <td>@coupon.UsedCount/@coupon.UsageLimit</td>
+                                <td>@FormatDateRange(coupon)</td>
+                                <td>
+                                    <span class="@statusClass">@GetStatusText(coupon)</span>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+    </section>
+
+    <section class="form-card">
+        <h2>Kiểm tra mã</h2>
+        <EditForm Model="_checkModel" OnValidSubmit="CheckCouponAsync">
+            <DataAnnotationsValidator />
+            <div class="form-grid">
+                <label>
+                    Mã giảm giá
+                    <InputText class="input" @bind-Value="_checkModel.Code" />
+                </label>
+
+                <label>
+                    Giá trị đơn hàng
+                    <InputNumber class="input" @bind-Value="_checkModel.OrderAmount" />
+                </label>
+            </div>
+            <button class="ghost" type="submit">Kiểm tra</button>
+        </EditForm>
+
+        @if (_checkResult != null)
+        {
+            <div class="check-result @( _checkResult.IsValid ? "valid" : "invalid" )">
+                <strong>@_checkResult.Message</strong>
+                @if (_checkResult.DiscountAmount.HasValue)
+                {
+                    <p>Ưu đãi áp dụng: @_checkResult.DiscountAmount.Value.ToString("C")</p>
+                }
+            </div>
+        }
+    </section>
+</div>
+
+<style>
+    .voucher-page {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        padding: 24px;
+    }
+
+    .page-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+
+    .eyebrow {
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        font-size: 0.75rem;
+        color: #6b7280;
+        margin: 0 0 4px;
+    }
+
+    .subtitle {
+        color: #4b5563;
+        margin: 4px 0 0;
+    }
+
+    .form-card,
+    .list-card {
+        background: #fff;
+        border-radius: 16px;
+        padding: 24px;
+        box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .form-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 16px;
+        align-items: end;
+    }
+
+    label {
+        font-size: 0.9rem;
+        color: #111827;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .input {
+        border: 1px solid #e5e7eb;
+        border-radius: 10px;
+        padding: 10px 12px;
+        font-size: 0.95rem;
+    }
+
+    .checkbox-field {
+        flex-direction: row;
+        gap: 10px;
+        align-items: center;
+    }
+
+    .actions {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .primary,
+    .ghost {
+        border-radius: 999px;
+        padding: 10px 20px;
+        font-weight: 600;
+        border: none;
+        cursor: pointer;
+    }
+
+    .primary {
+        background: linear-gradient(135deg, #2563eb, #7c3aed);
+        color: #fff;
+    }
+
+    .primary:disabled {
+        opacity: 0.6;
+        cursor: progress;
+    }
+
+    .ghost {
+        background: #f3f4f6;
+        color: #374151;
+    }
+
+    .table-wrapper {
+        overflow-x: auto;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th,
+    td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #f3f4f6;
+    }
+
+    th {
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .muted {
+        margin: 4px 0 0;
+        color: #9ca3af;
+        font-size: 0.85rem;
+    }
+
+    .status-chip {
+        padding: 6px 14px;
+        border-radius: 999px;
+        font-size: 0.85rem;
+        font-weight: 600;
+    }
+
+    .status-active {
+        background: rgba(16, 185, 129, 0.12);
+        color: #047857;
+    }
+
+    .status-expired {
+        background: rgba(248, 113, 113, 0.12);
+        color: #b91c1c;
+    }
+
+    .form-message {
+        color: #059669;
+        font-weight: 600;
+    }
+
+    .check-result {
+        margin-top: 16px;
+        padding: 16px;
+        border-radius: 12px;
+    }
+
+    .check-result.valid {
+        background: rgba(16, 185, 129, 0.1);
+        color: #065f46;
+    }
+
+    .check-result.invalid {
+        background: rgba(248, 113, 113, 0.15);
+        color: #991b1b;
+    }
+
+    @@media (max-width: 768px) {
+        .voucher-page {
+            padding: 16px;
+        }
+    }
+</style>
+
+@code {
+    private List<CouponDto> _coupons = [];
+    private CreateCouponDto _formModel = BuildDefaultFormModel();
+    private CheckCouponRequestDto _checkModel = new();
+    private CheckCouponResponseDto? _checkResult;
+    private string? _formMessage;
+    private bool _isLoading;
+    private bool _isSubmitting;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadCouponsAsync();
+    }
+
+    private async Task LoadCouponsAsync()
+    {
+        _isLoading = true;
+        try
+        {
+            _coupons = await CouponService.GetAllAsync();
+        }
+        finally
+        {
+            _isLoading = false;
+        }
+    }
+
+    private async Task CreateCouponAsync()
+    {
+        _isSubmitting = true;
+        _formMessage = null;
+        try
+        {
+            var created = await CouponService.CreateAsync(_formModel);
+            if (created == null)
+            {
+                _formMessage = "Không thể tạo mã. Vui lòng thử lại.";
+                return;
+            }
+
+            _coupons.Insert(0, created);
+            _formMessage = "Đã tạo mã giảm giá thành công.";
+            _formModel = BuildDefaultFormModel();
+        }
+        finally
+        {
+            _isSubmitting = false;
+        }
+    }
+
+    private async Task CheckCouponAsync()
+    {
+        _checkResult = await CouponService.CheckAsync(_checkModel);
+    }
+
+    private static CreateCouponDto BuildDefaultFormModel()
+    {
+        var today = DateTime.UtcNow.Date;
+        return new CreateCouponDto
+        {
+            Code = "JEW" + Random.Shared.Next(100, 999),
+            Type = "percent",
+            Value = 10,
+            MinOrderValue = 0,
+            UsageLimit = 100,
+            StartsAt = today,
+            ExpiresAt = today.AddDays(14),
+            Active = true
+        };
+    }
+
+    private static string FormatValue(CouponDto coupon)
+    {
+        return coupon.Type == "percent"
+            ? $"{coupon.Value}%"
+            : coupon.Value.ToString("C");
+    }
+
+    private static string FormatDateRange(CouponDto coupon)
+    {
+        var start = coupon.StartsAt.ToLocalTime().ToString("dd/MM/yyyy");
+        var end = coupon.ExpiresAt.ToLocalTime().ToString("dd/MM/yyyy");
+        return $"{start} - {end}";
+    }
+
+    private static string GetStatusClass(CouponDto coupon)
+    {
+        return coupon.Active && coupon.ExpiresAt >= DateTime.UtcNow
+            ? "status-chip status-active"
+            : "status-chip status-expired";
+    }
+
+    private static string GetStatusText(CouponDto coupon)
+    {
+        return coupon.Active && coupon.ExpiresAt >= DateTime.UtcNow
+            ? "Còn hạn"
+            : "Hết hạn";
+    }
+}

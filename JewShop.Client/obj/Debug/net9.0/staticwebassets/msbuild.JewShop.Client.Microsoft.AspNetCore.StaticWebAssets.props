@@ -300,8 +300,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName>ScopedCss</AssetTraitName>
       <AssetTraitValue>ApplicationBundle</AssetTraitValue>
-      <Fingerprint>4nm12mv7fu</Fingerprint>
-      <Integrity>4DL8cah/YdcA7/2Zz0xaqPUKcvpyHehWA4Xv+2U5Me0=</Integrity>
+      <Fingerprint>yr5agmii9j</Fingerprint>
+      <Integrity>vgMQlgWlUAcqjzRK75dxDT2mHPniXlTcCMNPksUFSYk=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\JewShop.Client.styles.css'))</OriginalItemSpec>

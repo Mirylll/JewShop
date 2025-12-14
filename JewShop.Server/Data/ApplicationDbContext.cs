@@ -8,6 +8,8 @@ namespace JewShop.Server.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options) { }
 
+        public DbSet<Product> Products { get; set; }
         public DbSet<Supplier> Suppliers { get; set; }
+        public DbSet<Coupon> Coupons { get; set; }
     }
 }
