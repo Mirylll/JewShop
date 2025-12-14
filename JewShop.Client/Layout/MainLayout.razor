@@ -1,12 +1,23 @@
 ﻿@inherits LayoutComponentBase
 
-<Header />
- <main>
-            @Body
-            
- </main>
-<Footer/>
 <div class="page">
-
-   
+    <Header />
+    
+    <main class="content-container">
+        @Body
+    </main>
+    
+    <Footer />
 </div>
+
+<style>
+    .page {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+    .content-container {
+        flex: 1; 
+        background-color: #fff;
+    }
+</style>

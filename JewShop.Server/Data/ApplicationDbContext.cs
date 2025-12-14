@@ -8,8 +8,14 @@ namespace JewShop.Server.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options) { }
 
+        public DbSet<User> Users { get; set; }
+        public DbSet<Session> Sessions { get; set; }
         public DbSet<Supplier> Suppliers { get; set; }
-        public DbSet<User> Users { get; set; }       // Mới thêm
-        public DbSet<Session> Sessions { get; set; } // Mới thêm
+        
+        
+        public DbSet<Role> Roles { get; set; }
+        public DbSet<UserRole> UserRoles { get; set; }
+        public DbSet<Address> Addresses { get; set; }
+        public DbSet<PasswordReset> PasswordResets { get; set; }
     }
 }

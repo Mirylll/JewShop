@@ -30,5 +30,30 @@ namespace JewShop.Server.Controllers
             if (!result.Success) return BadRequest(result);
             return Ok(result);
         }
+
+
+
+        [HttpPost("refresh-token")]
+        public async Task<ActionResult<AuthResponse>> RefreshToken(RefreshTokenRequest request)
+        {
+            var result = await _authService.RefreshTokenAsync(request);
+            if (!result.Success) return Unauthorized(result);
+            return Ok(result);
+        }
+
+        [HttpPost("forgot-password")]
+        public async Task<IActionResult> ForgotPassword([FromBody] string email)
+        {
+            await _authService.ForgotPasswordAsync(email);
+            return Ok(new { message = "Nếu email tồn tại, hướng dẫn đã được gửi." });
+        }
+
+        [HttpPost("reset-password")]
+        public async Task<IActionResult> ResetPassword(ResetPasswordRequest request)
+        {
+            var success = await _authService.ResetPasswordAsync(request);
+            if (!success) return BadRequest("Token không hợp lệ hoặc đã hết hạn.");
+            return Ok(new { message = "Đổi mật khẩu thành công." });
+        }
     }
 }
