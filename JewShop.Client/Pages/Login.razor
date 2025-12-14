@@ -1,4 +1,120 @@
 @page "/login"
-@layout AuthLayout
+@using JewShop.Shared.Dtos
+@using JewShop.Client.Services
+@using System.Text.Json
+@inject IAuthService AuthService
+@inject NavigationManager Navigation
 
-<h2>Login Page</h2>
+<div class="d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+    <div class="card shadow-lg p-4 border-0" style="width: 100%; max-width: 400px; border-radius: 15px;">
+        <div class="text-center mb-4">
+            <h3 class="fw-bold text-primary">Đăng Nhập</h3>
+            <p class="text-muted small">Chào mừng bạn quay trở lại!</p>
+        </div>
+
+        <EditForm Model="loginModel" OnValidSubmit="HandleLogin">
+            <DataAnnotationsValidator />
+            
+            @if (!string.IsNullOrEmpty(errorMessage))
+            {
+                <div class="alert alert-danger text-center py-2 mb-3 small">
+                    <i class="bi bi-exclamation-triangle-fill me-1"></i> @errorMessage
+                </div>
+            }
+
+            <div class="mb-3">
+                <label class="form-label fw-bold small text-secondary">Email</label>
+                <InputText @bind-Value="loginModel.Email" class="form-control" placeholder="name@example.com" />
+                <ValidationMessage For="@(() => loginModel.Email)" />
+            </div>
+
+            <div class="mb-3">
+                <div class="d-flex justify-content-between">
+                    <label class="form-label fw-bold small text-secondary">Mật khẩu</label>
+                    <a href="/forgot-password" class="text-decoration-none small">Quên mật khẩu?</a>
+                </div>
+                <InputText type="password" @bind-Value="loginModel.Password" class="form-control" placeholder="••••••" />
+                <ValidationMessage For="@(() => loginModel.Password)" />
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100 py-2 fw-bold shadow-sm mb-3" disabled="@isLoading">
+                @if (isLoading) { <span class="spinner-border spinner-border-sm"></span> }
+                else { <span>Đăng Nhập</span> }
+            </button>
+
+            <div class="text-center small">
+                Chưa có tài khoản? <a href="/register" class="fw-bold text-decoration-none">Đăng ký ngay</a>
+            </div>
+        </EditForm>
+    </div>
+</div>
+
+@code {
+    private UserLoginRequest loginModel = new();
+    private string? errorMessage;
+    private bool isLoading = false;
+
+    private async Task HandleLogin()
+    {
+        isLoading = true;
+        errorMessage = null;
+
+        var result = await AuthService.Login(loginModel);
+        
+        if (result.Success)
+        {
+            // --- LOGIC PHÂN QUYỀN VÀ CHUYỂN TRANG ---
+            var role = GetUserRoleFromToken(result.Token);
+
+            if (role == "admin")
+            {
+                // Nếu là Admin -> Vào trang quản trị
+                Navigation.NavigateTo("/admin/dashboard");
+            }
+            else
+            {
+                // Nếu là Khách -> Về trang chủ mua sắm
+                Navigation.NavigateTo("/");
+            }
+        }
+        else
+        {
+            errorMessage = result.Message;
+        }
+        
+        isLoading = false;
+    }
+
+    // --- CÁC HÀM HỖ TRỢ GIẢI MÃ TOKEN (JWT) ĐỂ LẤY ROLE ---
+    private string GetUserRoleFromToken(string token)
+    {
+        try
+        {
+            var payload = token.Split('.')[1];
+            var jsonBytes = ParseBase64WithoutPadding(payload);
+            var keyValuePairs = JsonSerializer.Deserialize<Dictionary<string, object>>(jsonBytes);
+
+            if (keyValuePairs != null)
+            {
+                // Kiểm tra tên claim role (có thể là "role" hoặc URL chuẩn)
+                if (keyValuePairs.TryGetValue("role", out object? roleValue)) return roleValue.ToString() ?? "";
+                if (keyValuePairs.TryGetValue("http://schemas.microsoft.com/ws/2008/06/identity/claims/role", out object? longRoleValue)) return longRoleValue.ToString() ?? "";
+            }
+            return "";
+        }
+        catch
+        {
+            return "";
+        }
+    }
+
+    private byte[] ParseBase64WithoutPadding(string base64)
+    {
+        switch (base64.Length % 4)
+        {
+            case 2: base64 += "=="; break;
+            case 3: base64 += "="; break;
+        }
+        return Convert.FromBase64String(base64);
+    }
+}

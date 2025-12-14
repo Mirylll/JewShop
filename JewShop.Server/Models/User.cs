@@ -23,15 +23,19 @@ namespace JewShop.Server.Models
         public string PasswordHash { get; set; } = string.Empty;
 
         [Column("is_verified")]
-        public byte IsVerified { get; set; } = 0;
+        public byte IsVerified { get; set; } = 0; //
 
         [Column("type")]
-        public string Type { get; set; } = "customer"; // customer, admin, staff
+        public string Type { get; set; } = "customer"; 
 
         [Column("status")]
         public string Status { get; set; } = "active";
 
         [Column("created_at")]
         public DateTime CreatedAt { get; set; } = DateTime.Now;
+
+        
+        public virtual ICollection<UserRole> UserRoles { get; set; } = new List<UserRole>();
+        public virtual ICollection<Address> Addresses { get; set; } = new List<Address>();
     }
 }

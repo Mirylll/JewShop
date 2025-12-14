@@ -1,0 +1,90 @@
+@page "/register"
+@using JewShop.Shared.Dtos
+@using JewShop.Client.Services
+@inject IAuthService AuthService
+@inject NavigationManager Navigation
+
+<div class="d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+    <div class="card shadow-lg p-4 border-0" style="width: 100%; max-width: 400px; border-radius: 15px;">
+        <div class="text-center mb-4">
+            <h3 class="fw-bold text-primary">Đăng Ký</h3>
+            <p class="text-muted small">Tạo tài khoản để bắt đầu mua sắm</p>
+        </div>
+        
+        <EditForm Model="registerModel" OnValidSubmit="HandleRegistration">
+            <DataAnnotationsValidator />
+
+            @if (!string.IsNullOrEmpty(errorMessage))
+            {
+                <div class="alert alert-danger text-center py-2 mb-3 small">
+                    <i class="bi bi-exclamation-circle me-1"></i> @errorMessage
+                </div>
+            }
+
+            <div class="mb-3">
+                <label class="form-label fw-bold small text-secondary">Họ và tên</label>
+                <InputText @bind-Value="registerModel.Name" class="form-control" placeholder="Nhập họ tên của bạn" />
+                <ValidationMessage For="@(() => registerModel.Name)" />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-bold small text-secondary">Email</label>
+                <InputText @bind-Value="registerModel.Email" class="form-control" placeholder="name@example.com" />
+                <ValidationMessage For="@(() => registerModel.Email)" />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-bold small text-secondary">Mật khẩu</label>
+                <InputText type="password" @bind-Value="registerModel.Password" class="form-control" placeholder="••••••" />
+                <ValidationMessage For="@(() => registerModel.Password)" />
+            </div>
+
+            <div class="mb-4">
+                <label class="form-label fw-bold small text-secondary">Nhập lại mật khẩu</label>
+                <InputText type="password" @bind-Value="registerModel.ConfirmPassword" class="form-control" placeholder="••••••" />
+                <ValidationMessage For="@(() => registerModel.ConfirmPassword)" />
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100 py-2 fw-bold shadow-sm mb-3" disabled="@isLoading">
+                @if (isLoading)
+                {
+                    <span class="spinner-border spinner-border-sm me-2"></span><span>Đang xử lý...</span>
+                }
+                else
+                {
+                    <span>Đăng Ký Tài Khoản</span>
+                }
+            </button>
+        </EditForm>
+        
+        <div class="text-center small">
+            Đã có tài khoản? <a href="/login" class="fw-bold text-decoration-none">Đăng nhập ngay</a>
+        </div>
+    </div>
+</div>
+
+@code {
+    private UserRegisterRequest registerModel = new UserRegisterRequest();
+    private string errorMessage = string.Empty;
+    private bool isLoading = false;
+
+    private async Task HandleRegistration()
+    {
+        isLoading = true;
+        errorMessage = string.Empty;
+
+        var result = await AuthService.Register(registerModel);
+        
+        if (result.Success)
+        {
+            
+            Navigation.NavigateTo("/login");
+        }
+        else
+        {
+            errorMessage = result.Message;
+        }
+
+        isLoading = false;
+    }
+}

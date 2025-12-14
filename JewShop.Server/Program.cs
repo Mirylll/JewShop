@@ -8,7 +8,7 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
+// 1. Cấu hình Database
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseMySql(
@@ -17,6 +17,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     )
 );
 
+// 2. Đăng ký Services
+
 
 builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<ISupplierService, SupplierService>();
@@ -24,8 +26,8 @@ builder.Services.AddScoped<ICouponService, CouponService>();
 
 
 builder.Services.AddScoped<IAuthService, AuthService>();
-
-
+builder.Services.AddScoped<IUserService, UserService>();
+// 3. Cấu hình Authentication (JWT)
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
@@ -45,28 +47,35 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         };
     });
 
+// 4. Cấu hình Controller và Blazor View (QUAN TRỌNG)
+builder.Services.AddControllersWithViews(); // <-- Sửa: Thêm WithViews
+builder.Services.AddRazorPages();           // <-- MỚI: Bắt buộc cho Blazor Hosted
 
-builder.Services.AddControllers();
 builder.Services.AddOpenApi(); 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-
+// 5. Cấu hình Pipeline
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
     app.MapOpenApi();
+    app.UseWebAssemblyDebugging(); // <-- MỚI: Để debug được code C# bên Client
 }
 
 app.UseHttpsRedirection();
 
+app.UseBlazorFrameworkFiles(); // <-- MỚI: Dòng quan trọng nhất để load file Blazor
+app.UseStaticFiles();          // <-- MỚI: Để load ảnh, css, js trong wwwroot
 
 app.UseAuthentication(); 
 app.UseAuthorization();  
 
+app.MapRazorPages(); // <-- MỚI
 app.MapControllers();
+app.MapFallbackToFile("index.html"); // <-- MỚI: Nếu không tìm thấy API, trả về giao diện Web
 
 app.Run();
