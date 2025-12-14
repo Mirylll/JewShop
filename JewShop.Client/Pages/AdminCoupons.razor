@@ -1,6 +1,7 @@
 @layout AdminLayout
 @page "/admin/coupons"
 @inject CouponDataService CouponService
+@using System.Linq
 
 <div class="voucher-page">
     <div class="page-header">
@@ -87,6 +88,11 @@
             <span class="count">@_coupons.Count mục</span>
         </div>
 
+        @if (!string.IsNullOrWhiteSpace(_listMessage))
+        {
+            <p class="list-message">@_listMessage</p>
+        }
+
         @if (_isLoading)
         {
             <p>Đang tải dữ liệu...</p>
@@ -107,12 +113,15 @@
                             <th>Giới hạn</th>
                             <th>Thời gian</th>
                             <th>Trạng thái</th>
+                            <th>Thao tác</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach (var coupon in _coupons)
                         {
                             var statusClass = GetStatusClass(coupon);
+                            var isDeleting = _deletingCouponId == coupon.Id;
+                            var isBusy = _deletingCouponId.HasValue;
                             <tr>
                                 <td>
                                     <strong>@coupon.Code</strong>
@@ -124,6 +133,11 @@
                                 <td>@FormatDateRange(coupon)</td>
                                 <td>
                                     <span class="@statusClass">@GetStatusText(coupon)</span>
+                                </td>
+                                <td>
+                                    <button type="button" class="danger" @onclick="() => DeleteCouponAsync(coupon.Id)" disabled="@isBusy">
+                                        @(isDeleting ? "Đang xóa..." : "Xóa")
+                                    </button>
                                 </td>
                             </tr>
                         }
@@ -264,8 +278,29 @@
         color: #374151;
     }
 
+    .danger {
+        border-radius: 999px;
+        padding: 8px 16px;
+        font-weight: 600;
+        border: none;
+        cursor: pointer;
+        background: rgba(239, 68, 68, 0.15);
+        color: #b91c1c;
+    }
+
+    .danger:disabled {
+        opacity: 0.6;
+        cursor: progress;
+    }
+
     .table-wrapper {
         overflow-x: auto;
+    }
+
+    .list-message {
+        margin: 4px 0 16px;
+        color: #047857;
+        font-weight: 600;
     }
 
     table {
@@ -343,8 +378,10 @@
     private CheckCouponRequestDto _checkModel = new();
     private CheckCouponResponseDto? _checkResult;
     private string? _formMessage;
+    private string? _listMessage;
     private bool _isLoading;
     private bool _isSubmitting;
+    private int? _deletingCouponId;
 
     protected override async Task OnInitializedAsync()
     {
@@ -354,6 +391,7 @@
     private async Task LoadCouponsAsync()
     {
         _isLoading = true;
+        _listMessage = null;
         try
         {
             _coupons = await CouponService.GetAllAsync();
@@ -379,11 +417,44 @@
 
             _coupons.Insert(0, created);
             _formMessage = "Đã tạo mã giảm giá thành công.";
+            _listMessage = null;
             _formModel = BuildDefaultFormModel();
         }
         finally
         {
             _isSubmitting = false;
+        }
+    }
+
+    private async Task DeleteCouponAsync(int id)
+    {
+        if (_deletingCouponId.HasValue)
+        {
+            return;
+        }
+
+        _deletingCouponId = id;
+        _listMessage = null;
+        try
+        {
+            var deleted = await CouponService.DeleteAsync(id);
+            if (!deleted)
+            {
+                _listMessage = "Không thể xóa mã. Vui lòng thử lại.";
+                return;
+            }
+
+            var coupon = _coupons.FirstOrDefault(c => c.Id == id);
+            if (coupon != null)
+            {
+                _coupons.Remove(coupon);
+            }
+
+            _listMessage = "Đã xóa mã giảm giá.";
+        }
+        finally
+        {
+            _deletingCouponId = null;
         }
     }
 

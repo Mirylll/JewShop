@@ -4,6 +4,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace JewShop.Server.Controllers
 {
+    
+
+
     [ApiController]
     [Route("api/[controller]")]
     public class SuppliersController : ControllerBase
@@ -14,6 +17,9 @@ namespace JewShop.Server.Controllers
         {
             _supplierService = supplierService;
         }
+
+
+    
 
         [HttpGet]
         public async Task<IActionResult> GetAll([FromQuery] string? search)
@@ -75,4 +81,5 @@ namespace JewShop.Server.Controllers
             return NoContent();
         }
     }
+    
 }

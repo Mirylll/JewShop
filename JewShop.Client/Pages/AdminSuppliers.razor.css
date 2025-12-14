@@ -112,7 +112,7 @@ button.link.danger {
     color: #991b1b;
 }
 
-.modal-backdrop {
+.supplier-modal-overlay {
     position: fixed;
     inset: 0;
     background: rgba(15, 23, 42, 0.35);
@@ -120,24 +120,38 @@ button.link.danger {
     align-items: center;
     justify-content: center;
     z-index: 1000;
+    padding: 24px;
 }
 
-.modal {
+.supplier-modal {
     background: #fff;
     border-radius: 20px;
     padding: 24px;
     width: min(420px, 90vw);
     box-shadow: 0 20px 60px rgba(15, 23, 42, 0.15);
+    color: #0f172a;
+    position: relative;
+    z-index: 1001;
+    animation: modalFade 0.2s ease;
 }
 
-.modal-header {
+.supplier-modal::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    border: 1px solid rgba(99, 102, 241, 0.25);
+    pointer-events: none;
+}
+
+.supplier-modal-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 16px;
 }
 
-.modal-header .icon {
+.supplier-modal-header .icon {
     background: none;
     border: none;
     font-size: 22px;
@@ -163,11 +177,22 @@ button.link.danger {
     border: 1px solid #d1d5db;
 }
 
-.modal-actions {
+.supplier-modal-actions {
     margin-top: 20px;
     display: flex;
     justify-content: flex-end;
     gap: 10px;
+}
+
+@keyframes modalFade {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .empty-state {
