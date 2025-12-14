@@ -18,7 +18,13 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 );
 
 // 2. Đăng ký Services
+
+
+builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<ISupplierService, SupplierService>();
+builder.Services.AddScoped<ICouponService, CouponService>();
+
+
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IUserService, UserService>();
 // 3. Cấu hình Authentication (JWT)

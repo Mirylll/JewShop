@@ -6,37 +6,47 @@
 
     <nav class="menu">
 
-        <a class="item">
-            <img class="icon" src="assets/icons/statistical.svg" />
-            <span class="label">Statistical</span>
-        </a>
-
-        <NavLink class="item" href="/admin/suppliers" Match="NavLinkMatch.Prefix" activeClass="active">
-            <img class="icon" src="assets/icons/supplier.svg" />
-            <span class="label">Supplier</span>
+        <NavLink class="item" href="/admin/statistical" Match="NavLinkMatch.Prefix" activeClass="active">
+            <div class = "item-content">
+                <img class="icon" src="assets/icons/statistical.svg" />
+                <span class="label">Statistical</span>
+            </div>
         </NavLink>
 
-        <a class="item">
-            <img class="icon" src="assets/icons/coupon.svg" />
-            <span class="label">Coupon</span>
-        </a>
+        <NavLink class="item" href="/admin/products" Match="NavLinkMatch.Prefix" activeClass="active">
+            <div class = "item-content">
+                <img class="icon" src="assets/icons/product.svg" />
+                <span class="label">Product</span>
+            </div>
+        </NavLink>
 
-        <a class="item">
-            <img class="icon" src="assets/icons/import.svg" />
-            <span class="label">Import</span>
-        </a>
+        <NavLink class="item" href="/admin/suppliers" Match="NavLinkMatch.Prefix" activeClass="active">
+            <div class = "item-content">
+                <img class="icon" src="assets/icons/supplier.svg" />
+                <span class="label">Supplier</span>
+            </div>
+        </NavLink>
 
-        <a class="item">
-            <img class="icon" src="assets/icons/account.svg" />
-            <span class="label">Account</span>
-        </a>
+        <NavLink class="item" href="/admin/coupons" Match="NavLinkMatch.Prefix" activeClass="active">
+            <div class = "item-content">
+                <img class="icon" src="assets/icons/coupon.svg" />
+                <span class="label">Coupon</span>
+            </div>
+        </NavLink>
+
+         <NavLink class="item" href="/admin/orders" Match="NavLinkMatch.Prefix" activeClass="active">
+            <div class = "item-content">
+                <img class="icon" src="assets/icons/order.svg" />
+                <span class="label">Order</span>
+            </div>
+        </NavLink>
+
+        <NavLink class="item" href="/admin/accounts" Match="NavLinkMatch.Prefix" activeClass="active">
+            <div class = "item-content">
+                <img class="icon" src="assets/icons/avatar.svg" />
+                <span class="label">Account</span>
+            </div>
+        </NavLink>
 
     </nav>
-
-    <div class="bottom">
-        <a class="profile">
-            <img class="icon" src="assets/icons/avatar.svg" />
-        </a>
-    </div>
-
 </aside>

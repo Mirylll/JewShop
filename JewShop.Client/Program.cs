@@ -26,6 +26,9 @@ builder.Services.AddBlazoredLocalStorage();
 
 // B. Thêm Core Authorization để dùng được thẻ <AuthorizeView> trong HTML
 builder.Services.AddAuthorizationCore();
+builder.Services.AddScoped<CouponDataService>();
+builder.Services.AddScoped<ProductDataService>();
+builder.Services.AddScoped<SupplierDataService>();
 
 // C. Đăng ký Custom Provider
 // Dòng này báo cho Blazor biết: "Đừng dùng cái check đăng nhập mặc định, hãy dùng cái CustomAuthStateProvider mà tôi vừa viết"
