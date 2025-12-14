@@ -1,0 +1,237 @@
+﻿@page "/admin/orders"
+@layout AdminLayout
+@using JewShop.Client.Services
+@using JewShop.Shared.Dtos
+@inject OrderService OrderService
+@inject IJSRuntime JsRuntime
+
+<PageTitle>Quản lý đơn hàng</PageTitle>
+
+<div class="admin-orders-page">
+    <div class="page-header">
+        <h1>Quản lý đơn hàng</h1>
+        <button class="ghost" @onclick="LoadOrders">Làm mới</button>
+    </div>
+
+    @if (isLoading)
+    {
+        <div class="loading">Đang tải dữ liệu...</div>
+    }
+    else if (orders.Count == 0)
+    {
+        <div class="empty-state">
+            <p>Chưa có đơn hàng nào.</p>
+        </div>
+    }
+    else
+    {
+        <div class="table-wrapper">
+            <table class="orders-table">
+                <thead>
+                    <tr>
+                        <th>Mã đơn</th>
+                        <th>Khách hàng</th>
+                        <th>Ngày đặt</th>
+                        <th>Tổng tiền</th>
+                        <th>Trạng thái</th>
+                        <th>Hành động</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var order in orders)
+                    {
+                        <tr>
+                            <td><strong>@order.OrderCode</strong></td>
+                            <td>
+                                <div>@order.CustomerName</div>
+                                <small class="text-muted">@order.CustomerPhone</small>
+                            </td>
+                            <td>@order.CreatedAt.ToString("dd/MM/yyyy HH:mm")</td>
+                            <td>@order.TotalAmount.ToString("N0") VND</td>
+                            <td>
+                                <span class="badge @GetStatusClass(order.Status)">
+                                    @GetStatusLabel(order.Status)
+                                </span>
+                            </td>
+                            <td>
+                                <button class="btn-link" @onclick="() => ViewOrder(order)">Chi tiết</button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>
+
+@if (selectedOrder != null)
+{
+    <div class="modal-backdrop" @onclick="CloseModal">
+        <div class="custom-modal" @onclick:stopPropagation>
+            <div class="modal-header">
+                <h3>Chi tiết đơn hàng @selectedOrder.OrderCode</h3>
+                <button class="close-btn" @onclick="CloseModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="order-info-grid">
+                    <div class="info-section">
+                        <h4>Thông tin khách hàng</h4>
+                        <p><strong>Tên:</strong> @selectedOrder.CustomerName</p>
+                        <p><strong>SĐT:</strong> @selectedOrder.CustomerPhone</p>
+                        <p><strong>Địa chỉ:</strong> @selectedOrder.ShippingAddress</p>
+                    </div>
+                    <div class="info-section">
+                        <h4>Thông tin đơn hàng</h4>
+                        <p><strong>Ngày đặt:</strong> @selectedOrder.CreatedAt.ToString("dd/MM/yyyy HH:mm")</p>
+                        <p><strong>Trạng thái:</strong> 
+                            <select value="@selectedOrder.Status" @onchange="@(e => UpdateStatus(selectedOrder.Id, e.Value?.ToString()))">
+                                <option value="pending" disabled="@(!IsTransitionValid(selectedOrder.Status, "pending"))">Chờ xác nhận</option>
+                                <option value="confirmed" disabled="@(!IsTransitionValid(selectedOrder.Status, "confirmed"))">Đã xác nhận</option>
+                                <option value="shipping" disabled="@(!IsTransitionValid(selectedOrder.Status, "shipping"))">Đang giao</option>
+                                <option value="delivered" disabled="@(!IsTransitionValid(selectedOrder.Status, "delivered"))">Đã giao</option>
+                                <option value="cancelled" disabled="@(!IsTransitionValid(selectedOrder.Status, "cancelled"))">Đã hủy</option>
+                            </select>
+                        </p>
+                    </div>
+                </div>
+
+                <h4>Sản phẩm</h4>
+                <table class="order-items-table">
+                    <thead>
+                        <tr>
+                            <th>Sản phẩm</th>
+                            <th>Đơn giá</th>
+                            <th>SL</th>
+                            <th>Thành tiền</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in selectedOrder.OrderItems)
+                        {
+                            <tr>
+                                <td>
+                                    <div class="item-cell">
+                                        <img src="@(item.ProductImage ?? "/images/placeholder.png")" width="40" height="40" />
+                                        <div>
+                                            <div>@item.ProductName</div>
+                                            <small>@item.Size @item.Color</small>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>@item.UnitPrice.ToString("N0")</td>
+                                <td>@item.Quantity</td>
+                                <td>@item.TotalPrice.ToString("N0")</td>
+                            </tr>
+                        }
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="3" class="text-right">Tạm tính:</td>
+                            <td>@selectedOrder.Subtotal.ToString("N0")</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" class="text-right">Phí vận chuyển:</td>
+                            <td>@selectedOrder.ShippingFee.ToString("N0")</td>
+                        </tr>
+                        @if (selectedOrder.DiscountAmount > 0)
+                        {
+                            <tr>
+                                <td colspan="3" class="text-right">Giảm giá:</td>
+                                <td>-@selectedOrder.DiscountAmount.ToString("N0")</td>
+                            </tr>
+                        }
+                        <tr class="total-row">
+                            <td colspan="3" class="text-right">Tổng cộng:</td>
+                            <td>@selectedOrder.TotalAmount.ToString("N0")</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    private List<OrderDto> orders = new();
+    private OrderDto? selectedOrder;
+    private bool isLoading = true;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadOrders();
+    }
+
+    private async Task LoadOrders()
+    {
+        isLoading = true;
+        orders = await OrderService.GetAllOrders();
+        isLoading = false;
+    }
+
+    private void ViewOrder(OrderDto order)
+    {
+        selectedOrder = order;
+    }
+
+    private void CloseModal()
+    {
+        selectedOrder = null;
+    }
+
+    private async Task UpdateStatus(int orderId, string? newStatus)
+    {
+        if (string.IsNullOrEmpty(newStatus)) return;
+        
+        var success = await OrderService.UpdateStatus(orderId, newStatus);
+        if (success)
+        {
+            if (selectedOrder != null) selectedOrder.Status = newStatus;
+            await LoadOrders();
+        }
+        else
+        {
+            // Reset selection if update failed (e.g. invalid transition)
+            StateHasChanged();
+        }
+    }
+
+    private bool IsTransitionValid(string current, string target)
+    {
+        if (current == target) return true;
+        return current switch
+        {
+            "pending" => target == "confirmed" || target == "cancelled",
+            "confirmed" => target == "shipping" || target == "cancelled",
+            "shipping" => target == "delivered" || target == "cancelled",
+            "delivered" => false,
+            "cancelled" => false,
+            _ => false
+        };
+    }
+
+    private string GetStatusClass(string status)
+    {
+        return status switch
+        {
+            "pending" => "status-pending",
+            "confirmed" => "status-confirmed",
+            "shipping" => "status-shipping",
+            "delivered" => "status-delivered",
+            "cancelled" => "status-cancelled",
+            _ => "" 
+        };
+    }
+
+    private string GetStatusLabel(string status)
+    {
+        return status switch
+        {
+            "pending" => "Chờ xác nhận",
+            "confirmed" => "Đã xác nhận",
+            "shipping" => "Đang giao",
+            "delivered" => "Đã giao",
+            "cancelled" => "Đã hủy",
+            _ => status
+        };
+    }
+}

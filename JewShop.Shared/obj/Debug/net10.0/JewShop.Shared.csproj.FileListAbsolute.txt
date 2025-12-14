@@ -1,0 +1,12 @@
+C:\Users\Khoa\Desktop\.net\JewShop\JewShop.Shared\bin\Debug\net10.0\JewShop.Shared.deps.json
+C:\Users\Khoa\Desktop\.net\JewShop\JewShop.Shared\bin\Debug\net10.0\JewShop.Shared.dll
+C:\Users\Khoa\Desktop\.net\JewShop\JewShop.Shared\bin\Debug\net10.0\JewShop.Shared.pdb
+C:\Users\Khoa\Desktop\.net\JewShop\JewShop.Shared\obj\Debug\net10.0\JewShop.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Khoa\Desktop\.net\JewShop\JewShop.Shared\obj\Debug\net10.0\JewShop.Shared.AssemblyInfoInputs.cache
+C:\Users\Khoa\Desktop\.net\JewShop\JewShop.Shared\obj\Debug\net10.0\JewShop.Shared.AssemblyInfo.cs
+C:\Users\Khoa\Desktop\.net\JewShop\JewShop.Shared\obj\Debug\net10.0\JewShop.Shared.csproj.CoreCompileInputs.cache
+C:\Users\Khoa\Desktop\.net\JewShop\JewShop.Shared\obj\Debug\net10.0\JewShop.Shared.sourcelink.json
+C:\Users\Khoa\Desktop\.net\JewShop\JewShop.Shared\obj\Debug\net10.0\JewShop.Shared.dll
+C:\Users\Khoa\Desktop\.net\JewShop\JewShop.Shared\obj\Debug\net10.0\refint\JewShop.Shared.dll
+C:\Users\Khoa\Desktop\.net\JewShop\JewShop.Shared\obj\Debug\net10.0\JewShop.Shared.pdb
+C:\Users\Khoa\Desktop\.net\JewShop\JewShop.Shared\obj\Debug\net10.0\ref\JewShop.Shared.dll

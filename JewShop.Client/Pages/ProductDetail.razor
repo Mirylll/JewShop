@@ -1,0 +1,258 @@
+﻿@page "/product/{Id:int}"
+@using JewShop.Client.Services
+@using JewShop.Shared.Dtos
+@inject ProductDataService ProductService
+@inject CartService CartService
+@inject NavigationManager Navigation
+
+<PageTitle>@product?.Name - JewShop</PageTitle>
+
+<div class="product-detail-page">
+    @if (isLoading)
+    {
+        <div class="loading">
+            <p>Đang tải thông tin sản phẩm...</p>
+        </div>
+    }
+    else if (product == null)
+    {
+        <div class="not-found">
+            <h2>Không tìm thấy sản phẩm</h2>
+            <p>Sản phẩm bạn đang tìm không tồn tại hoặc đã bị xoá.</p>
+            <a href="/" class="back-button">← Quay lại trang chủ</a>
+        </div>
+    }
+    else
+    {
+        <div class="product-container">
+            <div class="product-images">
+                <div class="main-image">
+                    @if (!string.IsNullOrWhiteSpace(selectedImageUrl))
+                    {
+                        <img src="@selectedImageUrl" alt="@product.Name" />
+                    }
+                    else
+                    {
+                        <div class="no-image">
+                            <span>📷</span>
+                            <p>Chưa có hình ảnh</p>
+                        </div>
+                    }
+                </div>
+                @if (product.Images.Count > 0 || !string.IsNullOrEmpty(product.ThumbnailUrl))
+                {
+                    <div class="image-gallery">
+                        @if (!string.IsNullOrEmpty(product.ThumbnailUrl))
+                        {
+                             <div class="gallery-image @(selectedImageUrl == product.ThumbnailUrl ? "active" : "")" 
+                                  @onclick="() => SelectImage(product.ThumbnailUrl)">
+                                <img src="@product.ThumbnailUrl" alt="@product.Name" />
+                            </div>
+                        }
+                        @foreach (var image in product.Images.OrderBy(i => i.SortOrder))
+                        {
+                            <div class="gallery-image @(selectedImageUrl == image.ImageUrl ? "active" : "")" 
+                                 @onclick="() => SelectImage(image.ImageUrl)">
+                                <img src="@image.ImageUrl" alt="@product.Name" />
+                            </div>
+                        }
+                    </div>
+                }
+            </div>
+
+            <div class="product-details">
+                <div class="breadcrumb">
+                    <a href="/">Trang chủ</a> / 
+                    <a href="/products">Sản phẩm</a> / 
+                    <span>@product.Name</span>
+                </div>
+
+                <h1>@product.Name</h1>
+
+                @if (!string.IsNullOrWhiteSpace(product.Category))
+                {
+                    <p class="category">@product.Category</p>
+                }
+
+                <div class="price-section">
+                    <p class="price">@product.BasePrice.ToString("N0") VNĐ</p>
+                </div>
+
+                @if (!string.IsNullOrWhiteSpace(product.Description))
+                {
+                    <div class="description">
+                        <h3>Mô tả sản phẩm</h3>
+                        <p>@product.Description</p>
+                    </div>
+                }
+
+                <div class="specifications">
+                    <h3>Thông số kỹ thuật</h3>
+                    <table>
+                        @if (!string.IsNullOrWhiteSpace(product.Material))
+                        {
+                            <tr>
+                                <td class="spec-label">Chất liệu:</td>
+                                <td class="spec-value">@product.Material</td>
+                            </tr>
+                        }
+                        @if (!string.IsNullOrWhiteSpace(product.Gemstone))
+                        {
+                            <tr>
+                                <td class="spec-label">Đá quý:</td>
+                                <td class="spec-value">@product.Gemstone</td>
+                            </tr>
+                        }
+                        @if (product.Weight.HasValue)
+                        {
+                            <tr>
+                                <td class="spec-label">Trọng lượng:</td>
+                                <td class="spec-value">@product.Weight.Value.ToString("N2") g</td>
+                            </tr>
+                        }
+                    </table>
+                </div>
+
+                @if (product.Variants.Count > 0)
+                {
+                    <div class="variants">
+                        <h3>Chọn phân loại hàng</h3>
+                        <div class="variant-list">
+                            @foreach (var variant in product.Variants)
+                            {
+                                <div class="variant-card @(selectedVariantId == variant.Id ? "selected" : "")" 
+                                     @onclick="() => SelectVariant(variant.Id)">
+                                    <div class="variant-info">
+                                        @if (!string.IsNullOrWhiteSpace(variant.Size))
+                                        {
+                                            <span class="variant-detail">Size: @variant.Size</span>
+                                        }
+                                        @if (!string.IsNullOrWhiteSpace(variant.Color))
+                                        {
+                                            <span class="variant-detail">Màu: @variant.Color</span>
+                                        }
+                                        @if (variant.Price.HasValue)
+                                        {
+                                            <span class="variant-price">@variant.Price.Value.ToString("N0") VNĐ</span>
+                                        }
+                                    </div>
+                                    <div class="variant-stock">
+                                        @if (variant.Stock > 0)
+                                        {
+                                            <span class="in-stock">Còn hàng (@variant.Stock)</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="out-of-stock">Hết hàng</span>
+                                        }
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                }
+
+                <div class="actions">
+                    <button class="add-to-cart" @onclick="AddToCart" disabled="@(selectedVariantId == null)">
+                        🛒 Thêm vào giỏ hàng
+                    </button>
+                    <button class="buy-now" @onclick="BuyNow" disabled="@(selectedVariantId == null)">
+                        ⚡ Mua ngay
+                    </button>
+                </div>
+                
+                @if (selectedVariantId == null && product.Variants.Count > 0)
+                {
+                    <p class="text-danger mt-2">Vui lòng chọn phân loại hàng</p>
+                }
+                else if (product.Variants.Count == 0)
+                {
+                    <p class="text-danger mt-2">Sản phẩm này tạm thời hết hàng</p>
+                }
+            </div>
+        </div>
+    }
+</div>
+
+@code {
+    [Parameter]
+    public int Id { get; set; }
+
+    private ProductDto? product;
+    private bool isLoading = true;
+    private string? selectedImageUrl;
+    private int? selectedVariantId;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadProduct();
+    }
+
+    protected override async Task OnParametersSetAsync()
+    {
+        if (product != null && product.Id != Id)
+        {
+            await LoadProduct();
+        }
+    }
+
+    private async Task LoadProduct()
+    {
+        isLoading = true;
+        try
+        {
+            product = await ProductService.GetByIdAsync(Id);
+            if (product != null)
+            {
+                selectedImageUrl = product.ThumbnailUrl;
+                if (string.IsNullOrEmpty(selectedImageUrl) && product.Images.Count > 0)
+                {
+                    selectedImageUrl = product.Images.OrderBy(i => i.SortOrder).First().ImageUrl;
+                }
+                
+                // Auto-select first variant if available
+                if (product.Variants.Count > 0)
+                {
+                    selectedVariantId = product.Variants.First().Id;
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error loading product: {ex.Message}");
+        }
+        finally
+        {
+            isLoading = false;
+        }
+    }
+
+    private void SelectImage(string? url)
+    {
+        if (!string.IsNullOrEmpty(url))
+        {
+            selectedImageUrl = url;
+        }
+    }
+
+    private void SelectVariant(int variantId)
+    {
+        selectedVariantId = variantId;
+    }
+
+    private async Task AddToCart()
+    {
+        if (selectedVariantId == null) return;
+        
+        await CartService.AddToCart(selectedVariantId.Value, 1);
+        // Optional: Show feedback
+    }
+
+    private async Task BuyNow()
+    {
+        if (selectedVariantId == null) return;
+        
+        await CartService.AddToCart(selectedVariantId.Value, 1);
+        Navigation.NavigateTo("/cart");
+    }
+}

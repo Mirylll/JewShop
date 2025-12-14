@@ -1,0 +1,228 @@
+﻿@page "/admin/coupons"
+@layout AdminLayout
+@using JewShop.Client.Services
+@using JewShop.Shared.Dtos
+@inject CouponService CouponService
+@inject IJSRuntime JSRuntime
+
+<PageTitle>Quản lý mã giảm giá - JewShop Admin</PageTitle>
+
+<div class="admin-coupons-page">
+    <div class="page-header">
+        <h1>Quản lý mã giảm giá</h1>
+        <button class="btn-primary" @onclick="OpenCreateModal">
+            + Thêm mã mới
+        </button>
+    </div>
+
+    <div class="table-wrapper">
+        <table class="coupons-table">
+            <thead>
+                <tr>
+                    <th>Mã</th>
+                    <th>Loại</th>
+                    <th>Giá trị</th>
+                    <th>Đã dùng / Giới hạn</th>
+                    <th>Trạng thái</th>
+                    <th>Hết hạn</th>
+                    <th>Thao tác</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (coupons == null)
+                {
+                    <tr><td colspan="7" class="text-center">Đang tải...</td></tr>
+                }
+                else if (coupons.Count == 0)
+                {
+                    <tr><td colspan="7" class="text-center">Chưa có mã giảm giá nào</td></tr>
+                }
+                else
+                {
+                    @foreach (var coupon in coupons)
+                    {
+                        <tr>
+                            <td><strong>@coupon.Code</strong></td>
+                            <td>@(coupon.Type == "percent" ? "Phần trăm" : "Số tiền cố định")</td>
+                            <td>
+                                @if (coupon.Type == "percent")
+                                {
+                                    <span>@coupon.Value.ToString("N0")%</span>
+                                }
+                                else
+                                {
+                                    <span>@coupon.Value.ToString("N0") VND</span>
+                                }
+                            </td>
+                            <td>
+                                @coupon.UsedCount / @(coupon.UsageLimit == 0 ? "∞" : coupon.UsageLimit.ToString())
+                            </td>
+                            <td>
+                                <span class="badge @(coupon.Active ? "status-active" : "status-inactive")">
+                                    @(coupon.Active ? "Hoạt động" : "Vô hiệu")
+                                </span>
+                            </td>
+                            <td>
+                                @(coupon.ExpiryDate.HasValue ? coupon.ExpiryDate.Value.ToString("dd/MM/yyyy") : "Không thời hạn")
+                            </td>
+                            <td>
+                                <button class="btn-icon" @onclick="() => OpenEditModal(coupon)">✏️</button>
+                                <button class="btn-icon delete" @onclick="() => DeleteCoupon(coupon.Id)">🗑️</button>
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@if (showModal)
+{
+    <div class="modal-backdrop" @onclick="CloseModal">
+        <div class="custom-modal" @onclick:stopPropagation>
+            <div class="modal-header">
+                <h3>@(isEditing ? "Cập nhật mã giảm giá" : "Thêm mã giảm giá mới")</h3>
+                <button class="close-btn" @onclick="CloseModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                @if (!string.IsNullOrEmpty(errorMessage))
+                {
+                    <div class="alert alert-danger" style="color: red; margin-bottom: 1rem;">@errorMessage</div>
+                }
+                <EditForm Model="currentCoupon" OnValidSubmit="HandleSubmit">
+                    <DataAnnotationsValidator />
+                    
+                    <div class="form-group">
+                        <label>Mã giảm giá</label>
+                        <InputText @bind-Value="currentCoupon.Code" class="form-control" placeholder="VD: SUMMER2024" />
+                        <ValidationMessage For="() => currentCoupon.Code" />
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Loại giảm giá</label>
+                            <InputSelect @bind-Value="currentCoupon.Type" class="form-control">
+                                <option value="percent">Phần trăm (%)</option>
+                                <option value="fixed">Số tiền cố định (VND)</option>
+                            </InputSelect>
+                        </div>
+                        <div class="form-group">
+                            <label>Giá trị</label>
+                            <InputNumber @bind-Value="currentCoupon.Value" class="form-control" />
+                            <ValidationMessage For="() => currentCoupon.Value" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Ngày hết hạn (để trống nếu không có)</label>
+                        <InputDate @bind-Value="currentCoupon.ExpiryDate" class="form-control" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Giới hạn số lần sử dụng (0 = không giới hạn)</label>
+                        <InputNumber @bind-Value="currentCoupon.UsageLimit" class="form-control" />
+                    </div>
+
+                    <div class="form-group checkbox-group">
+                        <label>
+                            <InputCheckbox @bind-Value="currentCoupon.Active" />
+                            Kích hoạt ngay
+                        </label>
+                    </div>
+
+                    <div class="modal-actions">
+                        <button type="button" class="btn-secondary" @onclick="CloseModal">Hủy</button>
+                        <button type="submit" class="btn-primary">Lưu</button>
+                    </div>
+                </EditForm>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    private List<CouponDto>? coupons;
+    private CouponDto currentCoupon = new();
+    private bool showModal = false;
+    private bool isEditing = false;
+    private string? errorMessage;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadCoupons();
+    }
+
+    private async Task LoadCoupons()
+    {
+        coupons = await CouponService.GetAllCoupons();
+    }
+
+    private void OpenCreateModal()
+    {
+        currentCoupon = new CouponDto { Type = "percent", Active = true };
+        isEditing = false;
+        showModal = true;
+        errorMessage = null;
+    }
+
+    private void OpenEditModal(CouponDto coupon)
+    {
+        currentCoupon = new CouponDto
+        {
+            Id = coupon.Id,
+            Code = coupon.Code,
+            Type = coupon.Type,
+            Value = coupon.Value,
+            Active = coupon.Active,
+            ExpiryDate = coupon.ExpiryDate,
+            UsageLimit = coupon.UsageLimit,
+            UsedCount = coupon.UsedCount
+        };
+        isEditing = true;
+        showModal = true;
+        errorMessage = null;
+    }
+
+    private void CloseModal()
+    {
+        showModal = false;
+        errorMessage = null;
+    }
+
+    private async Task HandleSubmit()
+    {
+        errorMessage = null;
+        bool success;
+        if (isEditing)
+        {
+            success = await CouponService.UpdateCoupon(currentCoupon.Id, currentCoupon);
+        }
+        else
+        {
+            var result = await CouponService.CreateCoupon(currentCoupon);
+            success = result != null;
+            if (!success)
+            {
+                errorMessage = "Không thể tạo mã giảm giá. Có thể mã đã tồn tại.";
+            }
+        }
+
+        if (success)
+        {
+            await LoadCoupons();
+            CloseModal();
+        }
+    }
+
+    private async Task DeleteCoupon(int id)
+    {
+        if (await JSRuntime.InvokeAsync<bool>("confirm", "Bạn có chắc chắn muốn xóa mã này không?"))
+        {
+            if (await CouponService.DeleteCoupon(id))
+            {
+                await LoadCoupons();
+            }
+        }
+    }
+}

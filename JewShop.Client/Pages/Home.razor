@@ -1,3 +1,107 @@
 ﻿@page "/"
+@using JewShop.Client.Services
+@using JewShop.Shared.Dtos
+@inject ProductDataService ProductService
+@inject NavigationManager Navigation
 
-Chào mừng tới trang quản trị JewShop. Chọn mục trong sidebar để tiếp tục.
+<PageTitle>JewShop - Trang sức cao cấp</PageTitle>
+
+<div class="home-page">
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Bộ Sưu Tập Trang Sức Cao Cấp</h1>
+            <p>Khám phá vẻ đẹp tinh tế từ những thiết kế trang sức độc đáo</p>
+            <a href="/products" class="cta-button">Xem Bộ Sưu Tập</a>
+        </div>
+    </section>
+
+    @if (isLoading)
+    {
+        <div class="loading-section">
+            <p>Đang tải sản phẩm...</p>
+        </div>
+    }
+    else if (featuredProducts.Count > 0)
+    {
+        <section class="featured-products">
+            <h2>Sản Phẩm Nổi Bật</h2>
+            <div class="product-grid">
+                @foreach (var product in featuredProducts)
+                {
+                    <div class="product-card" @onclick="() => ViewProduct(product.Id)">
+                        <div class="product-image">
+                            @if (!string.IsNullOrWhiteSpace(product.ThumbnailUrl))
+                            {
+                                <img src="@product.ThumbnailUrl" alt="@product.Name" />
+                            }
+                            else
+                            {
+                                <div class="no-image">
+                                    <span>📷</span>
+                                </div>
+                            }
+                        </div>
+                        <div class="product-info">
+                            <h3>@product.Name</h3>
+                            @if (!string.IsNullOrWhiteSpace(product.Category))
+                            {
+                                <p class="category">@product.Category</p>
+                            }
+                            <p class="price">@product.BasePrice.ToString("N0") VNĐ</p>
+                            @if (!string.IsNullOrWhiteSpace(product.Material))
+                            {
+                                <p class="material">@product.Material</p>
+                            }
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="view-all">
+                <a href="/products" class="view-all-button">Xem Tất Cả Sản Phẩm →</a>
+            </div>
+        </section>
+    }
+    else
+    {
+        <section class="empty-products">
+            <p>Chưa có sản phẩm nào.</p>
+        </section>
+    }
+</div>
+
+@code {
+    private List<ProductDto> featuredProducts = new();
+    private bool isLoading = true;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadFeaturedProducts();
+    }
+
+    private async Task LoadFeaturedProducts()
+    {
+        isLoading = true;
+        try
+        {
+            var allProducts = await ProductService.GetAllAsync();
+            // Get first 8 active products as featured
+            featuredProducts = allProducts
+                .Where(p => p.IsActive)
+                .Take(8)
+                .ToList();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error loading products: {ex.Message}");
+        }
+        finally
+        {
+            isLoading = false;
+        }
+    }
+
+    private void ViewProduct(int productId)
+    {
+        Navigation.NavigateTo($"/product/{productId}");
+    }
+}

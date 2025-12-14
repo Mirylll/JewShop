@@ -1,0 +1,200 @@
+﻿@page "/products"
+@using JewShop.Client.Services
+@using JewShop.Shared.Dtos
+@using Microsoft.AspNetCore.WebUtilities
+@inject ProductDataService ProductService
+@inject NavigationManager Navigation
+
+<PageTitle>Sản phẩm - JewShop</PageTitle>
+
+<div class="products-page">
+    <div class="page-header">
+        <h1>Tất Cả Sản Phẩm</h1>
+        <p>Khám phá bộ sưu tập trang sức đa dạng của chúng tôi</p>
+    </div>
+
+    <div class="filters-section">
+        <input type="text" 
+               class="search-input" 
+               placeholder="Tìm kiếm sản phẩm..." 
+               @bind="searchTerm" 
+               @bind:event="oninput"
+               @onkeyup="HandleSearch" />
+        
+        <select class="category-filter" value="@selectedCategory" @onchange="HandleCategoryChange">
+            <option value="">Tất cả danh mục</option>
+            @foreach (var category in categories)
+            {
+                <option value="@category">@category</option>
+            }
+        </select>
+    </div>
+
+    @if (isLoading)
+    {
+        <div class="loading">
+            <p>Đang tải sản phẩm...</p>
+        </div>
+    }
+    else if (filteredProducts.Count == 0)
+    {
+        <div class="empty-state">
+            <p>Không tìm thấy sản phẩm nào.</p>
+        </div>
+    }
+    else
+    {
+        <div class="products-grid">
+            @foreach (var product in filteredProducts)
+            {
+                <div class="product-card" @onclick="() => ViewProduct(product.Id)">
+                    <div class="product-image">
+                        @if (!string.IsNullOrWhiteSpace(product.ThumbnailUrl))
+                        {
+                            <img src="@product.ThumbnailUrl" alt="@product.Name" />
+                        }
+                        else
+                        {
+                            <div class="no-image">
+                                <span>📷</span>
+                            </div>
+                        }
+                        @if (!product.IsActive)
+                        {
+                            <div class="inactive-badge">Tạm ngưng</div>
+                        }
+                    </div>
+                    <div class="product-info">
+                        <h3>@product.Name</h3>
+                        @if (!string.IsNullOrWhiteSpace(product.Category))
+                        {
+                            <p class="category">@product.Category</p>
+                        }
+                        <p class="price">@product.BasePrice.ToString("N0") VNĐ</p>
+                        @if (!string.IsNullOrWhiteSpace(product.Material))
+                        {
+                            <p class="material">@product.Material</p>
+                        }
+                        @if (!string.IsNullOrWhiteSpace(product.Gemstone))
+                        {
+                            <p class="gemstone">💎 @product.Gemstone</p>
+                        }
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>
+
+@code {
+    private List<ProductDto> allProducts = new();
+    private List<ProductDto> filteredProducts = new();
+    private List<string> categories = new();
+    private bool isLoading = true;
+    private string? searchTerm;
+    private string? selectedCategory;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadProducts();
+    }
+
+    protected override void OnParametersSet()
+    {
+        // Read query parameter
+        var uri = Navigation.ToAbsoluteUri(Navigation.Uri);
+        if (QueryHelpers.ParseQuery(uri.Query).TryGetValue("category", out var category))
+        {
+            selectedCategory = category;
+            ApplyFilters();
+        }
+    }
+
+    private async Task LoadProducts()
+    {
+        isLoading = true;
+        try
+        {
+            allProducts = await ProductService.GetAllAsync();
+            
+            // Extract unique categories
+            categories = allProducts
+                .Where(p => !string.IsNullOrWhiteSpace(p.Category))
+                .Select(p => p.Category!)
+                .Distinct()
+                .OrderBy(c => c)
+                .ToList();
+
+            ApplyFilters();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error loading products: {ex.Message}");
+        }
+        finally
+        {
+            isLoading = false;
+        }
+    }
+
+    private void ApplyFilters()
+    {
+        filteredProducts = allProducts;
+
+        // Filter by search term
+        if (!string.IsNullOrWhiteSpace(searchTerm))
+        {
+            filteredProducts = filteredProducts
+                .Where(p => p.Name.Contains(searchTerm, StringComparison.OrdinalIgnoreCase) ||
+                           (p.Description != null && p.Description.Contains(searchTerm, StringComparison.OrdinalIgnoreCase)))
+                .ToList();
+        }
+
+        // Filter by category
+        if (!string.IsNullOrWhiteSpace(selectedCategory))
+        {
+            filteredProducts = filteredProducts
+                .Where(p => p.Category == selectedCategory)
+                .ToList();
+        }
+
+        // Sort by active status first, then by name
+        filteredProducts = filteredProducts
+            .OrderByDescending(p => p.IsActive)
+            .ThenBy(p => p.Name)
+            .ToList();
+    }
+
+    private void HandleSearch(KeyboardEventArgs e)
+    {
+        ApplyFilters();
+    }
+
+    private void HandleCategoryChange(ChangeEventArgs e)
+    {
+        selectedCategory = e.Value?.ToString();
+        ApplyFilters();
+        
+        // Update URL to reflect change (optional but good for UX)
+        var uri = Navigation.ToAbsoluteUri(Navigation.Uri);
+        var query = QueryHelpers.ParseQuery(uri.Query);
+        var newQuery = query.ToDictionary(k => k.Key, v => v.Value);
+        
+        if (string.IsNullOrEmpty(selectedCategory))
+        {
+            newQuery.Remove("category");
+        }
+        else
+        {
+            newQuery["category"] = selectedCategory;
+        }
+        
+        var newUri = QueryHelpers.AddQueryString(uri.AbsolutePath, newQuery);
+        Navigation.NavigateTo(newUri);
+    }
+
+    private void ViewProduct(int productId)
+    {
+        Navigation.NavigateTo($"/product/{productId}");
+    }
+}

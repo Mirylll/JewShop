@@ -1,0 +1,213 @@
+﻿@page "/checkout"
+@using JewShop.Client.Services
+@using JewShop.Shared.Dtos
+@using System.ComponentModel.DataAnnotations
+@inject CartService CartService
+@inject OrderService OrderService
+@inject CouponService CouponService
+@inject NavigationManager Navigation
+
+<PageTitle>Thanh toán - JewShop</PageTitle>
+
+<div class="checkout-page">
+    <h1>Thanh toán</h1>
+
+    @if (cartItems.Count == 0)
+    {
+        <div class="empty-state">
+            <p>Giỏ hàng trống. Vui lòng chọn sản phẩm trước khi thanh toán.</p>
+            <a href="/products" class="btn-primary">Quay lại mua sắm</a>
+        </div>
+    }
+    else
+    {
+        <div class="checkout-container">
+            <div class="checkout-form">
+                <h2>Thông tin giao hàng</h2>
+                <EditForm Model="orderModel" OnValidSubmit="HandleCheckout">
+                    <DataAnnotationsValidator />
+                    
+                    <div class="form-group">
+                        <label>Họ và tên</label>
+                        <InputText @bind-Value="orderModel.CustomerName" class="form-control" placeholder="Nhập họ tên của bạn" />
+                        <ValidationMessage For="() => orderModel.CustomerName" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Số điện thoại</label>
+                        <InputText @bind-Value="orderModel.CustomerPhone" class="form-control" placeholder="Nhập số điện thoại" />
+                        <ValidationMessage For="() => orderModel.CustomerPhone" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Địa chỉ giao hàng</label>
+                        <InputTextArea @bind-Value="orderModel.ShippingAddress" class="form-control" rows="3" placeholder="Số nhà, tên đường, phường/xã, quận/huyện, tỉnh/thành phố" />
+                        <ValidationMessage For="() => orderModel.ShippingAddress" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Ghi chú đơn hàng (tùy chọn)</label>
+                        <InputTextArea @bind-Value="orderModel.Note" class="form-control" rows="2" placeholder="Ví dụ: Giao hàng giờ hành chính" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Mã giảm giá (nếu có)</label>
+                        <div class="coupon-input-group">
+                            <InputText @bind-Value="orderModel.CouponCode" class="form-control" placeholder="Nhập mã giảm giá" />
+                            <button type="button" class="btn-secondary" @onclick="ApplyCoupon" disabled="@string.IsNullOrWhiteSpace(orderModel.CouponCode)">Áp dụng</button>
+                        </div>
+                        @if (!string.IsNullOrEmpty(couponMessage))
+                        {
+                            <div class="@(isCouponValid ? "text-success" : "text-danger")">@couponMessage</div>
+                        }
+                    </div>
+
+                    @if (!string.IsNullOrEmpty(errorMessage))
+                    {
+                        <div class="alert alert-error">@errorMessage</div>
+                    }
+
+                    <button type="submit" class="btn-submit" disabled="@isSubmitting">
+                        @(isSubmitting ? "Đang xử lý..." : "Đặt hàng")
+                    </button>
+                </EditForm>
+            </div>
+
+            <div class="order-summary">
+                <h2>Đơn hàng của bạn</h2>
+                <div class="summary-items">
+                    @foreach (var item in cartItems)
+                    {
+                        <div class="summary-item">
+                            <div class="item-info">
+                                <span class="item-name">@item.ProductName</span>
+                                <span class="item-variant">x @item.Quantity</span>
+                            </div>
+                            <span class="item-price">@item.TotalPrice.ToString("N0") VND</span>
+                        </div>
+                    }
+                </div>
+                
+                <div class="summary-totals">
+                    <div class="row">
+                        <span>Tạm tính</span>
+                        <span>@subtotal.ToString("N0") VND</span>
+                    </div>
+                    <div class="row">
+                        <span>Phí vận chuyển</span>
+                        <span>@shippingFee.ToString("N0") VND</span>
+                    </div>
+                    @if (discountAmount > 0)
+                    {
+                        <div class="row discount">
+                            <span>Giảm giá</span>
+                            <span>-@discountAmount.ToString("N0") VND</span>
+                        </div>
+                    }
+                    <div class="row total">
+                        <span>Tổng cộng</span>
+                        <span>@((subtotal + shippingFee - discountAmount).ToString("N0")) VND</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+@code {
+    private CreateOrderDto orderModel = new();
+    private List<CartItemDto> cartItems = new();
+    private decimal subtotal;
+    private decimal shippingFee = 30000;
+    private decimal discountAmount = 0;
+    private bool isSubmitting;
+    private string? errorMessage;
+    private string? couponMessage;
+    private bool isCouponValid;
+
+    protected override async Task OnInitializedAsync()
+    {
+        cartItems = await CartService.GetCartItems();
+        if (cartItems.Count == 0)
+        {
+            // Redirect handled in UI
+            return;
+        }
+        subtotal = cartItems.Sum(i => i.TotalPrice);
+        orderModel.SessionId = await CartService.GetSessionId();
+    }
+
+    private async Task ApplyCoupon()
+    {
+        couponMessage = null;
+        isCouponValid = false;
+        discountAmount = 0;
+
+        if (string.IsNullOrWhiteSpace(orderModel.CouponCode))
+            return;
+
+        var coupon = await CouponService.ValidateCoupon(orderModel.CouponCode);
+        if (coupon != null)
+        {
+            isCouponValid = true;
+            couponMessage = "Áp dụng mã giảm giá thành công!";
+            
+            if (coupon.Type == "percent")
+            {
+                discountAmount = subtotal * (coupon.Value / 100);
+            }
+            else
+            {
+                discountAmount = coupon.Value;
+            }
+        }
+        else
+        {
+            couponMessage = "Mã giảm giá không hợp lệ hoặc đã hết hạn.";
+        }
+    }
+
+    private async Task HandleCheckout()
+    {
+        isSubmitting = true;
+        errorMessage = null;
+
+        try
+        {
+            // SessionId is already set in OnInitializedAsync
+            
+            // Re-validate coupon before submitting if user changed it manually without clicking apply
+            if (!string.IsNullOrEmpty(orderModel.CouponCode) && !isCouponValid)
+            {
+                 var coupon = await CouponService.ValidateCoupon(orderModel.CouponCode);
+                 if (coupon == null)
+                 {
+                     errorMessage = "Mã giảm giá không hợp lệ. Vui lòng kiểm tra lại.";
+                     isSubmitting = false;
+                     return;
+                 }
+            }
+            
+            var order = await OrderService.CreateOrder(orderModel);
+            
+            if (order != null)
+            {
+                // Clear cart locally (backend already cleared it)
+                // Navigate to success page or order detail
+                Navigation.NavigateTo($"/order-success/{order.Id}");
+            }
+            else
+            {
+                errorMessage = "Không thể tạo đơn hàng. Vui lòng thử lại.";
+            }
+        }
+        catch (Exception ex)
+        {
+            errorMessage = "Đã xảy ra lỗi: " + ex.Message;
+        }
+        finally
+        {
+            isSubmitting = false;
+        }
+    }
+}

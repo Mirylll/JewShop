@@ -1,0 +1,109 @@
+﻿@page "/cart"
+@using JewShop.Client.Services
+@using JewShop.Shared.Dtos
+@inject CartService CartService
+@inject NavigationManager Navigation
+
+<PageTitle>Giỏ hàng - JewShop</PageTitle>
+
+<div class="cart-page">
+    <h1>Giỏ hàng của bạn</h1>
+
+    @if (isLoading)
+    {
+        <div class="loading">Đang tải...</div>
+    }
+    else if (cartItems.Count == 0)
+    {
+        <div class="empty-cart">
+            <p>Giỏ hàng của bạn đang trống.</p>
+            <a href="/products" class="btn-primary">Tiếp tục mua sắm</a>
+        </div>
+    }
+    else
+    {
+        <div class="cart-container">
+            <div class="cart-items">
+                @foreach (var item in cartItems)
+                {
+                    <div class="cart-item">
+                        <div class="item-image">
+                            <img src="@(item.ProductImage ?? "/images/placeholder.png")" alt="@item.ProductName" />
+                        </div>
+                        <div class="item-details">
+                            <h3>@item.ProductName</h3>
+                            <p class="variant-info">
+                                @if (!string.IsNullOrEmpty(item.Size)) { <span>Size: @item.Size</span> }
+                                @if (!string.IsNullOrEmpty(item.Color)) { <span>Màu: @item.Color</span> }
+                            </p>
+                            <p class="price">@item.Price.ToString("N0") VNĐ</p>
+                        </div>
+                        <div class="item-quantity">
+                            <button @onclick="() => UpdateQuantity(item, item.Quantity - 1)">-</button>
+                            <input type="number" value="@item.Quantity" @onchange="@(e => UpdateQuantity(item, int.Parse(e.Value?.ToString() ?? "1")))" />
+                            <button @onclick="() => UpdateQuantity(item, item.Quantity + 1)">+</button>
+                        </div>
+                        <div class="item-total">
+                            <p>@item.TotalPrice.ToString("N0") VNĐ</p>
+                            <button class="remove-btn" @onclick="() => RemoveItem(item.Id)">×</button>
+                        </div>
+                    </div>
+                }
+            </div>
+
+            <div class="cart-summary">
+                <h3>Tổng cộng</h3>
+                <div class="summary-row">
+                    <span>Tạm tính:</span>
+                    <span>@cartItems.Sum(i => i.TotalPrice).ToString("N0") VNĐ</span>
+                </div>
+                <div class="summary-row total">
+                    <span>Thành tiền:</span>
+                    <span>@cartItems.Sum(i => i.TotalPrice).ToString("N0") VNĐ</span>
+                </div>
+                <button class="btn-checkout" @onclick="ProceedToCheckout">Tiến hành thanh toán</button>
+            </div>
+        </div>
+    }
+</div>
+
+@code {
+    private List<CartItemDto> cartItems = new();
+    private bool isLoading = true;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadCart();
+    }
+
+    private async Task LoadCart()
+    {
+        isLoading = true;
+        cartItems = await CartService.GetCartItems();
+        isLoading = false;
+    }
+
+    private async Task UpdateQuantity(CartItemDto item, int newQuantity)
+    {
+        if (newQuantity < 1) return;
+        if (newQuantity > item.Stock)
+        {
+            // Show toast or alert
+            return;
+        }
+
+        await CartService.UpdateQuantity(item.Id, newQuantity);
+        await LoadCart();
+    }
+
+    private async Task RemoveItem(int id)
+    {
+        await CartService.RemoveFromCart(id);
+        await LoadCart();
+    }
+
+    private void ProceedToCheckout()
+    {
+        Navigation.NavigateTo("/checkout");
+    }
+}

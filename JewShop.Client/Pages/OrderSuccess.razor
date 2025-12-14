@@ -1,0 +1,58 @@
+﻿@page "/order-success/{OrderId:int}"
+@using JewShop.Client.Services
+@using JewShop.Shared.Dtos
+@inject OrderService OrderService
+
+<PageTitle>Đặt hàng thành công - JewShop</PageTitle>
+
+<div class="order-success-page">
+    <div class="success-card">
+        <div class="icon-circle">
+            <span class="check-icon">✓</span>
+        </div>
+        <h1>Đặt hàng thành công!</h1>
+        <p class="message">Cảm ơn bạn đã mua sắm tại JewShop. Đơn hàng của bạn đã được tiếp nhận và đang được xử lý.</p>
+        
+        @if (order != null)
+        {
+            <div class="order-details">
+                <p><strong>Mã đơn hàng:</strong> @order.OrderCode</p>
+                <p><strong>Ngày đặt:</strong> @order.CreatedAt.ToString("dd/MM/yyyy HH:mm")</p>
+                <p><strong>Tổng tiền:</strong> @order.TotalAmount.ToString("N0") VNĐ</p>
+            </div>
+        }
+        else if (isLoading)
+        {
+            <p>Đang tải thông tin đơn hàng...</p>
+        }
+
+        <div class="actions">
+            <a href="/" class="btn-primary">Về trang chủ</a>
+            <a href="/products" class="btn-secondary">Tiếp tục mua sắm</a>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public int OrderId { get; set; }
+
+    private OrderDto? order;
+    private bool isLoading = true;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            order = await OrderService.GetOrderById(OrderId);
+        }
+        catch
+        {
+            // Ignore error, just show success message
+        }
+        finally
+        {
+            isLoading = false;
+        }
+    }
+}

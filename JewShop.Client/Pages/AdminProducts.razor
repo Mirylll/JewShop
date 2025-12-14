@@ -1,0 +1,517 @@
+﻿@page "/admin/products"
+@layout AdminLayout
+
+@using System.ComponentModel.DataAnnotations
+@using JewShop.Client.Services
+@using JewShop.Shared.Dtos
+@inject ProductDataService ProductService
+@inject IJSRuntime JsRuntime
+
+<PageTitle>Sản phẩm</PageTitle>
+
+<div class="product-page">
+    <div class="product-header">
+        <div>
+            <p class="eyebrow">Quản lý</p>
+            <h1>Sản phẩm</h1>
+        </div>
+        <button class="primary" @onclick="OpenCreateModal">+ Thêm sản phẩm</button>
+    </div>
+
+    @if (!string.IsNullOrEmpty(pageError))
+    {
+        <div class="alert alert-error">@pageError</div>
+    }
+
+    <div class="product-toolbar">
+        <input type="text" class="search" placeholder="Tìm kiếm sản phẩm..." @bind="searchTerm" @bind:event="oninput" />
+        <button class="ghost" @onclick="ApplySearch">Tìm kiếm</button>
+        <button class="ghost" @onclick="Refresh">Làm mới</button>
+    </div>
+
+    @if (isLoading)
+    {
+        <div class="empty-state">
+            <p>Đang tải dữ liệu...</p>
+        </div>
+    }
+    else if (products.Count == 0)
+    {
+        <div class="empty-state">
+            <p>Chưa có sản phẩm nào.</p>
+            <p class="muted">Hãy thêm sản phẩm đầu tiên của bạn.</p>
+        </div>
+    }
+    else
+    {
+        <div class="table-wrapper">
+            <table class="product-table">
+                <thead>
+                    <tr>
+                        <th>Tên sản phẩm</th>
+                        <th>Danh mục</th>
+                        <th>Giá cơ bản</th>
+                        <th>Trạng thái</th>
+                        <th class="actions">Hành động</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var product in products)
+                    {
+                        <tr>
+                            <td>
+                                <strong>@product.Name</strong>
+                            </td>
+                            <td>@(string.IsNullOrWhiteSpace(product.Category) ? "-" : product.Category)</td>
+                            <td>@product.BasePrice.ToString("N0") VNĐ</td>
+                            <td>@(product.IsActive ? "Hoạt động" : "Tạm ngưng")</td>
+                            <td class="actions">
+                                <button class="link" @onclick="() => EditProduct(product)">Sửa</button>
+                                <button class="link danger" @onclick="() => DeleteProduct(product)">Xoá</button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>
+
+@if (isModalOpen)
+{
+    <div class="modal-backdrop">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>@(isEditMode ? "Cập nhật sản phẩm" : "Thêm sản phẩm")</h3>
+                <button class="icon" @onclick="CloseModal">×</button>
+            </div>
+
+            @if (isEditMode)
+            {
+                <div class="tabs">
+                    <button class="@(activeTab == "info" ? "active" : "")" @onclick='() => activeTab = "info"'>Thông tin</button>
+                    <button class="@(activeTab == "images" ? "active" : "")" @onclick='() => activeTab = "images"'>Hình ảnh</button>
+                    <button class="@(activeTab == "variants" ? "active" : "")" @onclick='() => activeTab = "variants"'>Biến thể</button>
+                </div>
+            }
+
+            <div class="modal-body">
+                @if (!string.IsNullOrEmpty(modalError))
+                {
+                    <div class="alert alert-error">@modalError</div>
+                }
+
+                @if (activeTab == "info")
+                {
+                    <EditForm Model="formModel" OnValidSubmit="HandleSubmit">
+                        <DataAnnotationsValidator />
+                        
+                        <div class="form-grid">
+                            <label>Tên sản phẩm</label>
+                            <InputText @bind-Value="formModel.Name" />
+                            <ValidationMessage For="() => formModel.Name" />
+
+                            <label>Mô tả</label>
+                            <InputTextArea @bind-Value="formModel.Description" rows="3" />
+                            <ValidationMessage For="() => formModel.Description" />
+
+                            <label>Danh mục</label>
+                            <InputSelect @bind-Value="formModel.Category" class="form-control">
+                                <option value="">-- Chọn danh mục --</option>
+                                <option value="Rings">Rings</option>
+                                <option value="Earrings">Earrings</option>
+                                <option value="Necklaces">Necklaces</option>
+                                <option value="Bracelets">Bracelets</option>
+                                <option value="Pendants">Pendants</option>
+                                <option value="Anklets">Anklets</option>
+                                <option value="Accessories">Accessories</option>
+                            </InputSelect>
+                            <ValidationMessage For="() => formModel.Category" />
+
+                            <label>Chất liệu</label>
+                            <InputText @bind-Value="formModel.Material" />
+                            <ValidationMessage For="() => formModel.Material" />
+
+                            <label>Đá quý</label>
+                            <InputText @bind-Value="formModel.Gemstone" />
+                            <ValidationMessage For="() => formModel.Gemstone" />
+
+                            <label>Giá cơ bản (VNĐ)</label>
+                            <InputNumber @bind-Value="formModel.BasePrice" @attributes='@(new Dictionary<string, object> { { "step", "any" } })' />
+                            <ValidationMessage For="() => formModel.BasePrice" />
+
+                            <label>Trọng lượng (g)</label>
+                            <InputNumber @bind-Value="formModel.Weight" @attributes='@(new Dictionary<string, object> { { "step", "any" } })' />
+                            <ValidationMessage For="() => formModel.Weight" />
+
+                            <label>URL hình ảnh chính</label>
+                            <InputText @bind-Value="formModel.ThumbnailUrl" />
+                            <ValidationMessage For="() => formModel.ThumbnailUrl" />
+
+                            @if (isEditMode)
+                            {
+                                <label>
+                                    <InputCheckbox @bind-Value="formModel.IsActive" />
+                                    Hoạt động
+                                </label>
+                            }
+                        </div>
+
+                        <div class="modal-actions">
+                            <button type="button" class="ghost" @onclick="CloseModal">Huỷ</button>
+                            <button type="submit" class="primary" disabled="@isSaving">@(isSaving ? "Đang lưu..." : "Lưu")</button>
+                        </div>
+                    </EditForm>
+                }
+                else if (activeTab == "images")
+                {
+                    <div class="images-section">
+                        <div class="add-image-form">
+                            <input type="text" placeholder="URL hình ảnh mới" @bind="newImageUrl" />
+                            <button class="primary small" @onclick="AddImage">Thêm</button>
+                        </div>
+
+                        <div class="image-list">
+                            @foreach (var img in currentImages)
+                            {
+                                <div class="image-item">
+                                    <img src="@img.ImageUrl" />
+                                    <button class="icon-btn delete" @onclick="() => DeleteImage(img.Id)">×</button>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                }
+                else if (activeTab == "variants")
+                {
+                    <div class="variants-section">
+                        <div class="add-variant-form">
+                            <h4>Thêm biến thể mới</h4>
+                            <div class="variant-grid">
+                                <input placeholder="Size" @bind="newVariant.Size" />
+                                <input placeholder="Màu" @bind="newVariant.Color" />
+                                <input type="number" placeholder="Giá" @bind="newVariant.Price" />
+                                <input type="number" placeholder="Kho" @bind="newVariant.Stock" />
+                            </div>
+                            <button class="primary small" @onclick="AddVariant">Thêm biến thể</button>
+                        </div>
+
+                        <table class="variant-table">
+                            <thead>
+                                <tr>
+                                    <th>Size</th>
+                                    <th>Màu</th>
+                                    <th>Giá</th>
+                                    <th>Kho</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var v in currentVariants)
+                                {
+                                    <tr>
+                                        <td>@v.Size</td>
+                                        <td>@v.Color</td>
+                                        <td>@(v.Price?.ToString("N0"))</td>
+                                        <td>@v.Stock</td>
+                                        <td>
+                                            <button class="link danger" @onclick="() => DeleteVariant(v.Id)">Xoá</button>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    private readonly ProductFormModel formModel = new();
+    private List<ProductDto> products = new();
+    private bool isLoading;
+    private bool isModalOpen;
+    private bool isEditMode;
+    private bool isSaving;
+    private int? editingProductId;
+    private string? searchTerm;
+    private string? pageError;
+    private string? modalError;
+    private string activeTab = "info";
+
+    // Image Management
+    private List<ProductImageDto> currentImages = new();
+    private string newImageUrl = "";
+
+    // Variant Management
+    private List<ProductVariantDto> currentVariants = new();
+    private CreateProductVariantDto newVariant = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadProducts();
+    }
+
+    private async Task LoadProducts()
+    {
+        isLoading = true;
+        pageError = null;
+        try
+        {
+            products = await ProductService.GetAllAsync();
+            
+            if (!string.IsNullOrWhiteSpace(searchTerm))
+            {
+                products = products
+                    .Where(p => p.Name.Contains(searchTerm, StringComparison.OrdinalIgnoreCase))
+                    .ToList();
+            }
+        }
+        catch
+        {
+            pageError = "Không thể tải dữ liệu. Vui lòng thử lại.";
+        }
+        finally
+        {
+            isLoading = false;
+        }
+    }
+
+    private Task ApplySearch()
+    {
+        return LoadProducts();
+    }
+
+    private Task Refresh()
+    {
+        searchTerm = string.Empty;
+        return LoadProducts();
+    }
+
+    private void OpenCreateModal()
+    {
+        formModel.Reset();
+        isEditMode = false;
+        isModalOpen = true;
+        modalError = null;
+        editingProductId = null;
+        activeTab = "info";
+    }
+
+    private async Task EditProduct(ProductDto product)
+    {
+        formModel.SetFromDto(product);
+        isEditMode = true;
+        isModalOpen = true;
+        modalError = null;
+        editingProductId = product.Id;
+        activeTab = "info";
+        
+        // Load fresh data for images and variants
+        var freshProduct = await ProductService.GetByIdAsync(product.Id);
+        if (freshProduct != null)
+        {
+            currentImages = freshProduct.Images;
+            currentVariants = freshProduct.Variants;
+        }
+    }
+
+    private void CloseModal()
+    {
+        isModalOpen = false;
+        modalError = null;
+        formModel.Reset();
+    }
+
+    private async Task HandleSubmit()
+    {
+        if (isSaving) return;
+        modalError = null;
+        isSaving = true;
+
+        try
+        {
+            if (isEditMode && editingProductId.HasValue)
+            {
+                var dto = formModel.ToUpdateDto();
+                var updated = await ProductService.UpdateAsync(editingProductId.Value, dto);
+                if (updated == null)
+                {
+                    modalError = "Sản phẩm không tồn tại nữa.";
+                    return;
+                }
+            }
+            else
+            {
+                var dto = formModel.ToCreateDto();
+                var created = await ProductService.CreateAsync(dto);
+                if (created == null)
+                {
+                    modalError = "Không thể tạo sản phẩm.";
+                    return;
+                }
+            }
+
+            await LoadProducts();
+            CloseModal();
+        }
+        catch
+        {
+            modalError = "Có lỗi xảy ra. Vui lòng thử lại.";
+        }
+        finally
+        {
+            isSaving = false;
+        }
+    }
+
+    private async Task DeleteProduct(ProductDto product)
+    {
+        var confirmed = await JsRuntime.InvokeAsync<bool>("confirm", $"Xoá sản phẩm '{product.Name}'?");
+        if (!confirmed) return;
+
+        var deleted = await ProductService.DeleteAsync(product.Id);
+        if (!deleted)
+        {
+            pageError = "Không thể xoá sản phẩm.";
+            return;
+        }
+        await LoadProducts();
+    }
+
+    // Image Actions
+    private async Task AddImage()
+    {
+        if (string.IsNullOrWhiteSpace(newImageUrl) || !editingProductId.HasValue) return;
+
+        var dto = new CreateProductImageDto { ImageUrl = newImageUrl };
+        var added = await ProductService.AddImageAsync(editingProductId.Value, dto);
+        
+        if (added != null)
+        {
+            currentImages.Add(added);
+            newImageUrl = "";
+        }
+    }
+
+    private async Task DeleteImage(int imageId)
+    {
+        var success = await ProductService.DeleteImageAsync(imageId);
+        if (success)
+        {
+            currentImages.RemoveAll(i => i.Id == imageId);
+        }
+    }
+
+    // Variant Actions
+    private async Task AddVariant()
+    {
+        if (!editingProductId.HasValue) return;
+
+        var added = await ProductService.AddVariantAsync(editingProductId.Value, newVariant);
+        if (added != null)
+        {
+            currentVariants.Add(added);
+            newVariant = new CreateProductVariantDto(); // Reset
+        }
+    }
+
+    private async Task DeleteVariant(int variantId)
+    {
+        var success = await ProductService.DeleteVariantAsync(variantId);
+        if (success)
+        {
+            currentVariants.RemoveAll(v => v.Id == variantId);
+        }
+    }
+
+    private class ProductFormModel
+    {
+        [Required(ErrorMessage = "Vui lòng nhập tên sản phẩm.")]
+        [MaxLength(200)]
+        public string Name { get; set; } = string.Empty;
+
+        [MaxLength(1000)]
+        public string? Description { get; set; }
+
+        [MaxLength(100)]
+        public string? Category { get; set; }
+
+        [MaxLength(100)]
+        public string? Material { get; set; }
+
+        [MaxLength(100)]
+        public string? Gemstone { get; set; }
+
+        [Required(ErrorMessage = "Vui lòng nhập giá cơ bản.")]
+        [Range(0, double.MaxValue, ErrorMessage = "Giá phải lớn hơn hoặc bằng 0.")]
+        public decimal BasePrice { get; set; }
+
+        [Range(0, double.MaxValue, ErrorMessage = "Trọng lượng phải lớn hơn hoặc bằng 0.")]
+        public decimal? Weight { get; set; }
+
+        [MaxLength(500)]
+        public string? ThumbnailUrl { get; set; }
+
+        public bool IsActive { get; set; } = true;
+
+        public void Reset()
+        {
+            Name = string.Empty;
+            Description = null;
+            Category = null;
+            Material = null;
+            Gemstone = null;
+            BasePrice = 0;
+            Weight = null;
+            ThumbnailUrl = null;
+            IsActive = true;
+        }
+
+        public void SetFromDto(ProductDto dto)
+        {
+            Name = dto.Name;
+            Description = dto.Description;
+            Category = dto.Category;
+            Material = dto.Material;
+            Gemstone = dto.Gemstone;
+            BasePrice = dto.BasePrice;
+            Weight = dto.Weight;
+            ThumbnailUrl = dto.ThumbnailUrl;
+            IsActive = dto.IsActive;
+        }
+
+        public CreateProductDto ToCreateDto()
+        {
+            return new CreateProductDto
+            {
+                Name = Name.Trim(),
+                Description = string.IsNullOrWhiteSpace(Description) ? null : Description.Trim(),
+                Category = string.IsNullOrWhiteSpace(Category) ? null : Category.Trim(),
+                Material = string.IsNullOrWhiteSpace(Material) ? null : Material.Trim(),
+                Gemstone = string.IsNullOrWhiteSpace(Gemstone) ? null : Gemstone.Trim(),
+                BasePrice = BasePrice,
+                Weight = Weight,
+                ThumbnailUrl = string.IsNullOrWhiteSpace(ThumbnailUrl) ? null : ThumbnailUrl.Trim()
+            };
+        }
+
+        public UpdateProductDto ToUpdateDto()
+        {
+            return new UpdateProductDto
+            {
+                Name = Name.Trim(),
+                Description = string.IsNullOrWhiteSpace(Description) ? null : Description.Trim(),
+                Category = string.IsNullOrWhiteSpace(Category) ? null : Category.Trim(),
+                Material = string.IsNullOrWhiteSpace(Material) ? null : Material.Trim(),
+                Gemstone = string.IsNullOrWhiteSpace(Gemstone) ? null : Gemstone.Trim(),
+                BasePrice = BasePrice,
+                Weight = Weight,
+                ThumbnailUrl = string.IsNullOrWhiteSpace(ThumbnailUrl) ? null : ThumbnailUrl.Trim(),
+                IsActive = IsActive
+            };
+        }
+    }
+}

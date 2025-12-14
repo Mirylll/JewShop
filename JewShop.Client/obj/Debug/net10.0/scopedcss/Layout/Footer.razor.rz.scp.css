@@ -1,0 +1,145 @@
+.footer[b-zm58cu1gzy] {
+    background-color: #ffffff;
+    padding: 40px 0 20px 0;
+}
+
+.container[b-zm58cu1gzy] {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 32px;
+}
+
+.footerContent[b-zm58cu1gzy] {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    gap: 40px;
+    margin-bottom: 30px;
+}
+
+.footerSection[b-zm58cu1gzy] {
+    display: flex;
+    flex-direction: column;
+}
+
+.footerLogo[b-zm58cu1gzy] {
+    height: 40px;
+    margin-bottom: 16px;
+}
+
+.description[b-zm58cu1gzy] {
+    color: #090909;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.socialIcons[b-zm58cu1gzy] {
+    margin-top: 8px;
+    display: flex;
+    gap: 16px;
+}
+
+.socialIcon[b-zm58cu1gzy] {
+    font-size: 20px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.socialIconImg[b-zm58cu1gzy] {
+    max-width: 50x;
+    max-height: 50px;
+}
+
+.socialIcon:hover[b-zm58cu1gzy] {
+    color: #1890ff;
+}
+
+.sectionTitle[b-zm58cu1gzy] {
+    color: #141313;
+    margin-bottom: 16px;
+    font-weight: 300;
+}
+
+.linkList[b-zm58cu1gzy] {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.footerLink[b-zm58cu1gzy] {
+    color: #808080;
+    text-decoration: none;
+    transition: color 0.3s;
+    padding: 4px 0;
+    font-weight: 500;
+}
+
+.footerLink:hover[b-zm58cu1gzy] {
+    color: #1890ff;
+}
+
+.contactInfo[b-zm58cu1gzy] {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.contactItem[b-zm58cu1gzy] {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.contactIcon[b-zm58cu1gzy] {
+    color: #1890ff;
+    margin-top: 2px;
+}
+
+.divider[b-zm58cu1gzy] {
+    border-color: #434343;
+    margin: 20px 0;
+}
+
+.bottomFooter[b-zm58cu1gzy] {
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.copyright[b-zm58cu1gzy] {
+    color: #090909;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .footerContent[b-zm58cu1gzy] {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container[b-zm58cu1gzy] {
+        padding: 0 16px;
+    }
+
+    .footerContent[b-zm58cu1gzy] {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .bottomFooter[b-zm58cu1gzy] {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+    }
+
+    .footer[b-zm58cu1gzy] {
+        margin-top: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer[b-zm58cu1gzy] {
+        padding: 30px 0 15px 0;
+    }
+}

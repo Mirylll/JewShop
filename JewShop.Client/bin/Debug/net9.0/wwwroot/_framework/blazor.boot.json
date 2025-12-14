@@ -1,14 +1,16 @@
 {
   "mainAssemblyName": "JewShop.Client",
   "resources": {
-    "hash": "sha256-mzQHbmpap5liOaARKT3/w7GsWjqetub9HX1jg1rTPGY=",
+    "hash": "sha256-5A7gHNz3qHoP8JdjMW7hE2o5VJOpVF03huc/H+Ubw0E=",
     "fingerprinting": {
+      "Blazored.LocalStorage.12n6dz54qr.wasm": "Blazored.LocalStorage.wasm",
       "Microsoft.AspNetCore.Authorization.is84zt9n9u.wasm": "Microsoft.AspNetCore.Authorization.wasm",
       "Microsoft.AspNetCore.Components.3zig3jhz80.wasm": "Microsoft.AspNetCore.Components.wasm",
       "Microsoft.AspNetCore.Components.Forms.0uwmec0ev6.wasm": "Microsoft.AspNetCore.Components.Forms.wasm",
       "Microsoft.AspNetCore.Components.Web.zr17nkzlyw.wasm": "Microsoft.AspNetCore.Components.Web.wasm",
       "Microsoft.AspNetCore.Components.WebAssembly.1sa732in15.wasm": "Microsoft.AspNetCore.Components.WebAssembly.wasm",
       "Microsoft.AspNetCore.Metadata.0e527ndupa.wasm": "Microsoft.AspNetCore.Metadata.wasm",
+      "Microsoft.AspNetCore.WebUtilities.fjucemtv8z.wasm": "Microsoft.AspNetCore.WebUtilities.wasm",
       "Microsoft.Extensions.Configuration.1qufmowt3n.wasm": "Microsoft.Extensions.Configuration.wasm",
       "Microsoft.Extensions.Configuration.Abstractions.cnl3axw53y.wasm": "Microsoft.Extensions.Configuration.Abstractions.wasm",
       "Microsoft.Extensions.Configuration.Binder.mujhcy5fss.wasm": "Microsoft.Extensions.Configuration.Binder.wasm",
@@ -25,6 +27,7 @@
       "Microsoft.Extensions.Primitives.k5sti8r8fu.wasm": "Microsoft.Extensions.Primitives.wasm",
       "Microsoft.JSInterop.80jwj6exja.wasm": "Microsoft.JSInterop.wasm",
       "Microsoft.JSInterop.WebAssembly.ntyvhbvn6b.wasm": "Microsoft.JSInterop.WebAssembly.wasm",
+      "Microsoft.Net.Http.Headers.h9m6k6psjf.wasm": "Microsoft.Net.Http.Headers.wasm",
       "Microsoft.CSharp.42nruzkdkt.wasm": "Microsoft.CSharp.wasm",
       "Microsoft.VisualBasic.Core.4bggtv24el.wasm": "Microsoft.VisualBasic.Core.wasm",
       "Microsoft.VisualBasic.4vzo9ck06b.wasm": "Microsoft.VisualBasic.wasm",
@@ -195,25 +198,25 @@
       "netstandard.jgp13znru0.wasm": "netstandard.wasm",
       "System.Private.CoreLib.f5mfssf3vz.wasm": "System.Private.CoreLib.wasm",
       "dotnet.js": "dotnet.js",
-      "dotnet.native.hmanx9razn.js": "dotnet.native.js",
-      "dotnet.native.p4lwlf2bu1.wasm": "dotnet.native.wasm",
-      "dotnet.runtime.o8gq1i8bk6.js": "dotnet.runtime.js",
+      "dotnet.native.noby4tlk4d.js": "dotnet.native.js",
+      "dotnet.native.qe75a9vfqn.wasm": "dotnet.native.wasm",
+      "dotnet.runtime.9o45ky8ejm.js": "dotnet.runtime.js",
       "icudt_CJK.tjcz0u77k5.dat": "icudt_CJK.dat",
       "icudt_EFIGS.tptq2av103.dat": "icudt_EFIGS.dat",
       "icudt_no_CJK.lfu7j35m59.dat": "icudt_no_CJK.dat",
-      "JewShop.Shared.1mebcgvzi9.wasm": "JewShop.Shared.wasm",
-      "JewShop.Shared.4pbxwn7266.pdb": "JewShop.Shared.pdb",
-      "JewShop.Client.x3d11g43sw.wasm": "JewShop.Client.wasm",
-      "JewShop.Client.02qnzxqs85.pdb": "JewShop.Client.pdb"
+      "JewShop.Shared.0qsrbi3zjh.wasm": "JewShop.Shared.wasm",
+      "JewShop.Shared.cy1viv1oz5.pdb": "JewShop.Shared.pdb",
+      "JewShop.Client.r44t8r2frn.wasm": "JewShop.Client.wasm",
+      "JewShop.Client.5koqqifou5.pdb": "JewShop.Client.pdb"
     },
     "jsModuleNative": {
-      "dotnet.native.hmanx9razn.js": "sha256-d7UNSArplVrX3arY2Kmhxp1wN79ng8hLqIBrkiQ9Gbo="
+      "dotnet.native.noby4tlk4d.js": "sha256-p9eEzXhQIsI0a5bBJhfzW15iRafgplTxT8XrO5FiH9o="
     },
     "jsModuleRuntime": {
-      "dotnet.runtime.o8gq1i8bk6.js": "sha256-uD1t4tsPtmIHsx30SC4OztehGGaHVDksFD38rL2e3P4="
+      "dotnet.runtime.9o45ky8ejm.js": "sha256-6QIZYgG+ftoT9N1H1EEJeXIhD/qbKqEcnmawDskiwdI="
     },
     "wasmNative": {
-      "dotnet.native.p4lwlf2bu1.wasm": "sha256-+eNtxSEiakcWrx6VoLGcDvqDWS3/kWe0AtiYmQFwe7E="
+      "dotnet.native.qe75a9vfqn.wasm": "sha256-Po2dalLvTpf5jAS+jt0TzuBYybYiL1F6qAacZJ8UAdo="
     },
     "icu": {
       "icudt_CJK.tjcz0u77k5.dat": "sha256-SZLtQnRc0JkwqHab0VUVP7T3uBPSeYzxzDnpxPpUnHk=",
@@ -225,12 +228,14 @@
       "System.Private.CoreLib.f5mfssf3vz.wasm": "sha256-41nae2p7dygOHEv3upnee/kVsa3Dg6SHV+ePzgy66j0="
     },
     "assembly": {
+      "Blazored.LocalStorage.12n6dz54qr.wasm": "sha256-OaMAAd5n7ORfyur5e3QIyEVKJ76MKIvwbg7/icnnYcU=",
       "Microsoft.AspNetCore.Authorization.is84zt9n9u.wasm": "sha256-guw4IWfKGlNkHrUV1Ro5eLh98N+iIenpmpe4lAcorzE=",
       "Microsoft.AspNetCore.Components.3zig3jhz80.wasm": "sha256-8VxytmQ5GFOn78KQH7APS4va0+286cMZrGP/fZVBGoY=",
       "Microsoft.AspNetCore.Components.Forms.0uwmec0ev6.wasm": "sha256-uE2FWvQ9yaBB9bha7pTpAp2LS2MdPMPeax7aRBtkCnk=",
       "Microsoft.AspNetCore.Components.Web.zr17nkzlyw.wasm": "sha256-v7sjxWZu/vcvG3b/JcNl+DSraWSQBJdx1RXTHQo/ugw=",
       "Microsoft.AspNetCore.Components.WebAssembly.1sa732in15.wasm": "sha256-r8IMdqRMgO7LPB3hPQ8tQ+Wv8JZUrBA0n0BOTBxBGLs=",
       "Microsoft.AspNetCore.Metadata.0e527ndupa.wasm": "sha256-OAV2Nxec2ijgD8f7ttKi4frX828iGBIsEe56h28jCaA=",
+      "Microsoft.AspNetCore.WebUtilities.fjucemtv8z.wasm": "sha256-m5ssSrqIBd0XEimQCeWF38FBY4lmUbK+X+l7don9O2M=",
       "Microsoft.Extensions.Configuration.1qufmowt3n.wasm": "sha256-t0BDOGVEWCj+1Rn/y2bbAVNl3vMV3vEF/wPN0tL+PFQ=",
       "Microsoft.Extensions.Configuration.Abstractions.cnl3axw53y.wasm": "sha256-WD4WI0hayWteZqkWOFOB3J2V38TVPB3LEbGIoUxwUgA=",
       "Microsoft.Extensions.Configuration.Binder.mujhcy5fss.wasm": "sha256-vuK208DzvJ91kPHmQH/GveiX4LdbMHVFU7ybIp0t5AE=",
@@ -247,6 +252,7 @@
       "Microsoft.Extensions.Primitives.k5sti8r8fu.wasm": "sha256-OKpoi3/865XYL/6nrm/2WBti+bLknKlqO7mEUJ/pQUA=",
       "Microsoft.JSInterop.80jwj6exja.wasm": "sha256-OBPSXi99+fJMaqLZ34UTBsoyl3ZlApu4u/RNSPljP54=",
       "Microsoft.JSInterop.WebAssembly.ntyvhbvn6b.wasm": "sha256-9dAjljgkpc26ys+VBDilPgkark902bTSQzJ5hryvYDQ=",
+      "Microsoft.Net.Http.Headers.h9m6k6psjf.wasm": "sha256-y020mGNqGGrbP8Ur/4OYn85rgzKVpGwifFq1G29JbB0=",
       "Microsoft.CSharp.42nruzkdkt.wasm": "sha256-fHdXMBuT8VQwuYPTLam5h48nseyD1A8h24mSMdjXZyA=",
       "Microsoft.VisualBasic.Core.4bggtv24el.wasm": "sha256-cBBKlOfrEV/1xfjZwNxoPGwo7K7q5v6X2LqgawuJ/Vk=",
       "Microsoft.VisualBasic.4vzo9ck06b.wasm": "sha256-kGQHJNyOxVUzH6Ci/S8DxZPUjWwI7HFdStMiLRfvWDw=",
@@ -414,12 +420,12 @@
       "WindowsBase.i7qip04bb5.wasm": "sha256-Lg5W8BM50Cpl1dgTrG9RQOrBRKOJq6H1t5sH3yf4KDU=",
       "mscorlib.ijjuvl21w4.wasm": "sha256-ku4DyQX7IfTdwPwDlrz9odvCs4mrgsJl0fNaqY56KOI=",
       "netstandard.jgp13znru0.wasm": "sha256-I7arRnyxWh5PItslQKjzLIG7EpohJACm7p/7K8eD0YA=",
-      "JewShop.Shared.1mebcgvzi9.wasm": "sha256-uZqhyGydIDxd1gtKYGG3Zfc/MKw0EvdYrrSQZt3wJaI=",
-      "JewShop.Client.x3d11g43sw.wasm": "sha256-ndl35Q41k7VBhGmqbSxn1mu76Cpd1xWn19n2Za2kSNU="
+      "JewShop.Shared.0qsrbi3zjh.wasm": "sha256-2NIbGKdvH/bHczlcGKQyo0+JW24WnuGUA9mJV813sYk=",
+      "JewShop.Client.r44t8r2frn.wasm": "sha256-K+7L9DFFx8IheOSMiImsBNrqx5UUIHP1yu9UgEPqFOk="
     },
     "pdb": {
-      "JewShop.Shared.4pbxwn7266.pdb": "sha256-iHr7iLaDSoKhjHlnyObNQgq2QnFQwl4wy6wThz/b4B8=",
-      "JewShop.Client.02qnzxqs85.pdb": "sha256-WFXsV6klpqzaDtE36uV53pLXjKSAPhv8CxEGZeJVmEM="
+      "JewShop.Shared.cy1viv1oz5.pdb": "sha256-pFmZIKK6KElqmEZaZgz/X50F5OXPJa1j1wMklROcAhk=",
+      "JewShop.Client.5koqqifou5.pdb": "sha256-Ky/JmKMeER3c7RCM05hAhRHTfz5PjBAg5aV8+OrFf/g="
     }
   },
   "cacheBootResources": true,

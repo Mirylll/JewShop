@@ -1,4 +1,8 @@
-﻿<header class="main-header">
+﻿@using JewShop.Client.Services
+@inject CartService CartService
+@implements IDisposable
+
+<header class="main-header">
     <div class="wrapper">
         <div class="left">
             <a href="/">
@@ -10,13 +14,13 @@
 
         <div class="center">
             <nav class="nav-menu">
-                <a href="/rings">Rings</a>
-                <a href="/earrings">Earrings</a>
-                <a href="/necklaces">Necklaces</a>
-                <a href="/bracelets">Bracelets</a>
-                <a href="/pendants">Pendants</a>
-                <a href="/anklets">Anklets</a>
-                <a href="/accessories">Accessories</a>
+                <a href="/products?category=Rings">Rings</a>
+                <a href="/products?category=Earrings">Earrings</a>
+                <a href="/products?category=Necklaces">Necklaces</a>
+                <a href="/products?category=Bracelets">Bracelets</a>
+                <a href="/products?category=Pendants">Pendants</a>
+                <a href="/products?category=Anklets">Anklets</a>
+                <a href="/products?category=Accessories">Accessories</a>
             </nav>
         </div>
 
@@ -27,6 +31,10 @@
 
             <a href="/cart" class="cart-icon">
                 <img src="assets/icons/shopping.svg" class="cart-img" />
+                @if (cartCount > 0)
+                {
+                    <span class="cart-badge">@cartCount</span>
+                }
             </a>
 
             <div class="avatar-menu">
@@ -38,4 +46,21 @@
     </div>
 </header>
 
+@code {
+    private int cartCount = 0;
 
+    protected override async Task OnInitializedAsync()
+    {
+        cartCount = await CartService.GetCartCount();
+        CartService.OnChange += async () => 
+        {
+            cartCount = await CartService.GetCartCount();
+            await InvokeAsync(StateHasChanged);
+        };
+    }
+
+    public void Dispose()
+    {
+        // No need to unsubscribe lambda, but good practice to have Dispose
+    }
+}
