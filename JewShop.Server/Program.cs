@@ -17,11 +17,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     )
 );
 
-<<<<<<< HEAD
 
-=======
 builder.Services.AddScoped<IProductService, ProductService>();
->>>>>>> phanquy
 builder.Services.AddScoped<ISupplierService, SupplierService>();
 builder.Services.AddScoped<ICouponService, CouponService>();
 
