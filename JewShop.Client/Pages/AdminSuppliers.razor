@@ -15,13 +15,13 @@
             <p class="eyebrow">Quản lý</p>
             <h1>Nhà cung cấp</h1>
         </div>
-        <button class="primary" @onclick="OpenCreateModal">+ Nhà cung cấp</button>
+        <button type="button" class="primary" @onclick="OpenCreateModal">+ Nhà cung cấp</button>
     </div>
 
     <div class="supplier-toolbar">
         <input class="search" type="search" placeholder="Tìm kiếm theo tên, email hoặc số điện thoại" @bind="searchTerm" @bind:event="oninput" />
-        <button class="ghost" @onclick="ApplySearch">Tìm</button>
-        <button class="ghost" @onclick="Refresh">Làm mới</button>
+        <button type="button" class="ghost" @onclick="ApplySearch">Tìm</button>
+        <button type="button" class="ghost" @onclick="Refresh">Làm mới</button>
     </div>
 
     @if (!string.IsNullOrEmpty(pageError))
@@ -63,8 +63,8 @@
                             <td>@(string.IsNullOrWhiteSpace(supplier.Email) ? "-" : supplier.Email)</td>
                             <td>@(string.IsNullOrWhiteSpace(supplier.Address) ? "-" : supplier.Address)</td>
                             <td class="actions">
-                                <button class="link" @onclick="() => EditSupplier(supplier)">Sửa</button>
-                                <button class="link danger" @onclick="() => DeleteSupplier(supplier)">Xoá</button>
+                                <button type="button" class="link" @onclick="() => EditSupplier(supplier)">Sửa</button>
+                                <button type="button" class="link danger" @onclick="() => DeleteSupplier(supplier)">Xoá</button>
                             </td>
                         </tr>
                     }
@@ -76,11 +76,11 @@
 
 @if (isModalOpen)
 {
-    <div class="modal-backdrop">
-        <div class="modal">
-            <div class="modal-header">
+    <div class="supplier-modal-overlay" role="dialog" aria-modal="true" aria-label="@(isEditMode ? "Cập nhật nhà cung cấp" : "Thêm nhà cung cấp")" @onclick="CloseModal">
+        <div class="supplier-modal" @onclick:stopPropagation>
+            <div class="supplier-modal-header">
                 <h3>@(isEditMode ? "Cập nhật nhà cung cấp" : "Thêm nhà cung cấp")</h3>
-                <button class="icon" @onclick="CloseModal">×</button>
+                <button type="button" class="icon" @onclick="CloseModal" aria-label="Đóng">×</button>
             </div>
 
             <EditForm Model="formModel" OnValidSubmit="HandleSubmit">
@@ -108,7 +108,7 @@
                     <ValidationMessage For="() => formModel.Address" />
                 </div>
 
-                <div class="modal-actions">
+                <div class="supplier-modal-actions">
                     <button type="button" class="ghost" @onclick="CloseModal">Huỷ</button>
                     <button type="submit" class="primary" disabled="@isSaving">@(isSaving ? "Đang lưu..." : "Lưu")</button>
                 </div>
@@ -170,6 +170,7 @@
         isModalOpen = true;
         modalError = null;
         editingSupplierId = null;
+        StateHasChanged();
     }
 
     private void EditSupplier(SupplierDto supplier)
@@ -179,6 +180,7 @@
         isModalOpen = true;
         modalError = null;
         editingSupplierId = supplier.Id;
+        StateHasChanged();
     }
 
     private void CloseModal()
@@ -186,6 +188,7 @@
         isModalOpen = false;
         modalError = null;
         formModel.Reset();
+        StateHasChanged();
     }
 
     private async Task HandleSubmit()
@@ -258,7 +261,6 @@
         [MaxLength(200)]
         public string Name { get; set; } = string.Empty;
 
-        [Phone]
         [MaxLength(50)]
         public string? Phone { get; set; }
 

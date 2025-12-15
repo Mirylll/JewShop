@@ -1,13 +1,26 @@
 # .NET
-bin/
-obj/
+[Bb]in/
+[Oo]bj/
 
-# Visual Studio
+# Node.js dependencies
+node_modules/
+npm-debug.log
+
+# Visual Studio / IDE
 .vs/
+.vscode/
 *.user
 *.suo
+*.userosscache
+*.sln.docstates
 
 # Build output
 *.dll
 *.exe
 *.pdb
+
+# Publish profiles
+**/Properties/PublishProfiles/
+
+# Blazor WebAssembly
+wwwroot/_framework/

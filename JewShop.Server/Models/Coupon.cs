@@ -25,22 +25,22 @@ namespace JewShop.Server.Models
         public string Type { get; set; } = "percent";
 
         [Column("value", TypeName = "decimal(10, 2)")]
-        public decimal Value { get; set; }
+        public decimal? Value { get; set; }
 
         [Column("min_order_value", TypeName = "decimal(10, 2)")]
-        public decimal MinOrderValue { get; set; }
+        public decimal? MinOrderValue { get; set; }
 
         [Column("usage_limit")]
-        public int UsageLimit { get; set; }
+        public int? UsageLimit { get; set; }
 
         [Column("used_count")]
-        public int UsedCount { get; set; }
+        public int? UsedCount { get; set; }
 
         [Column("starts_at")]
-        public DateTime StartsAt { get; set; } = DateTime.UtcNow;
+        public DateTime? StartsAt { get; set; }
 
         [Column("expires_at")]
-        public DateTime ExpiresAt { get; set; } = DateTime.UtcNow.AddDays(7);
+        public DateTime? ExpiresAt { get; set; }
 
         [Column("active")]
         public bool Active { get; set; } = true;
