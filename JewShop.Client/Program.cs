@@ -28,6 +28,7 @@ builder.Services.AddScoped<SupplierDataService>();
 builder.Services.AddScoped<CartService>();
 builder.Services.AddScoped<OrderService>();
 builder.Services.AddScoped<CouponService>();
+builder.Services.AddScoped<StatisticsService>();
 
 // C. Đăng ký Custom Provider
 // Dòng này báo cho Blazor biết: "Đừng dùng cái check đăng nhập mặc định, hãy dùng cái CustomAuthStateProvider mà tôi vừa viết"

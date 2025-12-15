@@ -12,10 +12,10 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddOpenApi();
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseMySql(
-        builder.Configuration.GetConnectionString("DefaultConnection"),
-        ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("DefaultConnection"))
-    )
+options.UseMySql(
+builder.Configuration.GetConnectionString("DefaultConnection"),
+ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("DefaultConnection"))
+)
 );
 
 builder.Services.AddScoped<ISupplierService, SupplierService>();
@@ -26,39 +26,40 @@ builder.Services.AddScoped<ICouponService, CouponService>();
 builder.Services.AddScoped<IAuthService, AuthService>(); // Registered AuthService
 builder.Services.AddScoped<IUserService, UserService>(); // Registered UserService
 builder.Services.AddScoped<IImportService, ImportService>(); // Registered ImportService
+builder.Services.AddScoped<IStatisticsService, StatisticsService>();
 
 // Cấu hình Authentication (JWT)
 builder.Services.AddAuthentication(options =>
 {
-    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
 })
 .AddJwtBearer(options =>
 {
-    options.TokenValidationParameters = new TokenValidationParameters
-    {
-        ValidateIssuerSigningKey = true,
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(
-            builder.Configuration.GetSection("Jwt:Key").Value!)),
-        ValidateIssuer = false,
-        ValidateAudience = false,
-        RoleClaimType = ClaimTypes.Role // IMPORTANT: Map role claim for [Authorize(Roles = "admin")]
-    };
+options.TokenValidationParameters = new TokenValidationParameters
+{
+ValidateIssuerSigningKey = true,
+IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(
+builder.Configuration.GetSection("Jwt:Key").Value!)),
+ValidateIssuer = false,
+ValidateAudience = false,
+RoleClaimType = ClaimTypes.Role // IMPORTANT: Map role claim for [Authorize(Roles = "admin")]
+};
 });
 
 // CORS cho phép Client gọi API - Đã cập nhật thêm port 7194
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowBlazorClient", policy =>
-    {
-        policy.WithOrigins(
-                "http://localhost:5049", 
-                "https://localhost:7049",
-                "https://localhost:7194"  // Thêm port HTTPS của Client
-              )
-              .AllowAnyMethod()
-              .AllowAnyHeader();
-    });
+options.AddPolicy("AllowBlazorClient", policy =>
+{
+policy.WithOrigins(
+"http://localhost:5049", 
+"https://localhost:7049",
+"https://localhost:7194"  // Thêm port HTTPS của Client
+)
+.AllowAnyMethod()
+.AllowAnyHeader();
+});
 });
 
 
@@ -71,8 +72,8 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+app.UseSwagger();
+app.UseSwaggerUI();
 }
 
 app.UseHttpsRedirection();

@@ -1,0 +1,190 @@
+@page "/admin/statistical"
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize(Roles = "admin")]
+@layout AdminLayout
+@using System.Globalization
+@using JewShop.Shared.Dtos
+@inject StatisticsService StatisticsService
+
+<PageTitle>Thống kê</PageTitle>
+
+<section class="statistical-page">
+    <header class="page-header">
+        <div>
+            <p class="eyebrow">Bảng điều khiển</p>
+            <h1>Thống kê hiệu suất cửa hàng</h1>
+            <p class="subtitle">Theo dõi doanh thu, đơn hàng và sản phẩm nổi bật theo thời gian thực.</p>
+        </div>
+        <button class="refresh-btn" disabled="@_isLoading" @onclick="LoadAsync">
+            @(_isLoading ? "Đang tải..." : "Làm mới")
+        </button>
+    </header>
+
+    @if (_isLoading)
+    {
+        <div class="panel loading-panel">Đang tải dữ liệu...</div>
+    }
+    else if (!string.IsNullOrWhiteSpace(_error))
+    {
+        <div class="panel error-panel">
+            <span>@_error</span>
+            <button class="retry" @onclick="LoadAsync">Thử lại</button>
+        </div>
+    }
+    else if (_data is not null)
+    {
+        <div class="cards-grid">
+            <article class="stat-card accent">
+                <p class="label">Tổng doanh thu</p>
+                <h3>@FormatCurrency(_data.TotalRevenue)</h3>
+                <small>Đã loại trừ đơn bị hủy</small>
+            </article>
+            <article class="stat-card">
+                <p class="label">Doanh thu hôm nay</p>
+                <h3>@FormatCurrency(_data.TodayRevenue)</h3>
+                <small>@DateTime.Now.ToString("dd/MM/yyyy")</small>
+            </article>
+            <article class="stat-card">
+                <p class="label">Tổng đơn hàng</p>
+                <h3>@FormatNumber(_data.TotalOrders)</h3>
+                <small>@FormatNumber(_data.DeliveredOrders) đơn đã giao</small>
+            </article>
+            <article class="stat-card warning">
+                <p class="label">Đơn chờ xử lý</p>
+                <h3>@FormatNumber(_data.PendingOrders)</h3>
+                <small>Cần xác nhận</small>
+            </article>
+            <article class="stat-card">
+                <p class="label">Khách hàng</p>
+                <h3>@FormatNumber(_data.TotalCustomers)</h3>
+                <small>Đã xác minh</small>
+            </article>
+            <article class="stat-card">
+                <p class="label">Sản phẩm</p>
+                <h3>@FormatNumber(_data.TotalProducts)</h3>
+                <small>@FormatNumber(_data.LowStockVariants) biến thể sắp hết</small>
+            </article>
+        </div>
+
+        <div class="panels-grid">
+            <section class="panel">
+                <div class="panel-head">
+                    <h2>Tỉ trọng doanh thu theo danh mục</h2>
+                    <span class="hint">Dựa trên tổng doanh thu đã ghi nhận</span>
+                </div>
+                @if ((_data.CategoryRevenueDistribution?.Count ?? 0) == 0)
+                {
+                    <p class="empty">Chưa có dữ liệu doanh thu cho danh mục.</p>
+                }
+                else
+                {
+                    <ul class="category-chart">
+                        @foreach (var slice in _data.CategoryRevenueDistribution ?? Enumerable.Empty<CategoryRevenueSliceDto>())
+                        {
+                            <li class="category-item">
+                                <div class="category-row">
+                                    <span class="name">@slice.CategoryName</span>
+                                    <span class="value">@FormatCurrency(slice.Revenue)</span>
+                                </div>
+                                <div class="bar">
+                                    <span style="width:@GetBarWidth(slice.Percentage)"></span>
+                                </div>
+                                <p class="percentage">@FormatPercentage(slice.Percentage)</p>
+                            </li>
+                        }
+                    </ul>
+                }
+            </section>
+
+            <section class="panel">
+                <div class="panel-head">
+                    <h2>Top sản phẩm bán chạy</h2>
+                    <span class="hint">Theo số lượng bán ra</span>
+                </div>
+                @if ((_data.TopProducts?.Count ?? 0) == 0)
+                {
+                    <p class="empty">Chưa có dữ liệu bán hàng.</p>
+                }
+                else
+                {
+                    <table class="top-products">
+                        <thead>
+                            <tr>
+                                <th>Sản phẩm</th>
+                                <th>Số lượng</th>
+                                <th>Doanh thu</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var product in _data.TopProducts ?? Enumerable.Empty<TopProductStatDto>())
+                            {
+                                <tr>
+                                    <td>@product.ProductName</td>
+                                    <td>@FormatNumber(product.UnitsSold)</td>
+                                    <td>@FormatCurrency(product.Revenue)</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+            </section>
+        </div>
+    }
+</section>
+
+@code {
+    private DashboardStatsDto? _data;
+    private bool _isLoading = true;
+    private string? _error;
+    private readonly CultureInfo _culture = new("vi-VN");
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadAsync();
+    }
+
+    private async Task LoadAsync()
+    {
+        _isLoading = true;
+        _error = null;
+        try
+        {
+            _data = await StatisticsService.GetOverviewAsync();
+            if (_data is null)
+            {
+                _error = "Không thể tải dữ liệu thống kê. Vui lòng thử lại.";
+            }
+        }
+        catch
+        {
+            _error = "Đã xảy ra lỗi khi tải dữ liệu.";
+        }
+        finally
+        {
+            _isLoading = false;
+            StateHasChanged();
+        }
+    }
+
+    private string FormatCurrency(decimal value)
+    {
+        var rounded = Math.Round(value, 0, MidpointRounding.AwayFromZero);
+        return string.Format(CultureInfo.InvariantCulture, "{0:0}", rounded) + "VND";
+    }
+    private string FormatNumber(int value) => value.ToString("N0", _culture);
+    private string FormatPercentage(decimal value)
+    {
+        var clamped = value;
+        if (clamped < 0) clamped = 0;
+        if (clamped > 100) clamped = 100;
+        return clamped.ToString("0.##") + "%";
+    }
+
+    private string GetBarWidth(decimal value)
+    {
+        var clamped = value;
+        if (clamped < 0) clamped = 0;
+        if (clamped > 100) clamped = 100;
+        return clamped.ToString("0.##") + "%";
+    }
+}
