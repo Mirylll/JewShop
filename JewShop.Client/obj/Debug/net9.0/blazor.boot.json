@@ -1,11 +1,12 @@
 {
   "mainAssemblyName": "JewShop.Client",
   "resources": {
-    "hash": "sha256-5A7gHNz3qHoP8JdjMW7hE2o5VJOpVF03huc/H+Ubw0E=",
+    "hash": "sha256-g4eSnkUX/A+dgTPdOFyDMb96Yr6m8lB7hRtJO8aVguw=",
     "fingerprinting": {
       "Blazored.LocalStorage.12n6dz54qr.wasm": "Blazored.LocalStorage.wasm",
       "Microsoft.AspNetCore.Authorization.is84zt9n9u.wasm": "Microsoft.AspNetCore.Authorization.wasm",
       "Microsoft.AspNetCore.Components.3zig3jhz80.wasm": "Microsoft.AspNetCore.Components.wasm",
+      "Microsoft.AspNetCore.Components.Authorization.5ja82b9mxc.wasm": "Microsoft.AspNetCore.Components.Authorization.wasm",
       "Microsoft.AspNetCore.Components.Forms.0uwmec0ev6.wasm": "Microsoft.AspNetCore.Components.Forms.wasm",
       "Microsoft.AspNetCore.Components.Web.zr17nkzlyw.wasm": "Microsoft.AspNetCore.Components.Web.wasm",
       "Microsoft.AspNetCore.Components.WebAssembly.1sa732in15.wasm": "Microsoft.AspNetCore.Components.WebAssembly.wasm",
@@ -204,10 +205,10 @@
       "icudt_CJK.tjcz0u77k5.dat": "icudt_CJK.dat",
       "icudt_EFIGS.tptq2av103.dat": "icudt_EFIGS.dat",
       "icudt_no_CJK.lfu7j35m59.dat": "icudt_no_CJK.dat",
-      "JewShop.Shared.0qsrbi3zjh.wasm": "JewShop.Shared.wasm",
-      "JewShop.Shared.cy1viv1oz5.pdb": "JewShop.Shared.pdb",
-      "JewShop.Client.r44t8r2frn.wasm": "JewShop.Client.wasm",
-      "JewShop.Client.5koqqifou5.pdb": "JewShop.Client.pdb"
+      "JewShop.Shared.nu178ij0d6.wasm": "JewShop.Shared.wasm",
+      "JewShop.Shared.sfze2h43km.pdb": "JewShop.Shared.pdb",
+      "JewShop.Client.w662p081bj.wasm": "JewShop.Client.wasm",
+      "JewShop.Client.oq6dirwuww.pdb": "JewShop.Client.pdb"
     },
     "jsModuleNative": {
       "dotnet.native.noby4tlk4d.js": "sha256-p9eEzXhQIsI0a5bBJhfzW15iRafgplTxT8XrO5FiH9o="
@@ -231,6 +232,7 @@
       "Blazored.LocalStorage.12n6dz54qr.wasm": "sha256-OaMAAd5n7ORfyur5e3QIyEVKJ76MKIvwbg7/icnnYcU=",
       "Microsoft.AspNetCore.Authorization.is84zt9n9u.wasm": "sha256-guw4IWfKGlNkHrUV1Ro5eLh98N+iIenpmpe4lAcorzE=",
       "Microsoft.AspNetCore.Components.3zig3jhz80.wasm": "sha256-8VxytmQ5GFOn78KQH7APS4va0+286cMZrGP/fZVBGoY=",
+      "Microsoft.AspNetCore.Components.Authorization.5ja82b9mxc.wasm": "sha256-r7rvOIT/7U2j/hWzOguOLut5faxH/7SHPfhDI2qDyfU=",
       "Microsoft.AspNetCore.Components.Forms.0uwmec0ev6.wasm": "sha256-uE2FWvQ9yaBB9bha7pTpAp2LS2MdPMPeax7aRBtkCnk=",
       "Microsoft.AspNetCore.Components.Web.zr17nkzlyw.wasm": "sha256-v7sjxWZu/vcvG3b/JcNl+DSraWSQBJdx1RXTHQo/ugw=",
       "Microsoft.AspNetCore.Components.WebAssembly.1sa732in15.wasm": "sha256-r8IMdqRMgO7LPB3hPQ8tQ+Wv8JZUrBA0n0BOTBxBGLs=",
@@ -420,12 +422,12 @@
       "WindowsBase.i7qip04bb5.wasm": "sha256-Lg5W8BM50Cpl1dgTrG9RQOrBRKOJq6H1t5sH3yf4KDU=",
       "mscorlib.ijjuvl21w4.wasm": "sha256-ku4DyQX7IfTdwPwDlrz9odvCs4mrgsJl0fNaqY56KOI=",
       "netstandard.jgp13znru0.wasm": "sha256-I7arRnyxWh5PItslQKjzLIG7EpohJACm7p/7K8eD0YA=",
-      "JewShop.Shared.0qsrbi3zjh.wasm": "sha256-2NIbGKdvH/bHczlcGKQyo0+JW24WnuGUA9mJV813sYk=",
-      "JewShop.Client.r44t8r2frn.wasm": "sha256-K+7L9DFFx8IheOSMiImsBNrqx5UUIHP1yu9UgEPqFOk="
+      "JewShop.Shared.nu178ij0d6.wasm": "sha256-4TqLpdR3L4zcZuQ2OibEE9w7DVYxdyDrnGtCpIL6GGM=",
+      "JewShop.Client.w662p081bj.wasm": "sha256-KPs/SzEBn6DUdjRxEA2Q154/Rcri8kpKsLMZ5bNMRTg="
     },
     "pdb": {
-      "JewShop.Shared.cy1viv1oz5.pdb": "sha256-pFmZIKK6KElqmEZaZgz/X50F5OXPJa1j1wMklROcAhk=",
-      "JewShop.Client.5koqqifou5.pdb": "sha256-Ky/JmKMeER3c7RCM05hAhRHTfz5PjBAg5aV8+OrFf/g="
+      "JewShop.Shared.sfze2h43km.pdb": "sha256-6ND1582V6z9cfsVXovETTkUUkp3gR0oL19vrpjnWkQE=",
+      "JewShop.Client.oq6dirwuww.pdb": "sha256-YIHjCeA/COIs1xnybALXD/6rh/IoGUXFL7aztkdm08s="
     }
   },
   "cacheBootResources": true,

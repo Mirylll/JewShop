@@ -31,22 +31,37 @@
             <span class="label">Coupon</span>
         </NavLink>
 
-        <a class="item">
+        <NavLink class="item" href="/admin/imports" Match="NavLinkMatch.Prefix" activeClass="active">
             <img class="icon" src="assets/icons/import.svg" />
             <span class="label">Import</span>
-        </a>
+        </NavLink>
 
-        <a class="item">
+        <NavLink class="item" href="/admin/users" Match="NavLinkMatch.Prefix" activeClass="active">
             <img class="icon" src="assets/icons/account.svg" />
             <span class="label">Account</span>
-        </a>
+        </NavLink>
 
     </nav>
 
     <div class="bottom">
-        <a class="profile">
+        <a href="/" class="profile" title="Về trang chủ">
             <img class="icon" src="assets/icons/avatar.svg" />
         </a>
+        <button class="logout-btn" @onclick="HandleLogout" title="Đăng xuất">
+            <span>🚪</span>
+            <span class="label">Đăng xuất</span>
+        </button>
     </div>
 
 </aside>
+
+@code {
+    @inject IAuthService AuthService
+    @inject NavigationManager Navigation
+
+    private async Task HandleLogout()
+    {
+        await AuthService.Logout();
+        Navigation.NavigateTo("/login", true);
+    }
+}

@@ -1,0 +1,280 @@
+.order-details-page {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.loading,
+.not-found {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.not-found h2 {
+    color: #1e293b;
+    margin-bottom: 16px;
+}
+
+.btn-back {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #667eea;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.btn-back:hover {
+    background: #5568d3;
+    transform: translateY(-2px);
+}
+
+.order-container {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+.order-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.order-header h1 {
+    font-size: 28px;
+    margin: 0 0 8px 0;
+}
+
+.order-code {
+    margin: 0;
+    opacity: 0.9;
+}
+
+.order-header .btn-back {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.order-header .btn-back:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.order-content {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.info-card {
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 24px;
+}
+
+.info-card h3 {
+    font-size: 18px;
+    color: #1e293b;
+    margin: 0 0 20px 0;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+/* Status Info */
+.status-info {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.status-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.status-item .label {
+    font-weight: 600;
+    color: #64748b;
+    min-width: 100px;
+}
+
+.badge {
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.badge-success {
+    background: #10b981;
+    color: white;
+}
+
+.badge-warning {
+    background: #f59e0b;
+    color: white;
+}
+
+.badge-info {
+    background: #3b82f6;
+    color: white;
+}
+
+.badge-primary {
+    background: #667eea;
+    color: white;
+}
+
+.badge-danger {
+    background: #ef4444;
+    color: white;
+}
+
+.badge-secondary {
+    background: #64748b;
+    color: white;
+}
+
+.btn-cancel {
+    width: 100%;
+    padding: 12px;
+    background: #ef4444;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-cancel:hover {
+    background: #dc2626;
+    transform: translateY(-2px);
+}
+
+/* Customer Info */
+.customer-info,
+.price-summary {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.info-row,
+.price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+}
+
+.info-row .label,
+.price-row span:first-child {
+    font-weight: 600;
+    color: #64748b;
+}
+
+.info-row .value,
+.price-row span:last-child {
+    color: #1e293b;
+}
+
+/* Items Table */
+.items-table {
+    overflow-x: auto;
+}
+
+.items-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.items-table th {
+    background: #e2e8f0;
+    padding: 12px;
+    text-align: left;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.items-table td {
+    padding: 16px 12px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.product-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.product-info strong {
+    color: #1e293b;
+}
+
+.product-info small {
+    color: #64748b;
+    font-size: 13px;
+}
+
+.items-table .total {
+    font-weight: 700;
+    color: #667eea;
+}
+
+/* Price Summary */
+.price-row {
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.price-row.discount {
+    color: #10b981;
+}
+
+.price-row.discount span {
+    color: #10b981;
+}
+
+.price-row.total {
+    border-top: 2px solid #1e293b;
+    border-bottom: none;
+    padding-top: 16px;
+    margin-top: 8px;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.price-row.total span {
+    color: #1e293b;
+}
+
+.price-row.total span:last-child {
+    color: #667eea;
+}
+
+@media (max-width: 768px) {
+    .order-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .items-table {
+        font-size: 14px;
+    }
+
+    .items-table th,
+    .items-table td {
+        padding: 8px;
+    }
+}

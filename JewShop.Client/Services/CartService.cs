@@ -40,7 +40,7 @@ namespace JewShop.Client.Services
             return new List<CartItemDto>();
         }
 
-        public async Task AddToCart(int variantId, int quantity = 1)
+        public async Task<bool> AddToCart(int variantId, int quantity = 1)
         {
             var sessionId = await GetSessionId();
             var dto = new AddToCartDto
@@ -50,8 +50,17 @@ namespace JewShop.Client.Services
                 Quantity = quantity
             };
             
-            await _http.PostAsJsonAsync("api/cart", dto);
-            OnChange?.Invoke();
+            var response = await _http.PostAsJsonAsync("api/cart", dto);
+            if (response.IsSuccessStatusCode)
+            {
+                var result = await response.Content.ReadFromJsonAsync<CartItemDto>();
+                if (result != null)
+                {
+                    OnChange?.Invoke();
+                    return true;
+                }
+            }
+            return false; // Failed - out of stock or error
         }
 
         public async Task UpdateQuantity(int cartItemId, int quantity)

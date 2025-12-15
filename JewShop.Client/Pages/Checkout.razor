@@ -5,6 +5,8 @@
 @inject CartService CartService
 @inject OrderService OrderService
 @inject CouponService CouponService
+@inject IUserService UserService
+@inject AuthenticationStateProvider AuthStateProvider
 @inject NavigationManager Navigation
 
 <PageTitle>Thanh toán - JewShop</PageTitle>
@@ -135,6 +137,33 @@
         }
         subtotal = cartItems.Sum(i => i.TotalPrice);
         orderModel.SessionId = await CartService.GetSessionId();
+        
+        // Pre-fill user info if logged in
+        var authState = await AuthStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+        
+        if (user.Identity?.IsAuthenticated == true)
+        {
+            // JWT uses ClaimTypes.NameIdentifier for UserId
+            var userIdClaim = user.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier);
+            if (userIdClaim != null && int.TryParse(userIdClaim.Value, out int userId))
+            {
+                try
+                {
+                    var profile = await UserService.GetProfile();
+                    if (profile != null)
+                    {
+                        orderModel.CustomerName = profile.Name ?? "";
+                        orderModel.CustomerPhone = profile.Phone ?? "";
+                        // User can edit these values if needed
+                    }
+                }
+                catch
+                {
+                    // If profile load fails, user can still enter manually
+                }
+            }
+        }
     }
 
     private async Task ApplyCoupon()

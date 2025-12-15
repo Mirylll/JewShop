@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Khoa\\Desktop\\.net\\JewShop\\JewShop.Shared\\JewShop.Shared.csproj",
+      "projectUniqueName": "C:\\Users\\Khoa\\Desktop\\abs\\JewShop\\JewShop.Shared\\JewShop.Shared.csproj",
       "projectName": "JewShop.Shared",
-      "projectPath": "C:\\Users\\Khoa\\Desktop\\.net\\JewShop\\JewShop.Shared\\JewShop.Shared.csproj",
+      "projectPath": "C:\\Users\\Khoa\\Desktop\\abs\\JewShop\\JewShop.Shared\\JewShop.Shared.csproj",
       "packagesPath": "C:\\Users\\Khoa\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Khoa\\Desktop\\.net\\JewShop\\JewShop.Shared\\obj\\",
+      "outputPath": "C:\\Users\\Khoa\\Desktop\\abs\\JewShop\\JewShop.Shared\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Khoa\\AppData\\Roaming\\NuGet\\NuGet.Config"

@@ -18,7 +18,29 @@ namespace JewShop.Server.Controllers
         [HttpPost]
         public async Task<ActionResult<OrderDto>> CreateOrder(CreateOrderDto dto)
         {
-            var order = await _orderService.CreateOrderAsync(dto);
+            // Get UserId from authenticated user (optional - guest checkout allowed)
+            int? userId = null;
+            if (User.Identity?.IsAuthenticated == true)
+            {
+                Console.WriteLine($"[DEBUG OrdersController] User is authenticated");
+                
+                // JWT uses ClaimTypes.NameIdentifier for UserId
+                var userIdClaim = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier);
+                Console.WriteLine($"[DEBUG OrdersController] userIdClaim: {userIdClaim?.Value ?? "NULL"}");
+                
+                if (userIdClaim != null && int.TryParse(userIdClaim.Value, out int parsedUserId))
+                {
+                    userId = parsedUserId;
+                    Console.WriteLine($"[DEBUG OrdersController] Parsed userId: {userId}");
+                }
+            }
+            else
+            {
+                Console.WriteLine($"[DEBUG OrdersController] User is NOT authenticated");
+            }
+            
+            Console.WriteLine($"[DEBUG OrdersController] Calling CreateOrderAsync with userId: {userId}");
+            var order = await _orderService.CreateOrderAsync(dto, userId);
             if (order == null) return BadRequest("Cannot create order. Cart might be empty.");
             return CreatedAtAction(nameof(GetOrder), new { id = order.Id }, order);
         }

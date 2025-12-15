@@ -166,6 +166,35 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 12px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.variant-card:hover {
+    background: #f1f5f9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.variant-card.selected {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-color: #667eea;
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+    transform: translateY(-2px);
+}
+
+.variant-card.selected .variant-detail,
+.variant-card.selected .variant-price {
+    color: white;
+}
+
+.variant-card.selected .in-stock {
+    color: #a7f3d0;
+}
+
+.variant-card.selected .out-of-stock {
+    color: #fecaca;
 }
 
 .variant-info {
@@ -258,6 +287,7 @@
         flex-direction: column;
     }
 }
+
 /* ... existing styles ... */
 
 .gallery-image {
@@ -266,7 +296,8 @@
     border-radius: 12px;
     overflow: hidden;
     cursor: pointer;
-    border: 2px solid transparent; /* Prepare for active state */
+    border: 2px solid transparent;
+    /* Prepare for active state */
     transition: all 0.2s;
 }
 

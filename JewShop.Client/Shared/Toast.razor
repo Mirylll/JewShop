@@ -1,0 +1,99 @@
+@if (isVisible)
+{
+    <div class="toast-container @positionClass">
+        <div class="toast @typeClass show">
+            <div class="toast-icon">
+                @if (type == ToastType.Success)
+                {
+                    <span>✓</span>
+                }
+                else if (type == ToastType.Error)
+                {
+                    <span>✕</span>
+                }
+                else if (type == ToastType.Warning)
+                {
+                    <span>⚠</span>
+                }
+                else
+                {
+                    <span>ℹ</span>
+                }
+            </div>
+            <div class="toast-content">
+                <div class="toast-title">@title</div>
+                @if (!string.IsNullOrEmpty(message))
+                {
+                    <div class="toast-message">@message</div>
+                }
+            </div>
+            <button class="toast-close" @onclick="Hide">×</button>
+        </div>
+    </div>
+}
+
+@code {
+    private bool isVisible = false;
+    private string title = "";
+    private string message = "";
+    private ToastType type = ToastType.Info;
+    private ToastPosition position = ToastPosition.TopRight;
+    
+    private string typeClass => type switch
+    {
+        ToastType.Success => "toast-success",
+        ToastType.Error => "toast-error",
+        ToastType.Warning => "toast-warning",
+        _ => "toast-info"
+    };
+    
+    private string positionClass => position switch
+    {
+        ToastPosition.TopLeft => "top-left",
+        ToastPosition.TopCenter => "top-center",
+        ToastPosition.TopRight => "top-right",
+        ToastPosition.BottomLeft => "bottom-left",
+        ToastPosition.BottomCenter => "bottom-center",
+        ToastPosition.BottomRight => "bottom-right",
+        _ => "top-right"
+    };
+
+    public void Show(string title, string message = "", ToastType type = ToastType.Info, ToastPosition position = ToastPosition.TopRight, int durationMs = 3000)
+    {
+        this.title = title;
+        this.message = message;
+        this.type = type;
+        this.position = position;
+        isVisible = true;
+        StateHasChanged();
+
+        if (durationMs > 0)
+        {
+            _ = Task.Delay(durationMs).ContinueWith(_ => Hide());
+        }
+    }
+
+    public void Hide()
+    {
+        isVisible = false;
+        StateHasChanged();
+    }
+
+    public enum ToastType
+    {
+        Success,
+        Error,
+        Warning,
+        Info
+    }
+
+    public enum ToastPosition
+    {
+        TopLeft,
+        TopCenter,
+        TopRight,
+        BottomLeft,
+        BottomCenter,
+        BottomRight
+    }
+}

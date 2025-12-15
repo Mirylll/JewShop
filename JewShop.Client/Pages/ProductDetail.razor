@@ -7,6 +7,8 @@
 
 <PageTitle>@product?.Name - JewShop</PageTitle>
 
+<Toast @ref="toast" />
+
 <div class="product-detail-page">
     @if (isLoading)
     {
@@ -182,6 +184,7 @@
     private bool isLoading = true;
     private string? selectedImageUrl;
     private int? selectedVariantId;
+    private Toast? toast;
 
     protected override async Task OnInitializedAsync()
     {
@@ -210,11 +213,7 @@
                     selectedImageUrl = product.Images.OrderBy(i => i.SortOrder).First().ImageUrl;
                 }
                 
-                // Auto-select first variant if available
-                if (product.Variants.Count > 0)
-                {
-                    selectedVariantId = product.Variants.First().Id;
-                }
+                // Don't auto-select variant - user must choose
             }
         }
         catch (Exception ex)
@@ -242,17 +241,39 @@
 
     private async Task AddToCart()
     {
-        if (selectedVariantId == null) return;
+        if (selectedVariantId == null)
+        {
+            toast?.Show("Chưa chọn phân loại", "Vui lòng chọn size và màu sắc trước khi thêm vào giỏ hàng!", Toast.ToastType.Warning);
+            return;
+        }
         
-        await CartService.AddToCart(selectedVariantId.Value, 1);
-        // Optional: Show feedback
+        var success = await CartService.AddToCart(selectedVariantId.Value, 1);
+        if (!success)
+        {
+            toast?.Show("Hết hàng", "Sản phẩm này đã hết hàng hoặc không đủ số lượng trong kho!", Toast.ToastType.Error);
+        }
+        else
+        {
+            toast?.Show("Thành công", "Đã thêm vào giỏ hàng!", Toast.ToastType.Success);
+        }
     }
 
     private async Task BuyNow()
     {
-        if (selectedVariantId == null) return;
+        if (selectedVariantId == null)
+        {
+            toast?.Show("Chưa chọn phân loại", "Vui lòng chọn size và màu sắc trước khi mua hàng!", Toast.ToastType.Warning);
+            return;
+        }
         
-        await CartService.AddToCart(selectedVariantId.Value, 1);
-        Navigation.NavigateTo("/cart");
+        var success = await CartService.AddToCart(selectedVariantId.Value, 1);
+        if (!success)
+        {
+            toast?.Show("Hết hàng", "Sản phẩm này đã hết hàng hoặc không đủ số lượng trong kho!", Toast.ToastType.Error);
+        }
+        else
+        {
+            Navigation.NavigateTo("/cart");
+        }
     }
 }

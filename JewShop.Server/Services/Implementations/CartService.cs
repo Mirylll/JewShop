@@ -45,8 +45,17 @@ namespace JewShop.Server.Services.Implementations
 
             if (variant == null) return null;
 
+            // Check stock availability
             var existingItem = await _context.CartItems
                 .FirstOrDefaultAsync(c => c.SessionId == dto.SessionId && c.VariantId == dto.VariantId);
+
+            int totalQuantity = dto.Quantity + (existingItem?.Quantity ?? 0);
+            
+            // Validate stock
+            if (totalQuantity > variant.Stock)
+            {
+                return null; // Insufficient stock
+            }
 
             if (existingItem != null)
             {
@@ -95,7 +104,10 @@ namespace JewShop.Server.Services.Implementations
 
         public async Task<bool> UpdateQuantityAsync(int cartItemId, int quantity)
         {
-            var item = await _context.CartItems.FindAsync(cartItemId);
+            var item = await _context.CartItems
+                .Include(c => c.Variant)
+                .FirstOrDefaultAsync(c => c.Id == cartItemId);
+                
             if (item == null) return false;
 
             if (quantity <= 0)
@@ -104,6 +116,11 @@ namespace JewShop.Server.Services.Implementations
             }
             else
             {
+                // Check stock before updating
+                if (quantity > item.Variant.Stock)
+                {
+                    return false; // Insufficient stock
+                }
                 item.Quantity = quantity;
             }
 

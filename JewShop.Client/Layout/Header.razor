@@ -14,13 +14,22 @@
 
         <div class="center">
             <nav class="nav-menu">
-                <a href="/products?category=Rings">Rings</a>
-                <a href="/products?category=Earrings">Earrings</a>
-                <a href="/products?category=Necklaces">Necklaces</a>
-                <a href="/products?category=Bracelets">Bracelets</a>
-                <a href="/products?category=Pendants">Pendants</a>
-                <a href="/products?category=Anklets">Anklets</a>
-                <a href="/products?category=Accessories">Accessories</a>
+                <div class="category-dropdown">
+                    <button class="category-btn">
+                        <span>📂 Danh mục</span>
+                        <span class="arrow">▼</span>
+                    </button>
+                    <div class="category-menu">
+                        <a href="/products?category=Rings" class="category-item">💍 Nhẫn</a>
+                        <a href="/products?category=Earrings" class="category-item">👂 Bông tai</a>
+                        <a href="/products?category=Necklaces" class="category-item">📿 Dây chuyền</a>
+                        <a href="/products?category=Bracelets" class="category-item">🔗 Vòng tay</a>
+                        <a href="/products?category=Pendants" class="category-item">🏷️ Mặt dây</a>
+                        <a href="/products?category=Anklets" class="category-item">⛓️ Lắc chân</a>
+                        <a href="/products?category=Accessories" class="category-item">✨ Phụ kiện</a>
+                    </div>
+                </div>
+                <a href="/products">Tất cả sản phẩm</a>
             </nav>
         </div>
 
@@ -38,15 +47,40 @@
             </a>
 
             <div class="avatar-menu">
-                <a href="/login" class="avatar-link">
-                <img src="assets/icons/avatar.svg" class="avatar" />
-                </a>
+                <AuthorizeView>
+                    <Authorized>
+                        <a href="/profile" class="avatar-link">
+                            <img src="assets/icons/avatar.svg" class="avatar" />
+                        </a>
+                        
+                        <div class="dropdown">
+                            <div class="dropdown-header">
+                                Xin chào, <strong>@context.User.Identity?.Name</strong>
+                            </div>
+                            
+                            @if (context.User.IsInRole("admin"))
+                            {
+                                <a href="/admin" class="dropdown-item">Quản trị viên</a>
+                            }
+                            
+                            <a href="/profile" class="dropdown-item">Hồ sơ cá nhân</a>
+                            <div class="dropdown-divider"></div>
+                            <button class="dropdown-item text-danger" @onclick="BeginLogout">Đăng xuất</button>
+                        </div>
+                    </Authorized>
+                    <NotAuthorized>
+                        <a href="/login" class="btn-login">Đăng nhập</a>
+                    </NotAuthorized>
+                </AuthorizeView>
             </div>
         </div>
     </div>
 </header>
 
 @code {
+@inject IAuthService AuthService
+@inject NavigationManager Navigation
+
     private int cartCount = 0;
 
     protected override async Task OnInitializedAsync()
@@ -57,6 +91,12 @@
             cartCount = await CartService.GetCartCount();
             await InvokeAsync(StateHasChanged);
         };
+    }
+
+    private async Task BeginLogout()
+    {
+        await AuthService.Logout();
+        Navigation.NavigateTo("/login", true);
     }
 
     public void Dispose()

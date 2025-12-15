@@ -76,9 +76,9 @@
 
 @if (isModalOpen)
 {
-    <div class="modal-backdrop">
-        <div class="modal">
-            <div class="modal-header">
+    <div class="supplier-modal-backdrop">
+        <div class="supplier-modal">
+            <div class="supplier-modal-header">
                 <h3>@(isEditMode ? "Cập nhật nhà cung cấp" : "Thêm nhà cung cấp")</h3>
                 <button class="icon" @onclick="CloseModal">×</button>
             </div>
@@ -108,7 +108,7 @@
                     <ValidationMessage For="() => formModel.Address" />
                 </div>
 
-                <div class="modal-actions">
+                <div class="supplier-modal-actions">
                     <button type="button" class="ghost" @onclick="CloseModal">Huỷ</button>
                     <button type="submit" class="primary" disabled="@isSaving">@(isSaving ? "Đang lưu..." : "Lưu")</button>
                 </div>
@@ -165,9 +165,11 @@
 
     private void OpenCreateModal()
     {
+        Console.WriteLine("OpenCreateModal called");
         formModel.Reset();
         isEditMode = false;
         isModalOpen = true;
+        Console.WriteLine($"isModalOpen = {isModalOpen}");
         modalError = null;
         editingSupplierId = null;
     }

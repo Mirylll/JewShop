@@ -4,7 +4,7 @@ namespace JewShop.Server.Services.Interfaces
 {
     public interface IOrderService
     {
-        Task<OrderDto?> CreateOrderAsync(CreateOrderDto dto);
+        Task<OrderDto?> CreateOrderAsync(CreateOrderDto dto, int? userId = null);
         Task<List<OrderDto>> GetAllOrdersAsync();
         Task<OrderDto?> GetOrderByIdAsync(int id);
         Task<bool> UpdateOrderStatusAsync(int id, string status);

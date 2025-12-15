@@ -44,5 +44,10 @@ namespace JewShop.Client.Services
             var response = await _http.PutAsJsonAsync($"api/orders/{id}/status", status);
             return response.IsSuccessStatusCode;
         }
+
+        public async Task<bool> CancelOrder(int id)
+        {
+            return await UpdateStatus(id, "cancelled");
+        }
     }
 }

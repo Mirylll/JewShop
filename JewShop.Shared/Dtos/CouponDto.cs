@@ -1,4 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
 
 namespace JewShop.Shared.Dtos
 {
@@ -9,12 +9,16 @@ namespace JewShop.Shared.Dtos
         [Required(ErrorMessage = "Mã giảm giá không được để trống")]
         public string Code { get; set; } = string.Empty;
         
+        public string? Description { get; set; }
+
         [Required]
         public string Type { get; set; } = "percent"; // percent or fixed
         
         [Range(0, double.MaxValue, ErrorMessage = "Giá trị phải lớn hơn 0")]
         public decimal Value { get; set; }
         
+        public decimal MinOrderValue { get; set; } = 0;
+
         public bool Active { get; set; } = true;
         
         public DateTime? ExpiryDate { get; set; }

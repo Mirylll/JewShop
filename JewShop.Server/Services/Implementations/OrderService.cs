@@ -17,7 +17,7 @@ namespace JewShop.Server.Services.Implementations
             _cartService = cartService;
         }
 
-        public async Task<OrderDto?> CreateOrderAsync(CreateOrderDto dto)
+        public async Task<OrderDto?> CreateOrderAsync(CreateOrderDto dto, int? userId = null)
         {
             var cartItems = await _cartService.GetCartItemsAsync(dto.SessionId);
             if (!cartItems.Any()) return null;
@@ -55,8 +55,20 @@ namespace JewShop.Server.Services.Implementations
                 }
             }
 
+            // Validate stock BEFORE creating order
+            foreach (var item in cartItems)
+            {
+                var variant = await _context.ProductVariants.FindAsync(item.VariantId);
+                if (variant == null || variant.Stock < item.Quantity)
+                {
+                    var productName = variant?.Product?.Name ?? "Unknown";
+                    throw new Exception($"Sản phẩm '{productName}' không đủ hàng trong kho. Còn lại: {variant?.Stock ?? 0}, yêu cầu: {item.Quantity}");
+                }
+            }
+
             var order = new Order
             {
+                UserId = userId, // SET UserId here!
                 OrderCode = $"ORD-{DateTime.UtcNow.Ticks}",
                 CustomerName = dto.CustomerName,
                 CustomerPhone = dto.CustomerPhone,
@@ -71,23 +83,19 @@ namespace JewShop.Server.Services.Implementations
                 CreatedAt = DateTime.UtcNow,
                 CouponId = couponId
             };
+            
+            Console.WriteLine($"[DEBUG OrderService] Creating order with UserId: {userId}, OrderCode: {order.OrderCode}");
 
             _context.Orders.Add(order);
             await _context.SaveChangesAsync();
 
+            // Deduct stock and create order items
             foreach (var item in cartItems)
             {
                 var variant = await _context.ProductVariants.FindAsync(item.VariantId);
                 if (variant != null)
                 {
-                    if (variant.Stock < item.Quantity)
-                    {
-                        variant.Stock -= item.Quantity;
-                    }
-                    else
-                    {
-                         variant.Stock -= item.Quantity;
-                    }
+                    variant.Stock -= item.Quantity;
                 }
 
                 var orderItem = new OrderItem

@@ -1,8 +1,10 @@
+
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace JewShop.Server.Models
 {
+    [Table("Coupons")]
     public class Coupon
     {
         [Key]

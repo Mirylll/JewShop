@@ -1,0 +1,437 @@
+@page "/profile"
+@using JewShop.Shared.Dtos
+@using JewShop.Client.Services
+@attribute [Microsoft.AspNetCore.Authorization.Authorize]
+@inject IUserService UserService
+@inject NavigationManager Navigation
+@inject IJSRuntime JS
+
+<div class="container mt-4 mb-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h3>Hồ sơ cá nhân</h3>
+    </div>
+
+    @if (userProfile == null)
+    {
+        <div class="d-flex align-items-center mt-5 justify-content-center">
+            <div class="spinner-border text-primary me-2" role="status"></div>
+            <span class="text-muted">Đang tải dữ liệu...</span>
+        </div>
+    }
+    else
+    {
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm border-0 h-100">
+                    <div class="card-body text-center p-4">
+                        <div class="mb-3 position-relative d-inline-block">
+                            <img src="https://ui-avatars.com/api/?name=@userProfile.Name&background=0D8ABC&color=fff&size=128"
+                                 class="rounded-circle shadow-sm" 
+                                 style="width: 120px; height: 120px; object-fit: cover; border: 4px solid #f8f9fa;" />
+                            
+                            <span class="position-absolute bottom-0 end-0 badge rounded-pill bg-warning text-dark border border-2 border-white">
+                                @userProfile.Type
+                            </span>
+                        </div>
+
+                        @if (!isEditing)
+                        {
+                            <h5 class="fw-bold text-dark mb-1">@userProfile.Name</h5>
+                            <p class="text-muted small mb-1">@userProfile.Email</p>
+                            <p class="text-muted small mb-4">@userProfile.Phone</p>
+
+                            <div class="d-flex flex-column gap-2">
+                                <button class="btn btn-outline-primary fw-medium py-2 d-flex align-items-center justify-content-center gap-2" 
+                                        @onclick="EnableEditMode">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                      <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                      <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                                    </svg>
+                                    Chỉnh sửa thông tin
+                                </button>
+                                
+                                <button class="btn btn-light text-danger fw-medium py-2 d-flex align-items-center justify-content-center gap-2" 
+                                        @onclick="ShowChangePassModal">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-shield-lock" viewBox="0 0 16 16">
+                                      <path d="M5.338 1.59a61.44 61.44 0 0 0-2.837.856.481.481 0 0 0-.328.39c-.554 4.157.726 7.19 2.253 9.188a10.725 10.725 0 0 0 2.287 2.233c.346.244.652.42.893.533.12.057.218.095.293.118a.55.55 0 0 0 .101.025.615.615 0 0 0 .1-.025c.076-.023.174-.061.294-.118.24-.113.547-.29.893-.533a10.726 10.726 0 0 0 2.287-2.233c1.527-1.997 2.807-5.031 2.253-9.188a.48.48 0 0 0-.328-.39c-.651-.23-1.158-.412-1.61-.577-.526-.193-1.096-.37-1.745-.494a3.923 3.923 0 0 0-1.97.008c-.648.124-1.218.3-1.744.494-.453.165-.96.347-1.61.577zm.58 1.334c.54-.199 1.11-.375 1.706-.499a2.923 2.923 0 0 1 1.488.001c.596.124 1.166.3 1.706.499.52.193.993.364 1.486.536.082.528.188 1.16.275 1.84a1.037 1.037 0 1 0 1.01-1.025c.08-.507.173-1.042.274-1.603.275.05.57.108.887.168a.5.5 0 0 0 .584-.396C15.938 3 14.75 1.75 12.25 1.75c-1.875 0-3.375 1.375-3.375 3.125a.5.5 0 0 0 .1.306L8.5 5.5l.5.5a.5.5 0 0 1 0 .707l-2 2a.5.5 0 0 1-.707 0l-.5-.5-1.5 1.5a.5.5 0 0 1-.707 0l-.5-.5a.5.5 0 0 1 0-.707l2-2a.5.5 0 0 1 .707 0l.5.5 1.5-1.5a.5.5 0 0 1 0-.707L8 2.5a.5.5 0 0 0 .375-.125c-.267-.215-.563-.385-.875-.5z"/>
+                                      <path d="M9.5 6.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+                                    </svg>
+                                    Đổi mật khẩu
+                                </button>
+                            </div>
+                        }
+                        else
+                        {
+                            <EditForm Model="updateModel" OnValidSubmit="HandleUpdateProfile">
+                                <DataAnnotationsValidator />
+                                <div class="text-start mb-2">
+                                    <label class="form-label small fw-bold text-muted">Họ tên hiển thị</label>
+                                    <InputText @bind-Value="updateModel.Name" class="form-control" />
+                                    <ValidationMessage For="@(() => updateModel.Name)" />
+                                </div>
+                                <div class="text-start mb-3">
+                                    <label class="form-label small fw-bold text-muted">Số điện thoại</label>
+                                    <InputText @bind-Value="updateModel.Phone" class="form-control" />
+                                    <ValidationMessage For="@(() => updateModel.Phone)" />
+                                </div>
+                                <div class="d-flex gap-2">
+                                    <button type="button" class="btn btn-light flex-grow-1" @onclick="CancelEditMode">Hủy</button>
+                                    <button type="submit" class="btn btn-primary flex-grow-1">Lưu</button>
+                                </div>
+                            </EditForm>
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-8">
+                <!-- Sổ địa chỉ -->
+                <div class="card shadow-sm border-0 mb-4">
+                    <div class="card-header bg-white d-flex justify-content-between align-items-center py-3 border-bottom-0">
+                        <h5 class="mb-0 fw-bold text-dark">Sổ địa chỉ</h5>
+                        <button class="btn btn-primary btn-sm rounded-pill px-3 shadow-sm" @onclick="ShowAddAddressModal">
+                            + Thêm mới
+                        </button>
+                    </div>
+                    <div class="card-body p-0">
+                        @if (userProfile.Addresses == null || !userProfile.Addresses.Any())
+                        {
+                            <div class="text-center py-5 text-muted bg-light mx-3 mb-3 rounded-3">
+                                <p class="mb-0">Bạn chưa lưu địa chỉ nào.</p>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="list-group list-group-flush">
+                                @foreach (var addr in userProfile.Addresses)
+                                {
+                                    <div class="list-group-item p-3 border-0 border-bottom mx-2">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <div class="d-flex align-items-center gap-2 mb-1">
+                                                    <strong class="text-dark">@addr.Label</strong>
+                                                    @if (addr.IsDefault)
+                                                    {
+                                                        <span class="badge bg-success-subtle text-success border border-success-subtle" style="font-size: 0.7rem;">Mặc định</span>
+                                                    }
+                                                </div>
+                                                <div class="text-secondary small">@addr.FullAddress, @addr.City</div>
+                                                <div class="text-secondary small">SĐT: <span class="fw-medium text-dark">@addr.Phone</span></div>
+                                            </div>
+                                            <button class="btn btn-outline-danger btn-sm rounded-circle p-2 lh-1"
+                                                    title="Xóa địa chỉ"
+                                                    @onclick="() => HandleDeleteAddress(addr.AddressId)">
+                                                <span style="font-size: 1.2em;">&times;</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        }
+                    </div>
+                </div>
+
+                <!-- Lịch sử đơn hàng -->
+                <div class="card shadow-sm border-0">
+                    <div class="card-header bg-white py-3 border-bottom-0">
+                        <h5 class="mb-0 fw-bold text-dark">Lịch sử đơn hàng</h5>
+                    </div>
+                    <div class="card-body p-0">
+                        @if (userProfile.Orders == null || !userProfile.Orders.Any())
+                        {
+                            <div class="text-center py-5 text-muted bg-light mx-3 mb-3 rounded-3">
+                                <p class="mb-0">Bạn chưa có đơn hàng nào.</p>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="table-responsive">
+                                <table class="table table-hover align-middle mb-0">
+                                    <thead class="bg-light">
+                                        <tr>
+                                            <th class="ps-4 border-0">Mã đơn</th>
+                                            <th class="border-0">Ngày đặt</th>
+                                            <th class="border-0">Tổng tiền</th>
+                                            <th class="border-0">Trạng thái</th>
+                                            <th class="border-0 text-end pe-4">Thao tác</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var order in userProfile.Orders)
+                                        {
+                                            <tr>
+                                                <td class="ps-4 fw-bold text-primary">#@order.OrderCode</td>
+                                                <td class="text-muted small">@order.CreatedAt.ToString("dd/MM/yyyy HH:mm")</td>
+                                                <td class="fw-bold text-dark">@order.TotalAmount.ToString("N0") ₫</td>
+                                                <td>
+                                                    @if(order.Status == "completed") { <span class="badge bg-success-subtle text-success">Hoàn thành</span> }
+                                                    else if(order.Status == "pending") { <span class="badge bg-warning-subtle text-warning">Chờ xử lý</span> }
+                                                    else if(order.Status == "cancelled") { <span class="badge bg-danger-subtle text-danger">Đã hủy</span> }
+                                                    else { <span class="badge bg-secondary-subtle text-secondary">@order.Status</span> }
+                                                </td>
+                                                <td class="text-end pe-4">
+                                                    <a href="/order-details/@order.Id" class="btn btn-sm btn-outline-primary rounded-pill px-3">
+                                                        Xem
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+@if (!string.IsNullOrEmpty(toastMessage))
+{
+    <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 1055;">
+        <div class="toast show align-items-center text-white @(isSuccessToast ? "bg-success" : "bg-danger") border-0 shadow-lg">
+            <div class="d-flex">
+                <div class="toast-body">
+                    <i class="bi @(isSuccessToast ? "bi-check-circle-fill" : "bi-exclamation-triangle-fill") me-2"></i>
+                    @toastMessage
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" @onclick="() => toastMessage = null"></button>
+            </div>
+        </div>
+    </div>
+}
+
+@if (showAddressModal)
+{
+    <div class="modal-backdrop fade show"></div>
+    <div class="modal fade show d-block" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold">Thêm Địa Chỉ Mới</h5>
+                    <button type="button" class="btn-close" @onclick="() => showAddressModal = false"></button>
+                </div>
+                <EditForm Model="newAddress" OnValidSubmit="HandleAddAddress">
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label class="form-label small fw-bold text-muted">Loại địa chỉ</label>
+                            <InputText @bind-Value="newAddress.Label" class="form-control" placeholder="VD: Nhà riêng, Công ty" />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label small fw-bold text-muted">Địa chỉ chi tiết</label>
+                            <InputText @bind-Value="newAddress.FullAddress" class="form-control" placeholder="Số nhà, tên đường..." />
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label small fw-bold text-muted">Thành phố</label>
+                                <InputText @bind-Value="newAddress.City" class="form-control" />
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label small fw-bold text-muted">Số điện thoại</label>
+                                <InputText @bind-Value="newAddress.Phone" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-check">
+                            <InputCheckbox @bind-Value="newAddress.IsDefault" class="form-check-input" id="chkDefault" />
+                            <label class="form-check-label user-select-none" for="chkDefault">Đặt làm địa chỉ mặc định</label>
+                        </div>
+                    </div>
+                    <div class="modal-footer border-top-0">
+                        <button type="button" class="btn btn-light" @onclick="() => showAddressModal = false">Hủy</button>
+                        <button type="submit" class="btn btn-primary px-4">Lưu Địa Chỉ</button>
+                    </div>
+                </EditForm>
+            </div>
+        </div>
+    </div>
+}
+
+@if (showPassModal)
+{
+    <div class="modal-backdrop fade show"></div>
+    <div class="modal fade show d-block" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold">Đổi Mật Khẩu</h5>
+                    <button type="button" class="btn-close" @onclick="() => showPassModal = false"></button>
+                </div>
+                <EditForm Model="passModel" OnValidSubmit="HandleChangePassword">
+                    <DataAnnotationsValidator />
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label class="form-label small fw-bold text-muted">Mật khẩu hiện tại</label>
+                            <InputText type="password" @bind-Value="passModel.OldPassword" class="form-control" />
+                            <ValidationMessage For="@(() => passModel.OldPassword)" />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label small fw-bold text-muted">Mật khẩu mới</label>
+                            <InputText type="password" @bind-Value="passModel.NewPassword" class="form-control" />
+                            <ValidationMessage For="@(() => passModel.NewPassword)" />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label small fw-bold text-muted">Nhập lại mật khẩu mới</label>
+                            <InputText type="password" @bind-Value="passModel.ConfirmNewPassword" class="form-control" />
+                            <ValidationMessage For="@(() => passModel.ConfirmNewPassword)" />
+                        </div>
+                    </div>
+                    <div class="modal-footer border-top-0">
+                        <button type="button" class="btn btn-light" @onclick="() => showPassModal = false">Hủy</button>
+                        <button type="submit" class="btn btn-danger px-4">Đổi Mật Khẩu</button>
+                    </div>
+                </EditForm>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    private UserProfileDto? userProfile;
+
+   
+    private bool showAddressModal = false;
+    private AddressDto newAddress = new();
+
+    private bool isEditing = false;
+    private UpdateProfileRequest updateModel = new();
+
+    private bool showPassModal = false;
+    private ChangePasswordRequest passModel = new();
+    
+   
+    private string? toastMessage;
+    private bool isSuccessToast;
+
+ 
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadData();
+    }
+
+    private async Task LoadData()
+    {
+        try
+        {
+            userProfile = await UserService.GetProfile();
+            if (userProfile == null)
+            {
+                await ShowToast("Không thể tải thông tin. Vui lòng đăng nhập lại.", false);
+            }
+        }
+        catch (Exception ex)
+        {
+            await ShowToast($"Lỗi: {ex.Message}", false);
+            userProfile = null;
+        }
+    }
+
+    
+    private async Task ShowToast(string message, bool isSuccess = true)
+    {
+        toastMessage = message;
+        isSuccessToast = isSuccess;
+        StateHasChanged(); 
+        
+      
+        await Task.Delay(3000);
+        toastMessage = null;
+        StateHasChanged();
+    }
+
+   
+    private void ShowAddAddressModal()
+    {
+        newAddress = new AddressDto { Label = "Nhà riêng", IsDefault = false };
+        showAddressModal = true;
+    }
+
+    private async Task HandleAddAddress()
+    {
+        var result = await UserService.AddAddress(newAddress);
+        if (result != null)
+        {
+            await LoadData();
+            showAddressModal = false;
+            await ShowToast("Thêm địa chỉ mới thành công!");
+        }
+        else
+        {
+            await ShowToast("Có lỗi xảy ra khi thêm địa chỉ!", false);
+        }
+    }
+
+    private async Task HandleDeleteAddress(int id)
+    {
+        bool confirmed = await JS.InvokeAsync<bool>("confirm", "Bạn có chắc chắn muốn xóa địa chỉ này?");
+        if (confirmed)
+        {
+            bool success = await UserService.DeleteAddress(id);
+            if (success) 
+            {
+                await LoadData();
+                await ShowToast("Đã xóa địa chỉ thành công!");
+            }
+            else 
+            {
+                await ShowToast("Không thể xóa địa chỉ này!", false);
+            }
+        }
+    }
+
+  
+    private void EnableEditMode()
+    {
+        updateModel = new UpdateProfileRequest
+        {
+            Name = userProfile!.Name,
+            Phone = userProfile.Phone
+        };
+        isEditing = true;
+    }
+
+    private void CancelEditMode()
+    {
+        isEditing = false;
+    }
+
+    private async Task HandleUpdateProfile()
+    {
+        var success = await UserService.UpdateProfile(updateModel);
+        
+        if (success)
+        {
+            await LoadData();
+            isEditing = false;
+            await ShowToast("Cập nhật thông tin thành công!");
+        }
+        else
+        {
+            await ShowToast("Lỗi cập nhật! Vui lòng thử lại.", false);
+        }
+    }
+
+    
+    private void ShowChangePassModal()
+    {
+        passModel = new();
+        showPassModal = true;
+    }
+
+    private async Task HandleChangePassword()
+    {
+        var success = await UserService.ChangePassword(passModel);
+        
+        if (success)
+        {
+            showPassModal = false;
+            passModel = new();
+            
+            await ShowToast("Đổi mật khẩu thành công!");
+        }
+        else
+        {
+            await ShowToast("Mật khẩu cũ không đúng! Vui lòng thử lại.", false);
+        }
+    }
+}

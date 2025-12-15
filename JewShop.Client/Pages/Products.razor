@@ -4,6 +4,7 @@
 @using Microsoft.AspNetCore.WebUtilities
 @inject ProductDataService ProductService
 @inject NavigationManager Navigation
+@implements IDisposable
 
 <PageTitle>Sản phẩm - JewShop</PageTitle>
 
@@ -96,18 +97,39 @@
 
     protected override async Task OnInitializedAsync()
     {
+        // Subscribe to navigation changes
+        Navigation.LocationChanged += OnLocationChanged;
+        
         await LoadProducts();
+        
+        // Apply initial category filter from URL
+        ReadCategoryFromUrl();
     }
 
-    protected override void OnParametersSet()
+    private void OnLocationChanged(object? sender, Microsoft.AspNetCore.Components.Routing.LocationChangedEventArgs e)
     {
-        // Read query parameter
+        // When URL changes (e.g., clicking different category), reload filters
+        ReadCategoryFromUrl();
+        StateHasChanged();
+    }
+
+    private void ReadCategoryFromUrl()
+    {
         var uri = Navigation.ToAbsoluteUri(Navigation.Uri);
         if (QueryHelpers.ParseQuery(uri.Query).TryGetValue("category", out var category))
         {
             selectedCategory = category;
-            ApplyFilters();
         }
+        else
+        {
+            selectedCategory = null;
+        }
+        ApplyFilters();
+    }
+
+    protected override void OnParametersSet()
+    {
+        // No longer needed - handled by LocationChanged
     }
 
     private async Task LoadProducts()
@@ -196,5 +218,11 @@
     private void ViewProduct(int productId)
     {
         Navigation.NavigateTo($"/product/{productId}");
+    }
+
+    public void Dispose()
+    {
+        // Unsubscribe from navigation changes to prevent memory leaks
+        Navigation.LocationChanged -= OnLocationChanged;
     }
 }

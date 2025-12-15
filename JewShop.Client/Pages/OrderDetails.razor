@@ -1,0 +1,233 @@
+@page "/order-details/{OrderId:int}"
+@using JewShop.Client.Services
+@using JewShop.Shared.Dtos
+@inject OrderService OrderService
+@inject NavigationManager Navigation
+@inject IJSRuntime JS
+
+<PageTitle>Chi tiết đơn hàng - JewShop</PageTitle>
+
+<Toast @ref="toast" />
+
+<div class="order-details-page">
+    @if (isLoading)
+    {
+        <div class="loading">
+            <p>Đang tải thông tin đơn hàng...</p>
+        </div>
+    }
+    else if (order == null)
+    {
+        <div class="not-found">
+            <h2>Không tìm thấy đơn hàng</h2>
+            <p>Đơn hàng bạn đang tìm không tồn tại hoặc đã bị xóa.</p>
+            <a href="/profile" class="btn-back">← Quay lại hồ sơ</a>
+        </div>
+    }
+    else
+    {
+        <div class="order-container">
+            <div class="order-header">
+                <div>
+                    <h1>Chi tiết đơn hàng</h1>
+                    <p class="order-code">Mã đơn: <strong>#@order.OrderCode</strong></p>
+                </div>
+                <a href="/profile" class="btn-back">← Quay lại</a>
+            </div>
+
+            <div class="order-content">
+                <!-- Order Status Card -->
+                <div class="info-card">
+                    <h3>Trạng thái đơn hàng</h3>
+                    <div class="status-info">
+                        <div class="status-item">
+                            <span class="label">Trạng thái:</span>
+                            @if(order.Status == "completed") 
+                            { 
+                                <span class="badge badge-success">✓ Hoàn thành</span> 
+                            }
+                            else if(order.Status == "pending") 
+                            { 
+                                <span class="badge badge-warning">⏳ Chờ xử lý</span> 
+                            }
+                            else if(order.Status == "processing") 
+                            { 
+                                <span class="badge badge-info">🔄 Đang xử lý</span> 
+                            }
+                            else if(order.Status == "shipped") 
+                            { 
+                                <span class="badge badge-primary">🚚 Đang giao</span> 
+                            }
+                            else if(order.Status == "cancelled") 
+                            { 
+                                <span class="badge badge-danger">✕ Đã hủy</span> 
+                            }
+                            else 
+                            { 
+                                <span class="badge badge-secondary">@order.Status</span> 
+                            }
+                        </div>
+                        <div class="status-item">
+                            <span class="label">Ngày đặt:</span>
+                            <span class="value">@order.CreatedAt.ToString("dd/MM/yyyy HH:mm")</span>
+                        </div>
+                    </div>
+
+                    @if (CanCancelOrder())
+                    {
+                        <button class="btn-cancel" @onclick="HandleCancelOrder">
+                            ✕ Hủy đơn hàng
+                        </button>
+                    }
+                </div>
+
+                <!-- Customer Info Card -->
+                <div class="info-card">
+                    <h3>Thông tin giao hàng</h3>
+                    <div class="customer-info">
+                        <div class="info-row">
+                            <span class="label">Người nhận:</span>
+                            <span class="value">@order.CustomerName</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="label">Số điện thoại:</span>
+                            <span class="value">@order.CustomerPhone</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="label">Địa chỉ:</span>
+                            <span class="value">@order.ShippingAddress</span>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Order Items Card -->
+                <div class="info-card">
+                    <h3>Sản phẩm đã đặt</h3>
+                    <div class="items-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Sản phẩm</th>
+                                    <th>Đơn giá</th>
+                                    <th>Số lượng</th>
+                                    <th>Thành tiền</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in order.OrderItems)
+                                {
+                                    <tr>
+                                        <td>
+                                            <div class="product-info">
+                                                <strong>@item.ProductName</strong>
+                                                @if (!string.IsNullOrEmpty(item.Size) || !string.IsNullOrEmpty(item.Color))
+                                                {
+                                                    <small>
+                                                        @if (!string.IsNullOrEmpty(item.Size)) { <span>Size: @item.Size</span> }
+                                                        @if (!string.IsNullOrEmpty(item.Color)) { <span>Màu: @item.Color</span> }
+                                                    </small>
+                                                }
+                                            </div>
+                                        </td>
+                                        <td>@item.UnitPrice.ToString("N0") ₫</td>
+                                        <td>@item.Quantity</td>
+                                        <td class="total">@item.TotalPrice.ToString("N0") ₫</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Price Summary Card -->
+                <div class="info-card">
+                    <h3>Tổng quan thanh toán</h3>
+                    <div class="price-summary">
+                        <div class="price-row">
+                            <span>Tạm tính:</span>
+                            <span>@order.Subtotal.ToString("N0") ₫</span>
+                        </div>
+                        <div class="price-row">
+                            <span>Phí vận chuyển:</span>
+                            <span>@order.ShippingFee.ToString("N0") ₫</span>
+                        </div>
+                        @if (order.DiscountAmount > 0)
+                        {
+                            <div class="price-row discount">
+                                <span>Giảm giá:</span>
+                                <span>-@order.DiscountAmount.ToString("N0") ₫</span>
+                            </div>
+                        }
+                        <div class="price-row total">
+                            <span>Tổng cộng:</span>
+                            <span>@order.TotalAmount.ToString("N0") ₫</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+@code {
+    [Parameter]
+    public int OrderId { get; set; }
+
+    private OrderDto? order;
+    private bool isLoading = true;
+    private Toast? toast;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadOrder();
+    }
+
+    private async Task LoadOrder()
+    {
+        isLoading = true;
+        try
+        {
+            order = await OrderService.GetOrderById(OrderId);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error loading order: {ex.Message}");
+        }
+        finally
+        {
+            isLoading = false;
+        }
+    }
+
+    private bool CanCancelOrder()
+    {
+        if (order == null) return false;
+        return order.Status == "pending" || order.Status == "processing";
+    }
+
+    private async Task HandleCancelOrder()
+    {
+        var confirmed = await JS.InvokeAsync<bool>("confirm", "Bạn có chắc chắn muốn hủy đơn hàng này?");
+        if (!confirmed) return;
+
+        try
+        {
+            var success = await OrderService.CancelOrder(OrderId);
+            if (success)
+            {
+                toast?.Show("Thành công", "Đã hủy đơn hàng!", Toast.ToastType.Success);
+                await Task.Delay(1500);
+                Navigation.NavigateTo("/profile");
+            }
+            else
+            {
+                toast?.Show("Lỗi", "Không thể hủy đơn hàng. Vui lòng thử lại.", Toast.ToastType.Error);
+            }
+        }
+        catch (Exception ex)
+        {
+            toast?.Show("Lỗi", $"Đã xảy ra lỗi: {ex.Message}", Toast.ToastType.Error);
+        }
+    }
+}

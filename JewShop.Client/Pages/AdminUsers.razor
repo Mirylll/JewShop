@@ -1,0 +1,246 @@
+@page "/admin/users"
+@attribute [Microsoft.AspNetCore.Authorization.Authorize(Roles = "admin")]
+@layout AdminLayout
+@inject HttpClient Http
+@inject IJSRuntime JS
+
+<div class="row mb-4 align-items-center">
+    <div class="col">
+        <h2 class="fw-bold mb-0">Quản lý Tài khoản</h2>
+        <p class="text-muted">Quản lý người dùng và phân quyền hệ thống</p>
+    </div>
+</div>
+
+<div class="row mb-3">
+    <div class="col-md-4">
+        <input type="text" class="form-control" placeholder="Tìm kiếm email, tên..." @bind="searchTerm" @bind:event="oninput" />
+    </div>
+    <div class="col-md-3">
+        <select class="form-select" @bind="filterType">
+            <option value="">Tất cả loại</option>
+            <option value="customer">Customer</option>
+            <option value="admin">Admin</option>
+        </select>
+    </div>
+    <div class="col-md-3">
+        <select class="form-select" @bind="filterStatus">
+            <option value="">Tất cả trạng thái</option>
+            <option value="active">Active</option>
+            <option value="locked">Locked</option>
+        </select>
+    </div>
+</div>
+
+@if (users == null)
+{
+    <div class="text-center py-5">
+        <div class="spinner-border text-primary" role="status"></div>
+        <p class="text-muted mt-2">Đang tải...</p>
+    </div>
+}
+else if (!FilteredUsers.Any())
+{
+    <div class="card shadow-sm border-0">
+        <div class="card-body text-center py-5">
+            <h5 class="text-muted">Không tìm thấy người dùng nào</h5>
+        </div>
+    </div>
+}
+else
+{
+    <div class="card shadow-sm border-0">
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table table-hover align-middle mb-0">
+                    <thead class="bg-light">
+                        <tr>
+                            <th class="ps-4 border-0">Email</th>
+                            <th class="border-0">Tên</th>
+                            <th class="border-0">Số điện thoại</th>
+                            <th class="border-0">Loại</th>
+                            <th class="border-0">Trạng thái</th>
+                            <th class="border-0">Ngày tạo</th>
+                            <th class="border-0 text-end pe-4">Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var user in FilteredUsers)
+                        {
+                            <tr>
+                                <td class="ps-4 fw-bold">@user.Email</td>
+                                <td>@(user.Name ?? "-")</td>
+                                <td class="text-muted">@(user.Phone ?? "-")</td>
+                                <td>
+                                    @if(user.Type == "admin")
+                                    {
+                                        <span class="badge bg-danger">Admin</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge bg-primary">Customer</span>
+                                    }
+                                </td>
+                                <td>
+                                    @if(user.Status == "active")
+                                    {
+                                        <span class="badge bg-success">Active</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge bg-secondary">Locked</span>
+                                    }
+                                </td>
+                                <td class="text-muted small">@user.CreatedAt.ToString("dd/MM/yyyy")</td>
+                                <td class="text-end pe-4">
+                                    <div class="btn-group btn-group-sm">
+                                        @if (user.Type == "customer")
+                                        {
+                                            <button class="btn btn-outline-danger" @onclick="@(() => PromoteToAdmin(user.UserId))">
+                                                <i class="bi bi-shield-check"></i> Lên Admin
+                                            </button>
+                                        }
+                                        else
+                                        {
+                                            <button class="btn btn-outline-primary" @onclick="@(() => DemoteToCustomer(user.UserId))">
+                                                <i class="bi bi-person"></i> Xuống Customer
+                                            </button>
+                                        }
+                                        
+                                        @if (user.Status == "active")
+                                        {
+                                            <button class="btn btn-outline-warning" @onclick="@(() => LockUser(user.UserId))">
+                                                <i class="bi bi-lock"></i> Khóa
+                                            </button>
+                                        }
+                                        else
+                                        {
+                                            <button class="btn btn-outline-success" @onclick="@(() => UnlockUser(user.UserId))">
+                                                <i class="bi bi-unlock"></i> Mở khóa
+                                            </button>
+                                        }
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-3 text-muted">
+        <small>Tổng số: <strong>@FilteredUsers.Count()</strong> người dùng</small>
+    </div>
+}
+
+@code {
+    private List<UserDto>? users;
+    private string searchTerm = "";
+    private string filterType = "";
+    private string filterStatus = "";
+
+    private IEnumerable<UserDto> FilteredUsers
+    {
+        get
+        {
+            if (users == null) return Enumerable.Empty<UserDto>();
+
+            var filtered = users.AsEnumerable();
+
+            if (!string.IsNullOrWhiteSpace(searchTerm))
+            {
+                filtered = filtered.Where(u => 
+                    (u.Email?.Contains(searchTerm, StringComparison.OrdinalIgnoreCase) ?? false) ||
+                    (u.Name?.Contains(searchTerm, StringComparison.OrdinalIgnoreCase) ?? false)
+                );
+            }
+
+            if (!string.IsNullOrWhiteSpace(filterType))
+            {
+                filtered = filtered.Where(u => u.Type == filterType);
+            }
+
+            if (!string.IsNullOrWhiteSpace(filterStatus))
+            {
+                filtered = filtered.Where(u => u.Status == filterStatus);
+            }
+
+            return filtered;
+        }
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadData();
+    }
+
+    private async Task LoadData()
+    {
+        try
+        {
+            users = await Http.GetFromJsonAsync<List<UserDto>>("api/users");
+            Console.WriteLine($"Loaded {users?.Count ?? 0} users");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error loading users: {ex.Message}");
+            Console.WriteLine($"Stack: {ex.StackTrace}");
+            users = new List<UserDto>();
+        }
+    }
+
+    private async Task PromoteToAdmin(int userId) => await ChangeRole(userId, "admin");
+    private async Task DemoteToCustomer(int userId) => await ChangeRole(userId, "customer");
+    private async Task LockUser(int userId) => await ChangeStatus(userId, "locked");
+    private async Task UnlockUser(int userId) => await ChangeStatus(userId, "active");
+
+    private async Task ChangeRole(int userId, string newRole)
+    {
+        string message = newRole == "admin" ? "Bạn có chắc muốn cấp quyền Admin?" : "Bạn có chắc muốn hạ xuống Customer?";
+        bool confirmed = await JS.InvokeAsync<bool>("confirm", message);
+        if (!confirmed) return;
+
+        try
+        {
+            var response = await Http.PutAsJsonAsync($"api/users/{userId}/role", new { Role = newRole });
+            if (response.IsSuccessStatusCode)
+            {
+                await LoadData();
+                await JS.InvokeVoidAsync("alert", "Đã cập nhật role thành công!");
+            }
+            else
+            {
+                await JS.InvokeVoidAsync("alert", "Không thể cập nhật role");
+            }
+        }
+        catch (Exception ex)
+        {
+            await JS.InvokeVoidAsync("alert", $"Lỗi: {ex.Message}");
+        }
+    }
+
+    private async Task ChangeStatus(int userId, string newStatus)
+    {
+        string message = newStatus == "locked" ? "Bạn có chắc muốn khóa tài khoản này?" : "Bạn có chắc muốn mở khóa tài khoản này?";
+        bool confirmed = await JS.InvokeAsync<bool>("confirm", message);
+        if (!confirmed) return;
+
+        try
+        {
+            var response = await Http.PutAsJsonAsync($"api/users/{userId}/status", new { Status = newStatus });
+            if (response.IsSuccessStatusCode)
+            {
+                await LoadData();
+                await JS.InvokeVoidAsync("alert", "Đã cập nhật trạng thái thành công!");
+            }
+            else
+            {
+                await JS.InvokeVoidAsync("alert", "Không thể cập nhật trạng thái");
+            }
+        }
+        catch (Exception ex)
+        {
+            await JS.InvokeVoidAsync("alert", $"Lỗi: {ex.Message}");
+        }
+    }
+}
