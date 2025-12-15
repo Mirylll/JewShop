@@ -35,7 +35,10 @@
 
         <div class="right">
             <div class="search-box">
-                <input placeholder="Search" />
+                <input placeholder="Tìm kiếm sản phẩm..." 
+                       @bind="searchTerm" 
+                       @bind:event="oninput"
+                       @onkeydown="HandleSearchKeyDown" />
             </div>
 
             <a href="/cart" class="cart-icon">
@@ -82,6 +85,7 @@
 @inject NavigationManager Navigation
 
     private int cartCount = 0;
+    private string searchTerm = "";
 
     protected override async Task OnInitializedAsync()
     {
@@ -91,6 +95,15 @@
             cartCount = await CartService.GetCartCount();
             await InvokeAsync(StateHasChanged);
         };
+    }
+
+    private void HandleSearchKeyDown(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter" && !string.IsNullOrWhiteSpace(searchTerm))
+        {
+            Navigation.NavigateTo($"/products?search={Uri.EscapeDataString(searchTerm)}");
+            searchTerm = ""; // Clear search after navigation
+        }
     }
 
     private async Task BeginLogout()

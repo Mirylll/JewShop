@@ -116,7 +116,10 @@
     private void ReadCategoryFromUrl()
     {
         var uri = Navigation.ToAbsoluteUri(Navigation.Uri);
-        if (QueryHelpers.ParseQuery(uri.Query).TryGetValue("category", out var category))
+        var query = QueryHelpers.ParseQuery(uri.Query);
+        
+        // Read category parameter
+        if (query.TryGetValue("category", out var category))
         {
             selectedCategory = category;
         }
@@ -124,6 +127,17 @@
         {
             selectedCategory = null;
         }
+        
+        // Read search parameter
+        if (query.TryGetValue("search", out var search))
+        {
+            searchTerm = search;
+        }
+        else
+        {
+            searchTerm = null;
+        }
+        
         ApplyFilters();
     }
 
