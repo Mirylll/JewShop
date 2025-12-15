@@ -8,6 +8,8 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// 1. Cấu hình Database
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseMySql(
         connectionString,
@@ -15,16 +17,21 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     )
 );
 
+// 2. Đăng ký Services
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowClient", policy =>
     {
         policy
-            .WithOrigins("http://localhost:5049")
+            .WithOrigins("http://localhost:7200")
             .AllowAnyHeader()
             .AllowAnyMethod();
     });
 });
+
+builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://localhost:5289/") });
+
 
 builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<ISupplierService, SupplierService>();
@@ -77,12 +84,12 @@ app.UseHttpsRedirection();
 
 app.UseBlazorFrameworkFiles(); // <-- MỚI: Dòng quan trọng nhất để load file Blazor
 app.UseStaticFiles();          // <-- MỚI: Để load ảnh, css, js trong wwwroot
-
+app.UseCors("AllowClient"); 
 app.UseAuthentication(); 
 app.UseAuthorization();  
 
 app.MapRazorPages(); // <-- MỚI
-app.UseCors("AllowClient"); 
+
 
 app.MapControllers();
 app.MapFallbackToFile("index.html"); // <-- MỚI: Nếu không tìm thấy API, trả về giao diện Web
