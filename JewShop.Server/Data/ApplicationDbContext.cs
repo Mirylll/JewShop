@@ -16,10 +16,10 @@ namespace JewShop.Server.Data
         public DbSet<Address> Addresses { get; set; }
         public DbSet<PasswordReset> PasswordResets { get; set; }
         public DbSet<Product> Products { get; set; }
-        public DbSet<Supplier> Suppliers { get; set; }
-        public DbSet<User> Users { get; set; }      
-        public DbSet<Session> Sessions { get; set; } 
         public DbSet<Coupon> Coupons { get; set; }
+   
+
+    
 
     }
 }

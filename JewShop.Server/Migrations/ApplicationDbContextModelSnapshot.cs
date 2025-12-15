@@ -381,6 +381,8 @@ namespace JewShop.Server.Migrations
                     b.Navigation("UserRoles");
                 });
 #pragma warning restore 612, 618
-        }
+        });
+
     }
+}
 }
