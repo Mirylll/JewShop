@@ -119,15 +119,15 @@ namespace JewShop.Server.Migrations
                         .HasColumnType("longtext")
                         .HasColumnName("description");
 
-                    b.Property<DateTime>("ExpiresAt")
+                    b.Property<DateTime?>("ExpiresAt")
                         .HasColumnType("datetime(6)")
                         .HasColumnName("expires_at");
 
-                    b.Property<decimal>("MinOrderValue")
+                    b.Property<decimal?>("MinOrderValue")
                         .HasColumnType("decimal(10, 2)")
                         .HasColumnName("min_order_value");
 
-                    b.Property<DateTime>("StartsAt")
+                    b.Property<DateTime?>("StartsAt")
                         .HasColumnType("datetime(6)")
                         .HasColumnName("starts_at");
 
@@ -137,15 +137,15 @@ namespace JewShop.Server.Migrations
                         .HasColumnType("varchar(20)")
                         .HasColumnName("type");
 
-                    b.Property<int>("UsageLimit")
+                    b.Property<int?>("UsageLimit")
                         .HasColumnType("int")
                         .HasColumnName("usage_limit");
 
-                    b.Property<int>("UsedCount")
+                    b.Property<int?>("UsedCount")
                         .HasColumnType("int")
                         .HasColumnName("used_count");
 
-                    b.Property<decimal>("Value")
+                    b.Property<decimal?>("Value")
                         .HasColumnType("decimal(10, 2)")
                         .HasColumnName("value");
 

@@ -2,18 +2,327 @@
 @using Microsoft.AspNetCore.Authorization
 @attribute [Authorize(Roles = "admin")]
 @layout AdminLayout
+@using System.Globalization
+@using System.Net.Http
+@using Microsoft.JSInterop
+@using JewShop.Shared.Dtos
+@inject DashboardDataService DashboardService
+@inject IJSRuntime JS
 
-<PageTitle>Bảng điều khiển Admin</PageTitle>
+<PageTitle>Trung tâm thống kê</PageTitle>
 
-<section class="admin-dashboard container mt-5">
-    <div class="alert alert-success">
-        <h1>Chào mừng tới trang quản trị!</h1>
-        <p>Bạn đã đăng nhập thành công với quyền <strong>Admin</strong>.</p>
-    </div>
-    <p>Hãy chọn một mục trong menu để bắt đầu quản lý cửa hàng.</p>
-    
-    <a href="/logout" class="btn btn-danger mt-3">Đăng xuất</a>
-</section>
+@if (_isLoading)
+{
+    <section class="admin-dashboard">
+        <div class="feedback-card loading-state" role="status">
+            <p>Đang tải dữ liệu thống kê từ máy chủ...</p>
+        </div>
+    </section>
+}
+else if (!string.IsNullOrEmpty(_errorMessage))
+{
+    <section class="admin-dashboard">
+        <div class="feedback-card error-state" role="alert">
+            <h2>Không thể tải dữ liệu</h2>
+            <p>@_errorMessage</p>
+            <button class="outline-button" type="button" @onclick="ReloadAsync">Thử lại</button>
+        </div>
+    </section>
+}
+else if (_summary is not null)
+{
+    <section class="admin-dashboard">
+        <header class="dashboard-header">
+            <div>
+                <p class="eyebrow">Admin insight</p>
+                <h1>Trung tâm thống kê</h1>
+                <p class="subtitle">
+                    Đồng bộ từ MySQL jewelry_app lúc @_summary.GeneratedAtUtc.ToLocalTime().ToString("HH:mm dd/MM/yyyy")
+                </p>
+            </div>
+            <div class="header-actions">
+                <button class="ghost-button" type="button" @onclick="ReloadAsync">Làm mới dữ liệu</button>
+                <button class="primary-button" type="button" disabled="@_isExporting" @onclick="ExportReportAsync">
+                    @_exportButtonLabel
+                </button>
+            </div>
+        </header>
+
+        <section class="metric-grid" aria-label="Chỉ số chính">
+            <article class="metric-card">
+                <div class="metric-card__top">
+                    <div>
+                        <p class="metric-label">Giá trị tồn kho</p>
+                        <p class="metric-value">@FormatCurrency(_summary.TotalInventoryValue)</p>
+                    </div>
+                    <span class="metric-pill success">Live</span>
+                </div>
+                <p class="metric-description">Giá * tồn kho của @_summary.ProductCount sản phẩm hiện hữu.</p>
+            </article>
+
+            <article class="metric-card">
+                <div class="metric-card__top">
+                    <div>
+                        <p class="metric-label">Sản phẩm đang bán</p>
+                        <p class="metric-value">@_summary.ProductCount</p>
+                    </div>
+                    <span class="metric-pill info">Stock</span>
+                </div>
+                <p class="metric-description">Giá trung bình @FormatCurrency(_summary.AverageProductPrice).</p>
+            </article>
+
+            <article class="metric-card">
+                <div class="metric-card__top">
+                    <div>
+                        <p class="metric-label">Mã giảm giá hoạt động</p>
+                        <p class="metric-value">@_summary.ActiveCouponCount</p>
+                    </div>
+                    <span class="metric-pill success">@_summary.CouponCount tổng</span>
+                </div>
+                <p class="metric-description">
+                    Sắp mở @_summary.UpcomingCouponCount · Hết hạn @_summary.ExpiredCouponCount
+                </p>
+            </article>
+
+            <article class="metric-card">
+                <div class="metric-card__top">
+                    <div>
+                        <p class="metric-label">SKU cần nhập</p>
+                        <p class="metric-value">@_summary.LowStockCount</p>
+                    </div>
+                    <span class="metric-pill warning">@_summary.OutOfStockCount hết hàng</span>
+                </div>
+                <p class="metric-description">Cảnh báo khi tồn &lt;= @_summary.LowStockThreshold.</p>
+            </article>
+        </section>
+
+        <section class="chart-grid" aria-label="Widget mô tả dữ liệu">
+            <article class="chart-card inventory-card full-row">
+                <header class="card-header">
+                    <div>
+                        <p class="card-eyebrow">Kho</p>
+                        <h3>Số lượng tồn kho</h3>
+                    </div>
+                    <span class="draft-pill">LIVE SNAPSHOT</span>
+                </header>
+
+                <div class="inventory-hero">
+                    <div>
+                        <p>Giá trị tồn kho</p>
+                        <h2>@FormatCurrency(_summary.TotalInventoryValue)</h2>
+                    </div>
+                    <div>
+                        <p>Giá trung bình</p>
+                        <h2>@FormatCurrency(_summary.AverageProductPrice)</h2>
+                    </div>
+                </div>
+
+                <div class="status-board">
+                    <div>
+                        <p>Tổng SKU</p>
+                        <strong>@_summary.ProductCount</strong>
+                    </div>
+                    <div>
+                        <p>SKU hết hàng</p>
+                        <strong>@_summary.OutOfStockCount</strong>
+                    </div>
+                    <div>
+                        <p>SKU cần nhập (&le; @_summary.LowStockThreshold)</p>
+                        <strong>@_summary.LowStockCount</strong>
+                    </div>
+                </div>
+            </article>
+
+        </section>
+
+        <section class="table-card" aria-label="Tồn kho ưu tiên">
+            <header class="card-header">
+                <div>
+                    <p class="card-eyebrow">Tồn kho</p>
+                    <h3>SKU cần chú ý</h3>
+                </div>
+                <span class="draft-pill">Top @_summary.LowStockProducts.Count</span>
+            </header>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Sản phẩm</th>
+                        <th>Tồn</th>
+                        <th>Giá</th>
+                        <th>Cảnh báo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (_summary.LowStockProducts.Count == 0)
+                    {
+                        <tr class="empty-row">
+                            <td colspan="4">
+                                <div class="empty-state compact">
+                                    <p class="empty-title">Kho chưa có SKU dưới ngưỡng @_summary.LowStockThreshold.</p>
+                                    <p class="empty-copy">Trang sẽ tự động cập nhật khi phát hiện SKU cần nhập.</p>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                    else
+                    {
+                        @foreach (var product in _summary.LowStockProducts)
+                        {
+                            <tr>
+                                <td>
+                                    <p class="sku-name">@product.Name</p>
+                                    <small>ID: @product.ProductId</small>
+                                </td>
+                                <td>@product.StockQuantity</td>
+                                <td>@FormatCurrency(product.Price)</td>
+                                <td>
+                                    <span class="alert-pill @(product.StockQuantity == 0 ? "danger" : "warning")">
+                                        @(product.StockQuantity == 0 ? "Hết hàng" : "Cần nhập")
+                                    </span>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </section>
+    </section>
+}
+else
+{
+    <section class="admin-dashboard">
+        <div class="feedback-card error-state" role="alert">
+            <p>API không trả về dữ liệu, vui lòng thử lại.</p>
+            <button class="outline-button" type="button" @onclick="ReloadAsync">Thử lại</button>
+        </div>
+    </section>
+}
 
 @code {
+    private DashboardSummaryDto? _summary;
+    private bool _isLoading = true;
+    private string? _errorMessage;
+    private bool _isExporting;
+    private readonly CultureInfo _viCulture = new("vi-VN");
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadSummaryCoreAsync();
+    }
+
+    private async Task ReloadAsync()
+    {
+        _isLoading = true;
+        _errorMessage = null;
+        StateHasChanged();
+        await LoadSummaryCoreAsync();
+    }
+
+    private async Task LoadSummaryCoreAsync()
+    {
+        try
+        {
+            _summary = await DashboardService.GetSummaryAsync();
+            if (_summary is null)
+            {
+                _errorMessage = "API trả về dữ liệu rỗng.";
+            }
+        }
+        catch (HttpRequestException ex)
+        {
+            _errorMessage = $"Không gọi được API thống kê: {ex.Message}";
+        }
+        catch (Exception ex)
+        {
+            _errorMessage = $"Lỗi không xác định: {ex.Message}";
+        }
+        finally
+        {
+            _isLoading = false;
+            StateHasChanged();
+        }
+    }
+
+    private string FormatCurrency(decimal value)
+    {
+        var rounded = decimal.Round(value, 0, MidpointRounding.AwayFromZero);
+        return $"{rounded.ToString("0", CultureInfo.InvariantCulture)}VND";
+    }
+
+    private async Task ExportReportAsync()
+    {
+        if (_summary is null || _isExporting)
+        {
+            return;
+        }
+
+        _isExporting = true;
+        try
+        {
+            var payload = new DashboardReportPayload
+            {
+                GeneratedAt = _summary.GeneratedAtUtc.ToLocalTime().ToString("HH:mm dd/MM/yyyy"),
+                ProductCount = _summary.ProductCount,
+                SupplierCount = _summary.SupplierCount,
+                CouponCount = _summary.CouponCount,
+                ActiveCouponCount = _summary.ActiveCouponCount,
+                UpcomingCouponCount = _summary.UpcomingCouponCount,
+                ExpiredCouponCount = _summary.ExpiredCouponCount,
+                OutOfStockCount = _summary.OutOfStockCount,
+                LowStockCount = _summary.LowStockCount,
+                LowStockThreshold = _summary.LowStockThreshold,
+                TotalInventoryValue = FormatCurrency(_summary.TotalInventoryValue),
+                AverageProductPrice = FormatCurrency(_summary.AverageProductPrice),
+                LowStockProducts = _summary.LowStockProducts
+                    .Select(p => new DashboardLowStockPayload
+                    {
+                        ProductId = p.ProductId,
+                        Name = p.Name,
+                        StockQuantity = p.StockQuantity,
+                        Price = FormatCurrency(p.Price)
+                    })
+                    .ToList()
+            };
+
+            var fileName = $"dashboard-report-{DateTime.UtcNow:yyyyMMddHHmmss}.pdf";
+            await JS.InvokeVoidAsync("dashboardDownloadPdf", fileName, payload);
+        }
+        catch (Exception ex)
+        {
+            Console.Error.WriteLine($"ExportReportAsync failed: {ex}");
+        }
+        finally
+        {
+            _isExporting = false;
+            StateHasChanged();
+        }
+    }
+
+    private string _exportButtonLabel => _isExporting ? "Đang xuất PDF..." : "Xuất PDF";
+
+    private sealed record DashboardReportPayload
+    {
+        public string GeneratedAt { get; init; } = string.Empty;
+        public int ProductCount { get; init; }
+        public int SupplierCount { get; init; }
+        public int CouponCount { get; init; }
+        public int ActiveCouponCount { get; init; }
+        public int UpcomingCouponCount { get; init; }
+        public int ExpiredCouponCount { get; init; }
+        public int OutOfStockCount { get; init; }
+        public int LowStockCount { get; init; }
+        public int LowStockThreshold { get; init; }
+        public string TotalInventoryValue { get; init; } = string.Empty;
+        public string AverageProductPrice { get; init; } = string.Empty;
+        public List<DashboardLowStockPayload> LowStockProducts { get; init; } = [];
+    }
+
+    private sealed record DashboardLowStockPayload
+    {
+        public int ProductId { get; init; }
+        public string Name { get; init; } = string.Empty;
+        public int StockQuantity { get; init; }
+        public string Price { get; init; } = string.Empty;
+    }
 }

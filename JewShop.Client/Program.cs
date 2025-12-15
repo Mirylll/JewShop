@@ -10,11 +10,6 @@ var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 
-// ============================================================
-// 1. CẤU HÌNH HTTP CLIENT
-// ============================================================
-// Dùng BaseAddress của Host (Server) là chuẩn nhất cho mô hình Hosted.
-// Nó sẽ tự động lấy http://localhost:5289 khi chạy local.
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
 // ============================================================
@@ -29,6 +24,7 @@ builder.Services.AddAuthorizationCore();
 builder.Services.AddScoped<CouponDataService>();
 builder.Services.AddScoped<ProductDataService>();
 builder.Services.AddScoped<SupplierDataService>();
+builder.Services.AddScoped<DashboardDataService>();
 
 // C. Đăng ký Custom Provider
 // Dòng này báo cho Blazor biết: "Đừng dùng cái check đăng nhập mặc định, hãy dùng cái CustomAuthStateProvider mà tôi vừa viết"

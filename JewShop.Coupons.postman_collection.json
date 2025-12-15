@@ -1,0 +1,252 @@
+{
+  "info": {
+    "_postman_id": "8f1aeff3-5c7d-45a1-9fa5-64cab7b6b45d",
+    "name": "JewShop Coupons",
+    "description": "Bo suu tap Postman de test API coupon.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get All Coupons",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/api/coupons",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "coupons"
+          ]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "const allCoupons = pm.response.json();",
+              "pm.test(\"Response is array\", function () {",
+              "    pm.expect(allCoupons).to.be.an('array');",
+              "});"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Get Coupon By Id",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/api/coupons/{{couponId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "coupons",
+            "{{couponId}}"
+          ]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "const coupon = pm.response.json();",
+              "pm.test(\"Id matches variable\", function () {",
+              "    pm.expect(coupon.id).to.eql(parseInt(pm.collectionVariables.get('couponId')));",
+              "});"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Create Coupon",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"code\": \"WELCOME-25\",\n    \"description\": \"25 percent off cho don hang moi\",\n    \"type\": \"percent\",\n    \"value\": 25,\n    \"minOrderValue\": 50,\n    \"usageLimit\": 200,\n    \"startsAt\": \"2025-01-01T00:00:00Z\",\n    \"expiresAt\": \"2025-03-01T00:00:00Z\",\n    \"active\": true\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/coupons",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "coupons"
+          ]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "const created = pm.response.json();",
+              "pm.collectionVariables.set('couponId', created.id);",
+              "pm.collectionVariables.set('couponCode', created.code);",
+              "pm.test(\"Coupon payload looks valid\", function () {",
+              "    pm.expect(created).to.have.property('code');",
+              "    pm.expect(created).to.have.property('id');",
+              "});"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Update Coupon",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"code\": \"WELCOME-25\",\n    \"description\": \"Giam 25 percent sau khi cap nhat\",\n    \"type\": \"percent\",\n    \"value\": 22,\n    \"minOrderValue\": 40,\n    \"usageLimit\": 250,\n    \"startsAt\": \"2025-01-01T00:00:00Z\",\n    \"expiresAt\": \"2025-04-01T00:00:00Z\",\n    \"active\": true\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/coupons/{{couponId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "coupons",
+            "{{couponId}}"
+          ]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "pm.test(\"Body is true\", function () {",
+              "    pm.expect(pm.response.json()).to.eql(true);",
+              "});"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Delete Coupon",
+      "request": {
+        "method": "DELETE",
+        "url": {
+          "raw": "{{baseUrl}}/api/coupons/{{couponId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "coupons",
+            "{{couponId}}"
+          ]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "pm.test(\"Body is true\", function () {",
+              "    pm.expect(pm.response.json()).to.eql(true);",
+              "});"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Check Coupon",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"code\": \"{{couponCode}}\",\n    \"orderAmount\": 120\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/coupons/check",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "coupons",
+            "check"
+          ]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "const result = pm.response.json();",
+              "pm.test(\"Response has validity flags\", function () {",
+              "    pm.expect(result).to.have.property('isValid');",
+              "    pm.expect(result).to.have.property('message');",
+              "});"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://localhost:7200"
+    },
+    {
+      "key": "couponId",
+      "value": "1"
+    },
+    {
+      "key": "couponCode",
+      "value": "WELCOME-25"
+    }
+  ]
+}
