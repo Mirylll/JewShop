@@ -22,7 +22,71 @@ namespace JewShop.Server.Migrations
 
             MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
 
-<<<<<<< HEAD
+            modelBuilder.Entity("JewShop.Server.Models.Address", b =>
+                {
+                    b.Property<int>("AddressId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("address_id");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("AddressId"));
+
+                    b.Property<string>("City")
+                        .HasColumnType("longtext")
+                        .HasColumnName("city");
+
+                    b.Property<string>("FullAddress")
+                        .IsRequired()
+                        .HasColumnType("longtext")
+                        .HasColumnName("full_address");
+
+                    b.Property<byte>("IsDefault")
+                        .HasColumnType("tinyint unsigned")
+                        .HasColumnName("is_default");
+
+                    b.Property<string>("Label")
+                        .IsRequired()
+                        .HasColumnType("longtext")
+                        .HasColumnName("label");
+
+                    b.Property<string>("Phone")
+                        .HasColumnType("longtext")
+                        .HasColumnName("phone");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int")
+                        .HasColumnName("user_id");
+
+                    b.HasKey("AddressId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Addresses");
+                });
+
+            modelBuilder.Entity("JewShop.Server.Models.Role", b =>
+                {
+                    b.Property<int>("RoleId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("role_id");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("RoleId"));
+
+                    b.Property<string>("Description")
+                        .HasColumnType("longtext")
+                        .HasColumnName("description");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("longtext")
+                        .HasColumnName("name");
+
+                    b.HasKey("RoleId");
+
+                    b.ToTable("Roles");
+                });
+
             modelBuilder.Entity("JewShop.Server.Models.Session", b =>
                 {
                     b.Property<int>("SessionId")
@@ -31,7 +95,7 @@ namespace JewShop.Server.Migrations
                         .HasColumnName("session_id");
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("SessionId"));
-=======
+
             modelBuilder.Entity("JewShop.Server.Models.Coupon", b =>
                 {
                     b.Property<int>("Id")
@@ -102,13 +166,11 @@ namespace JewShop.Server.Migrations
                     b.Property<string>("Category")
                         .HasColumnType("longtext")
                         .HasColumnName("category");
->>>>>>> phanquy
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime(6)")
                         .HasColumnName("created_at");
 
-<<<<<<< HEAD
                     b.Property<DateTime?>("ExpiresAt")
                         .HasColumnType("datetime(6)")
                         .HasColumnName("expires_at");
@@ -129,7 +191,6 @@ namespace JewShop.Server.Migrations
                     b.HasKey("SessionId");
 
                     b.ToTable("Sessions");
-=======
                     b.Property<string>("Description")
                         .HasColumnType("longtext")
                         .HasColumnName("description");
@@ -158,7 +219,6 @@ namespace JewShop.Server.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Products");
->>>>>>> phanquy
                 });
 
             modelBuilder.Entity("JewShop.Server.Models.Supplier", b =>
@@ -252,7 +312,77 @@ namespace JewShop.Server.Migrations
 
                     b.ToTable("Users");
                 });
+
+            modelBuilder.Entity("JewShop.Server.Models.UserRole", b =>
+                {
+                    b.Property<int>("UserRoleId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("user_role_id");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("UserRoleId"));
+
+                    b.Property<int>("RoleId")
+                        .HasColumnType("int")
+                        .HasColumnName("role_id");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int")
+                        .HasColumnName("user_id");
+
+                    b.HasKey("UserRoleId");
+
+                    b.HasIndex("RoleId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("UserRoles");
+                });
+
+            modelBuilder.Entity("JewShop.Server.Models.Address", b =>
+                {
+                    b.HasOne("JewShop.Server.Models.User", "User")
+                        .WithMany("Addresses")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("JewShop.Server.Models.UserRole", b =>
+                {
+                    b.HasOne("JewShop.Server.Models.Role", "Role")
+                        .WithMany("UserRoles")
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("JewShop.Server.Models.User", "User")
+                        .WithMany("UserRoles")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Role");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("JewShop.Server.Models.Role", b =>
+                {
+                    b.Navigation("UserRoles");
+                });
+
+            modelBuilder.Entity("JewShop.Server.Models.User", b =>
+                {
+                    b.Navigation("Addresses");
+
+                    b.Navigation("UserRoles");
+                });
 #pragma warning restore 612, 618
-        }
+        });
+
     }
+}
 }
