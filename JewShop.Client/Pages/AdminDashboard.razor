@@ -1,7 +1,10 @@
 @page "/admin/dashboard"
 @using Microsoft.AspNetCore.Authorization
+@using JewShop.Client.Services
 @attribute [Authorize(Roles = "admin")]
 @layout AdminLayout
+@inject IAuthService AuthService
+@inject NavigationManager Navigation
 
 <PageTitle>Bảng điều khiển Admin</PageTitle>
 
@@ -12,8 +15,18 @@
     </div>
     <p>Hãy chọn một mục trong menu để bắt đầu quản lý cửa hàng.</p>
     
-    <a href="/logout" class="btn btn-danger mt-3">Đăng xuất</a>
+    <button class="btn btn-danger mt-3" @onclick="HandleLogout">
+        Đăng xuất
+    </button>
 </section>
 
 @code {
+    private async Task HandleLogout()
+    {
+        
+        await AuthService.Logout();
+
+        
+        Navigation.NavigateTo("/"); 
+    }
 }

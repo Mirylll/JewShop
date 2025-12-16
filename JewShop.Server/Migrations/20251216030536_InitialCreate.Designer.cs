@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace JewShop.Server.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20251214124507_AddRolesAndAddresses")]
-    partial class AddRolesAndAddresses
+    [Migration("20251216030536_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -67,6 +67,146 @@ namespace JewShop.Server.Migrations
                     b.ToTable("Addresses");
                 });
 
+            modelBuilder.Entity("JewShop.Server.Models.Coupon", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("coupon_id");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<bool>("Active")
+                        .HasColumnType("tinyint(1)")
+                        .HasColumnName("active");
+
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasMaxLength(120)
+                        .HasColumnType("varchar(120)")
+                        .HasColumnName("code");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("longtext")
+                        .HasColumnName("description");
+
+                    b.Property<DateTime>("ExpiresAt")
+                        .HasColumnType("datetime(6)")
+                        .HasColumnName("expires_at");
+
+                    b.Property<decimal>("MinOrderValue")
+                        .HasColumnType("decimal(10, 2)")
+                        .HasColumnName("min_order_value");
+
+                    b.Property<DateTime>("StartsAt")
+                        .HasColumnType("datetime(6)")
+                        .HasColumnName("starts_at");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("varchar(20)")
+                        .HasColumnName("type");
+
+                    b.Property<int>("UsageLimit")
+                        .HasColumnType("int")
+                        .HasColumnName("usage_limit");
+
+                    b.Property<int>("UsedCount")
+                        .HasColumnType("int")
+                        .HasColumnName("used_count");
+
+                    b.Property<decimal>("Value")
+                        .HasColumnType("decimal(10, 2)")
+                        .HasColumnName("value");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Coupons");
+                });
+
+            modelBuilder.Entity("JewShop.Server.Models.PasswordReset", b =>
+                {
+                    b.Property<int>("ResetId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("reset_id");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("ResetId"));
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime(6)")
+                        .HasColumnName("created_at");
+
+                    b.Property<DateTime?>("ExpiresAt")
+                        .HasColumnType("datetime(6)")
+                        .HasColumnName("expires_at");
+
+                    b.Property<string>("Token")
+                        .IsRequired()
+                        .HasColumnType("longtext")
+                        .HasColumnName("token");
+
+                    b.Property<byte>("Used")
+                        .HasColumnType("tinyint unsigned")
+                        .HasColumnName("used");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int")
+                        .HasColumnName("user_id");
+
+                    b.HasKey("ResetId");
+
+                    b.ToTable("PasswordResets");
+                });
+
+            modelBuilder.Entity("JewShop.Server.Models.Product", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("product_id");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Category")
+                        .HasColumnType("longtext")
+                        .HasColumnName("category");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime(6)")
+                        .HasColumnName("created_at");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("longtext")
+                        .HasColumnName("description");
+
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("longtext")
+                        .HasColumnName("thumbnail_url");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("longtext")
+                        .HasColumnName("name");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(15, 2)")
+                        .HasColumnName("base_price");
+
+                    b.Property<int>("StockQuantity")
+                        .HasColumnType("int")
+                        .HasColumnName("stock_quantity");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime(6)")
+                        .HasColumnName("updated_at");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Products");
+                });
+
             modelBuilder.Entity("JewShop.Server.Models.Role", b =>
                 {
                     b.Property<int>("RoleId")
@@ -103,9 +243,17 @@ namespace JewShop.Server.Migrations
                         .HasColumnType("datetime(6)")
                         .HasColumnName("created_at");
 
+                    b.Property<string>("DeviceId")
+                        .HasColumnType("longtext")
+                        .HasColumnName("device_id");
+
                     b.Property<DateTime?>("ExpiresAt")
                         .HasColumnType("datetime(6)")
                         .HasColumnName("expires_at");
+
+                    b.Property<string>("IpAddress")
+                        .HasColumnType("longtext")
+                        .HasColumnName("ip_address");
 
                     b.Property<string>("RefreshTokenHash")
                         .IsRequired()
@@ -116,11 +264,17 @@ namespace JewShop.Server.Migrations
                         .HasColumnType("tinyint unsigned")
                         .HasColumnName("revoked");
 
+                    b.Property<string>("UserAgent")
+                        .HasColumnType("longtext")
+                        .HasColumnName("user_agent");
+
                     b.Property<int>("UserId")
                         .HasColumnType("int")
                         .HasColumnName("user_id");
 
                     b.HasKey("SessionId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Sessions");
                 });
@@ -247,6 +401,17 @@ namespace JewShop.Server.Migrations
                 {
                     b.HasOne("JewShop.Server.Models.User", "User")
                         .WithMany("Addresses")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("JewShop.Server.Models.Session", b =>
+                {
+                    b.HasOne("JewShop.Server.Models.User", "User")
+                        .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
